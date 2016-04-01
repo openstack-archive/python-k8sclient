@@ -5,3 +5,4 @@
 pbr>=1.6
 six>=1.9.0 # MIT
 urllib3>=1.8.3  # MIT
+python-dateutil>=2.4.2  # BSD
