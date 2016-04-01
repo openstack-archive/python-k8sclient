@@ -16,13 +16,25 @@
 test_k8sclient
 ----------------------------------
 
-Tests for `k8sclient` module.
+Tests for `k8sclient` module. Deploy Kubernetes using:
+http://kubernetes.io/docs/getting-started-guides/docker/
+
+and then run this test.
 """
 
+from k8sclient.client import api_client
+from k8sclient.client.apis import apiv_api
 from k8sclient.tests import base
 
 
 class TestK8sclient(base.TestCase):
 
-    def test_something(self):
-        pass
+    def test_list_nodes_and_endpoints(self):
+        client = api_client.ApiClient('http://127.0.0.1:8080/')
+        api = apiv_api.ApivApi(client)
+
+        pod = api.list_pod()
+        self.assertEquals(3, len(pod.items))
+
+        endpoints = api.list_endpoints()
+        self.assertEquals(1, len(endpoints.items))
