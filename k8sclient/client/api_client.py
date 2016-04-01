@@ -40,6 +40,12 @@ from six.moves.urllib import parse as urlparse
 
 from .configuration import Configuration
 
+if six.PY3:
+    import io
+    file_type = io.IOBase
+else:
+    file_type = file
+
 
 class ApiClient(object):
     """
@@ -185,7 +191,8 @@ class ApiClient(object):
         """
         if isinstance(obj, type(None)):
             return None
-        elif isinstance(obj, (six.text_type, str, int, float, bool, tuple, file)):
+        elif isinstance(obj, (six.text_type, str, int, float,
+                              bool, tuple, file_type)):
             return obj
         elif isinstance(obj, list):
             return [self.sanitize_for_serialization(sub_obj)
