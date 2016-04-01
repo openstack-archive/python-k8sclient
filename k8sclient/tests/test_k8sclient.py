@@ -12,8 +12,17 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import pbr.version
+"""
+test_k8sclient
+----------------------------------
+
+Tests for `k8sclient` module.
+"""
+
+from k8sclient.tests import base
 
 
-__version__ = pbr.version.VersionInfo(
-    'k8sclient').version_string()
+class TestK8sclient(base.TestCase):
+
+    def test_something(self):
+        pass
