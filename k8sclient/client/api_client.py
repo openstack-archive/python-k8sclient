@@ -44,7 +44,7 @@ if six.PY3:
     import io
     file_type = io.IOBase
 else:
-    file_type = file
+    file_type = file  # noqa
 
 
 class ApiClient(object):

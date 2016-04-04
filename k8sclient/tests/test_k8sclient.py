@@ -40,7 +40,7 @@ def _is_k8s_running():
 
 class TestK8sclient(base.TestCase):
     @unittest.skipUnless(
-            _is_k8s_running(), "Kubernetes is not available")
+        _is_k8s_running(), "Kubernetes is not available")
     def test_list_nodes_and_endpoints(self):
         client = api_client.ApiClient('http://127.0.0.1:8080/')
         api = apiv_api.ApivApi(client)
