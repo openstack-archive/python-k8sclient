@@ -22,13 +22,25 @@ http://kubernetes.io/docs/getting-started-guides/docker/
 and then run this test.
 """
 
+from testtools.testcase import unittest
+import urllib3
+
 from k8sclient.client import api_client
 from k8sclient.client.apis import apiv_api
 from k8sclient.tests import base
 
 
-class TestK8sclient(base.TestCase):
+def _is_k8s_running():
+    try:
+        urllib3.PoolManager().request('GET', '127.0.0.1:8080')
+        return True
+    except urllib3.exceptions.HTTPError:
+        return False
 
+
+class TestK8sclient(base.TestCase):
+    @unittest.skipUnless(
+            _is_k8s_running(), "Kubernetes is not available")
     def test_list_nodes_and_endpoints(self):
         client = api_client.ApiClient('http://127.0.0.1:8080/')
         api = apiv_api.ApivApi(client)
