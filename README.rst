@@ -33,7 +33,7 @@ Steps to generate Kubernetes client code for v1:
 
 * Clone the Magnum repo::
 
-    git clone https://github.com/openstack/magnum.git
+    git clone https://github.com/openstack/python-k8sclient.git
 
 * Clone the swagger-codegen repo. It is recommended to checkout a release
  (e.g. v2.1.3) instead of using the master branch::
@@ -51,7 +51,7 @@ Steps to generate Kubernetes client code for v1:
     cd ..
     java -jar ./swagger-codegen/modules/swagger-codegen-cli/target/swagger-codegen-cli.jar \
         generate \
-        -i ./magnum/magnum/common/pythonk8sclient/templates/v1.json \
+        -i ./k8sclient/templates/v1.json \
         -l python -o ./KubernetesClientCode
 
 Now you can check the code at location ./KubernetesClientCode.
