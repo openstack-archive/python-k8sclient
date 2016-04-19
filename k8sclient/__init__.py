@@ -15,5 +15,4 @@
 import pbr.version
 
 
-__version__ = pbr.version.VersionInfo(
-    'k8sclient').version_string()
+__version__ = pbr.version.VersionInfo('python-k8sclient').version_string()
