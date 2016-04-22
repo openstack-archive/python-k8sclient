@@ -35,20 +35,26 @@ class V1EnvVarSource(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'field_ref': 'V1ObjectFieldSelector'
+            'field_ref': 'V1ObjectFieldSelector',
+            'config_map_key_ref': 'V1ConfigMapKeySelector',
+            'secret_key_ref': 'V1SecretKeySelector'
         }
 
         self.attribute_map = {
-            'field_ref': 'fieldRef'
+            'field_ref': 'fieldRef',
+            'config_map_key_ref': 'configMapKeyRef',
+            'secret_key_ref': 'secretKeyRef'
         }
 
         self._field_ref = None
+        self._config_map_key_ref = None
+        self._secret_key_ref = None
 
     @property
     def field_ref(self):
         """
         Gets the field_ref of this V1EnvVarSource.
-        selects a field of the pod; only name and namespace are supported
+        Selects a field of the pod; only name and namespace are supported.
 
         :return: The field_ref of this V1EnvVarSource.
         :rtype: V1ObjectFieldSelector
@@ -59,12 +65,56 @@ class V1EnvVarSource(object):
     def field_ref(self, field_ref):
         """
         Sets the field_ref of this V1EnvVarSource.
-        selects a field of the pod; only name and namespace are supported
+        Selects a field of the pod; only name and namespace are supported.
 
         :param field_ref: The field_ref of this V1EnvVarSource.
         :type: V1ObjectFieldSelector
         """
         self._field_ref = field_ref
+
+    @property
+    def config_map_key_ref(self):
+        """
+        Gets the config_map_key_ref of this V1EnvVarSource.
+        Selects a key of a ConfigMap.
+
+        :return: The config_map_key_ref of this V1EnvVarSource.
+        :rtype: V1ConfigMapKeySelector
+        """
+        return self._config_map_key_ref
+
+    @config_map_key_ref.setter
+    def config_map_key_ref(self, config_map_key_ref):
+        """
+        Sets the config_map_key_ref of this V1EnvVarSource.
+        Selects a key of a ConfigMap.
+
+        :param config_map_key_ref: The config_map_key_ref of this V1EnvVarSource.
+        :type: V1ConfigMapKeySelector
+        """
+        self._config_map_key_ref = config_map_key_ref
+
+    @property
+    def secret_key_ref(self):
+        """
+        Gets the secret_key_ref of this V1EnvVarSource.
+        Selects a key of a secret in the pod's namespace
+
+        :return: The secret_key_ref of this V1EnvVarSource.
+        :rtype: V1SecretKeySelector
+        """
+        return self._secret_key_ref
+
+    @secret_key_ref.setter
+    def secret_key_ref(self, secret_key_ref):
+        """
+        Sets the secret_key_ref of this V1EnvVarSource.
+        Selects a key of a secret in the pod's namespace
+
+        :param secret_key_ref: The secret_key_ref of this V1EnvVarSource.
+        :type: V1SecretKeySelector
+        """
+        self._secret_key_ref = secret_key_ref
 
     def to_dict(self):
         """

@@ -54,7 +54,7 @@ class V1PersistentVolumeStatus(object):
     def phase(self):
         """
         Gets the phase of this V1PersistentVolumeStatus.
-        the current phase of a persistent volume; see http://releases.k8s.io/v1.0.4/docs/persistent-volumes.md#phase
+        Phase indicates if a volume is available, bound to a claim, or released by a claim. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#phase
 
         :return: The phase of this V1PersistentVolumeStatus.
         :rtype: str
@@ -65,7 +65,7 @@ class V1PersistentVolumeStatus(object):
     def phase(self, phase):
         """
         Sets the phase of this V1PersistentVolumeStatus.
-        the current phase of a persistent volume; see http://releases.k8s.io/v1.0.4/docs/persistent-volumes.md#phase
+        Phase indicates if a volume is available, bound to a claim, or released by a claim. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#phase
 
         :param phase: The phase of this V1PersistentVolumeStatus.
         :type: str
@@ -76,7 +76,7 @@ class V1PersistentVolumeStatus(object):
     def message(self):
         """
         Gets the message of this V1PersistentVolumeStatus.
-        human-readable message indicating details about why the volume is in this state
+        A human-readable message indicating details about why the volume is in this state.
 
         :return: The message of this V1PersistentVolumeStatus.
         :rtype: str
@@ -87,7 +87,7 @@ class V1PersistentVolumeStatus(object):
     def message(self, message):
         """
         Sets the message of this V1PersistentVolumeStatus.
-        human-readable message indicating details about why the volume is in this state
+        A human-readable message indicating details about why the volume is in this state.
 
         :param message: The message of this V1PersistentVolumeStatus.
         :type: str
@@ -98,7 +98,7 @@ class V1PersistentVolumeStatus(object):
     def reason(self):
         """
         Gets the reason of this V1PersistentVolumeStatus.
-        (brief) reason the volume is not is not available
+        Reason is a brief CamelCase string that describes any failure and is meant for machine parsing and tidy display in the CLI.
 
         :return: The reason of this V1PersistentVolumeStatus.
         :rtype: str
@@ -109,7 +109,7 @@ class V1PersistentVolumeStatus(object):
     def reason(self, reason):
         """
         Sets the reason of this V1PersistentVolumeStatus.
-        (brief) reason the volume is not is not available
+        Reason is a brief CamelCase string that describes any failure and is meant for machine parsing and tidy display in the CLI.
 
         :param reason: The reason of this V1PersistentVolumeStatus.
         :type: str

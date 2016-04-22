@@ -51,7 +51,7 @@ class V1EndpointAddress(object):
     def ip(self):
         """
         Gets the ip of this V1EndpointAddress.
-        IP address of the endpoint
+        The IP of this endpoint. May not be loopback (127.0.0.0/8), link-local (169.254.0.0/16), or link-local multicast ((224.0.0.0/24).
 
         :return: The ip of this V1EndpointAddress.
         :rtype: str
@@ -62,7 +62,7 @@ class V1EndpointAddress(object):
     def ip(self, ip):
         """
         Sets the ip of this V1EndpointAddress.
-        IP address of the endpoint
+        The IP of this endpoint. May not be loopback (127.0.0.0/8), link-local (169.254.0.0/16), or link-local multicast ((224.0.0.0/24).
 
         :param ip: The ip of this V1EndpointAddress.
         :type: str
@@ -73,7 +73,7 @@ class V1EndpointAddress(object):
     def target_ref(self):
         """
         Gets the target_ref of this V1EndpointAddress.
-        reference to object providing the endpoint
+        Reference to object providing the endpoint.
 
         :return: The target_ref of this V1EndpointAddress.
         :rtype: V1ObjectReference
@@ -84,7 +84,7 @@ class V1EndpointAddress(object):
     def target_ref(self, target_ref):
         """
         Sets the target_ref of this V1EndpointAddress.
-        reference to object providing the endpoint
+        Reference to object providing the endpoint.
 
         :param target_ref: The target_ref of this V1EndpointAddress.
         :type: V1ObjectReference

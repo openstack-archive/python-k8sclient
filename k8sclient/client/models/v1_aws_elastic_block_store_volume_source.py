@@ -57,7 +57,7 @@ class V1AWSElasticBlockStoreVolumeSource(object):
     def volume_id(self):
         """
         Gets the volume_id of this V1AWSElasticBlockStoreVolumeSource.
-        unique id of the PD resource in AWS; see http://releases.k8s.io/v1.0.4/docs/volumes.md#awselasticblockstore
+        Unique ID of the persistent disk resource in AWS (Amazon EBS volume). More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#awselasticblockstore
 
         :return: The volume_id of this V1AWSElasticBlockStoreVolumeSource.
         :rtype: str
@@ -68,7 +68,7 @@ class V1AWSElasticBlockStoreVolumeSource(object):
     def volume_id(self, volume_id):
         """
         Sets the volume_id of this V1AWSElasticBlockStoreVolumeSource.
-        unique id of the PD resource in AWS; see http://releases.k8s.io/v1.0.4/docs/volumes.md#awselasticblockstore
+        Unique ID of the persistent disk resource in AWS (Amazon EBS volume). More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#awselasticblockstore
 
         :param volume_id: The volume_id of this V1AWSElasticBlockStoreVolumeSource.
         :type: str
@@ -79,7 +79,7 @@ class V1AWSElasticBlockStoreVolumeSource(object):
     def fs_type(self):
         """
         Gets the fs_type of this V1AWSElasticBlockStoreVolumeSource.
-        file system type to mount, such as ext4, xfs, ntfs; see http://releases.k8s.io/v1.0.4/docs/volumes.md#awselasticblockstore
+        Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#awselasticblockstore
 
         :return: The fs_type of this V1AWSElasticBlockStoreVolumeSource.
         :rtype: str
@@ -90,7 +90,7 @@ class V1AWSElasticBlockStoreVolumeSource(object):
     def fs_type(self, fs_type):
         """
         Sets the fs_type of this V1AWSElasticBlockStoreVolumeSource.
-        file system type to mount, such as ext4, xfs, ntfs; see http://releases.k8s.io/v1.0.4/docs/volumes.md#awselasticblockstore
+        Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#awselasticblockstore
 
         :param fs_type: The fs_type of this V1AWSElasticBlockStoreVolumeSource.
         :type: str
@@ -101,7 +101,7 @@ class V1AWSElasticBlockStoreVolumeSource(object):
     def partition(self):
         """
         Gets the partition of this V1AWSElasticBlockStoreVolumeSource.
-        partition on the disk to mount (e.g., '1' for /dev/sda1); if omitted the plain device name (e.g., /dev/sda) will be mounted; see http://releases.k8s.io/v1.0.4/docs/volumes.md#awselasticblockstore
+        The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as \"1\". Similarly, the volume partition for /dev/sda is \"0\" (or you can leave the property empty).
 
         :return: The partition of this V1AWSElasticBlockStoreVolumeSource.
         :rtype: int
@@ -112,7 +112,7 @@ class V1AWSElasticBlockStoreVolumeSource(object):
     def partition(self, partition):
         """
         Sets the partition of this V1AWSElasticBlockStoreVolumeSource.
-        partition on the disk to mount (e.g., '1' for /dev/sda1); if omitted the plain device name (e.g., /dev/sda) will be mounted; see http://releases.k8s.io/v1.0.4/docs/volumes.md#awselasticblockstore
+        The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as \"1\". Similarly, the volume partition for /dev/sda is \"0\" (or you can leave the property empty).
 
         :param partition: The partition of this V1AWSElasticBlockStoreVolumeSource.
         :type: int
@@ -123,7 +123,7 @@ class V1AWSElasticBlockStoreVolumeSource(object):
     def read_only(self):
         """
         Gets the read_only of this V1AWSElasticBlockStoreVolumeSource.
-        read-only if true, read-write otherwise (false or unspecified); see http://releases.k8s.io/v1.0.4/docs/volumes.md#awselasticblockstore
+        Specify \"true\" to force and set the ReadOnly property in VolumeMounts to \"true\". If omitted, the default is \"false\". More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#awselasticblockstore
 
         :return: The read_only of this V1AWSElasticBlockStoreVolumeSource.
         :rtype: bool
@@ -134,7 +134,7 @@ class V1AWSElasticBlockStoreVolumeSource(object):
     def read_only(self, read_only):
         """
         Sets the read_only of this V1AWSElasticBlockStoreVolumeSource.
-        read-only if true, read-write otherwise (false or unspecified); see http://releases.k8s.io/v1.0.4/docs/volumes.md#awselasticblockstore
+        Specify \"true\" to force and set the ReadOnly property in VolumeMounts to \"true\". If omitted, the default is \"false\". More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#awselasticblockstore
 
         :param read_only: The read_only of this V1AWSElasticBlockStoreVolumeSource.
         :type: bool

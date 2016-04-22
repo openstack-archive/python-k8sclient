@@ -48,7 +48,7 @@ class V1EmptyDirVolumeSource(object):
     def medium(self):
         """
         Gets the medium of this V1EmptyDirVolumeSource.
-        type of storage used to back the volume; must be an empty string (default) or Memory; see http://releases.k8s.io/v1.0.4/docs/volumes.md#emptydir
+        What type of storage medium should back this directory. The default is \"\" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#emptydir
 
         :return: The medium of this V1EmptyDirVolumeSource.
         :rtype: str
@@ -59,7 +59,7 @@ class V1EmptyDirVolumeSource(object):
     def medium(self, medium):
         """
         Sets the medium of this V1EmptyDirVolumeSource.
-        type of storage used to back the volume; must be an empty string (default) or Memory; see http://releases.k8s.io/v1.0.4/docs/volumes.md#emptydir
+        What type of storage medium should back this directory. The default is \"\" which means to use the node's default medium. Must be an empty string (default) or Memory. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#emptydir
 
         :param medium: The medium of this V1EmptyDirVolumeSource.
         :type: str

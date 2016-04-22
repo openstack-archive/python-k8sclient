@@ -48,7 +48,7 @@ class V1LocalObjectReference(object):
     def name(self):
         """
         Gets the name of this V1LocalObjectReference.
-        name of the referent; see http://releases.k8s.io/v1.0.4/docs/identifiers.md#names
+        Name of the referent. More info: http://releases.k8s.io/release-1.2/docs/user-guide/identifiers.md#names
 
         :return: The name of this V1LocalObjectReference.
         :rtype: str
@@ -59,7 +59,7 @@ class V1LocalObjectReference(object):
     def name(self, name):
         """
         Sets the name of this V1LocalObjectReference.
-        name of the referent; see http://releases.k8s.io/v1.0.4/docs/identifiers.md#names
+        Name of the referent. More info: http://releases.k8s.io/release-1.2/docs/user-guide/identifiers.md#names
 
         :param name: The name of this V1LocalObjectReference.
         :type: str

@@ -66,7 +66,7 @@ class V1ObjectReference(object):
     def kind(self):
         """
         Gets the kind of this V1ObjectReference.
-        kind of the referent; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#types-kinds
+        Kind of the referent. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds
 
         :return: The kind of this V1ObjectReference.
         :rtype: str
@@ -77,7 +77,7 @@ class V1ObjectReference(object):
     def kind(self, kind):
         """
         Sets the kind of this V1ObjectReference.
-        kind of the referent; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#types-kinds
+        Kind of the referent. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds
 
         :param kind: The kind of this V1ObjectReference.
         :type: str
@@ -88,7 +88,7 @@ class V1ObjectReference(object):
     def namespace(self):
         """
         Gets the namespace of this V1ObjectReference.
-        namespace of the referent; see http://releases.k8s.io/v1.0.4/docs/namespaces.md
+        Namespace of the referent. More info: http://releases.k8s.io/release-1.2/docs/user-guide/namespaces.md
 
         :return: The namespace of this V1ObjectReference.
         :rtype: str
@@ -99,7 +99,7 @@ class V1ObjectReference(object):
     def namespace(self, namespace):
         """
         Sets the namespace of this V1ObjectReference.
-        namespace of the referent; see http://releases.k8s.io/v1.0.4/docs/namespaces.md
+        Namespace of the referent. More info: http://releases.k8s.io/release-1.2/docs/user-guide/namespaces.md
 
         :param namespace: The namespace of this V1ObjectReference.
         :type: str
@@ -110,7 +110,7 @@ class V1ObjectReference(object):
     def name(self):
         """
         Gets the name of this V1ObjectReference.
-        name of the referent; see http://releases.k8s.io/v1.0.4/docs/identifiers.md#names
+        Name of the referent. More info: http://releases.k8s.io/release-1.2/docs/user-guide/identifiers.md#names
 
         :return: The name of this V1ObjectReference.
         :rtype: str
@@ -121,7 +121,7 @@ class V1ObjectReference(object):
     def name(self, name):
         """
         Sets the name of this V1ObjectReference.
-        name of the referent; see http://releases.k8s.io/v1.0.4/docs/identifiers.md#names
+        Name of the referent. More info: http://releases.k8s.io/release-1.2/docs/user-guide/identifiers.md#names
 
         :param name: The name of this V1ObjectReference.
         :type: str
@@ -132,7 +132,7 @@ class V1ObjectReference(object):
     def uid(self):
         """
         Gets the uid of this V1ObjectReference.
-        uid of the referent; see http://releases.k8s.io/v1.0.4/docs/identifiers.md#uids
+        UID of the referent. More info: http://releases.k8s.io/release-1.2/docs/user-guide/identifiers.md#uids
 
         :return: The uid of this V1ObjectReference.
         :rtype: str
@@ -143,7 +143,7 @@ class V1ObjectReference(object):
     def uid(self, uid):
         """
         Sets the uid of this V1ObjectReference.
-        uid of the referent; see http://releases.k8s.io/v1.0.4/docs/identifiers.md#uids
+        UID of the referent. More info: http://releases.k8s.io/release-1.2/docs/user-guide/identifiers.md#uids
 
         :param uid: The uid of this V1ObjectReference.
         :type: str
@@ -154,7 +154,7 @@ class V1ObjectReference(object):
     def api_version(self):
         """
         Gets the api_version of this V1ObjectReference.
-        API version of the referent
+        API version of the referent.
 
         :return: The api_version of this V1ObjectReference.
         :rtype: str
@@ -165,7 +165,7 @@ class V1ObjectReference(object):
     def api_version(self, api_version):
         """
         Sets the api_version of this V1ObjectReference.
-        API version of the referent
+        API version of the referent.
 
         :param api_version: The api_version of this V1ObjectReference.
         :type: str
@@ -176,7 +176,7 @@ class V1ObjectReference(object):
     def resource_version(self):
         """
         Gets the resource_version of this V1ObjectReference.
-        specific resourceVersion to which this reference is made, if any: http://releases.k8s.io/v1.0.4/docs/api-conventions.md#concurrency-control-and-consistency
+        Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#concurrency-control-and-consistency
 
         :return: The resource_version of this V1ObjectReference.
         :rtype: str
@@ -187,7 +187,7 @@ class V1ObjectReference(object):
     def resource_version(self, resource_version):
         """
         Sets the resource_version of this V1ObjectReference.
-        specific resourceVersion to which this reference is made, if any: http://releases.k8s.io/v1.0.4/docs/api-conventions.md#concurrency-control-and-consistency
+        Specific resourceVersion to which this reference is made, if any. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#concurrency-control-and-consistency
 
         :param resource_version: The resource_version of this V1ObjectReference.
         :type: str
@@ -198,7 +198,7 @@ class V1ObjectReference(object):
     def field_path(self):
         """
         Gets the field_path of this V1ObjectReference.
-        if referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]
+        If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object.
 
         :return: The field_path of this V1ObjectReference.
         :rtype: str
@@ -209,7 +209,7 @@ class V1ObjectReference(object):
     def field_path(self, field_path):
         """
         Sets the field_path of this V1ObjectReference.
-        if referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]
+        If referring to a piece of an object instead of an entire object, this string should contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2]. For example, if the object reference is to a container within a pod, this would take on a value like: \"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered the event) or if no container name is specified \"spec.containers[2]\" (container with index 2 in this pod). This syntax is chosen only to have some well-defined way of referencing a part of an object.
 
         :param field_path: The field_path of this V1ObjectReference.
         :type: str

@@ -69,7 +69,7 @@ class V1PodStatus(object):
     def phase(self):
         """
         Gets the phase of this V1PodStatus.
-        current condition of the pod; see http://releases.k8s.io/v1.0.4/docs/pod-states.md#pod-phase
+        Current condition of the pod. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#pod-phase
 
         :return: The phase of this V1PodStatus.
         :rtype: str
@@ -80,7 +80,7 @@ class V1PodStatus(object):
     def phase(self, phase):
         """
         Sets the phase of this V1PodStatus.
-        current condition of the pod; see http://releases.k8s.io/v1.0.4/docs/pod-states.md#pod-phase
+        Current condition of the pod. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#pod-phase
 
         :param phase: The phase of this V1PodStatus.
         :type: str
@@ -91,7 +91,7 @@ class V1PodStatus(object):
     def conditions(self):
         """
         Gets the conditions of this V1PodStatus.
-        current service state of pod; see http://releases.k8s.io/v1.0.4/docs/pod-states.md#pod-conditions
+        Current service state of pod. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#pod-conditions
 
         :return: The conditions of this V1PodStatus.
         :rtype: list[V1PodCondition]
@@ -102,7 +102,7 @@ class V1PodStatus(object):
     def conditions(self, conditions):
         """
         Sets the conditions of this V1PodStatus.
-        current service state of pod; see http://releases.k8s.io/v1.0.4/docs/pod-states.md#pod-conditions
+        Current service state of pod. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#pod-conditions
 
         :param conditions: The conditions of this V1PodStatus.
         :type: list[V1PodCondition]
@@ -113,7 +113,7 @@ class V1PodStatus(object):
     def message(self):
         """
         Gets the message of this V1PodStatus.
-        human readable message indicating details about why the pod is in this condition
+        A human readable message indicating details about why the pod is in this condition.
 
         :return: The message of this V1PodStatus.
         :rtype: str
@@ -124,7 +124,7 @@ class V1PodStatus(object):
     def message(self, message):
         """
         Sets the message of this V1PodStatus.
-        human readable message indicating details about why the pod is in this condition
+        A human readable message indicating details about why the pod is in this condition.
 
         :param message: The message of this V1PodStatus.
         :type: str
@@ -135,7 +135,7 @@ class V1PodStatus(object):
     def reason(self):
         """
         Gets the reason of this V1PodStatus.
-        (brief-CamelCase) reason indicating details about why the pod is in this condition
+        A brief CamelCase message indicating details about why the pod is in this state. e.g. 'OutOfDisk'
 
         :return: The reason of this V1PodStatus.
         :rtype: str
@@ -146,7 +146,7 @@ class V1PodStatus(object):
     def reason(self, reason):
         """
         Sets the reason of this V1PodStatus.
-        (brief-CamelCase) reason indicating details about why the pod is in this condition
+        A brief CamelCase message indicating details about why the pod is in this state. e.g. 'OutOfDisk'
 
         :param reason: The reason of this V1PodStatus.
         :type: str
@@ -157,7 +157,7 @@ class V1PodStatus(object):
     def host_ip(self):
         """
         Gets the host_ip of this V1PodStatus.
-        IP address of the host to which the pod is assigned; empty if not yet scheduled
+        IP address of the host to which the pod is assigned. Empty if not yet scheduled.
 
         :return: The host_ip of this V1PodStatus.
         :rtype: str
@@ -168,7 +168,7 @@ class V1PodStatus(object):
     def host_ip(self, host_ip):
         """
         Sets the host_ip of this V1PodStatus.
-        IP address of the host to which the pod is assigned; empty if not yet scheduled
+        IP address of the host to which the pod is assigned. Empty if not yet scheduled.
 
         :param host_ip: The host_ip of this V1PodStatus.
         :type: str
@@ -179,7 +179,7 @@ class V1PodStatus(object):
     def pod_ip(self):
         """
         Gets the pod_ip of this V1PodStatus.
-        IP address allocated to the pod; routable at least within the cluster; empty if not yet allocated
+        IP address allocated to the pod. Routable at least within the cluster. Empty if not yet allocated.
 
         :return: The pod_ip of this V1PodStatus.
         :rtype: str
@@ -190,7 +190,7 @@ class V1PodStatus(object):
     def pod_ip(self, pod_ip):
         """
         Sets the pod_ip of this V1PodStatus.
-        IP address allocated to the pod; routable at least within the cluster; empty if not yet allocated
+        IP address allocated to the pod. Routable at least within the cluster. Empty if not yet allocated.
 
         :param pod_ip: The pod_ip of this V1PodStatus.
         :type: str
@@ -201,7 +201,7 @@ class V1PodStatus(object):
     def start_time(self):
         """
         Gets the start_time of this V1PodStatus.
-        RFC 3339 date and time at which the object was acknowledged by the Kubelet.  This is before the Kubelet pulled the container image(s) for the pod.
+        RFC 3339 date and time at which the object was acknowledged by the Kubelet. This is before the Kubelet pulled the container image(s) for the pod.
 
         :return: The start_time of this V1PodStatus.
         :rtype: str
@@ -212,7 +212,7 @@ class V1PodStatus(object):
     def start_time(self, start_time):
         """
         Sets the start_time of this V1PodStatus.
-        RFC 3339 date and time at which the object was acknowledged by the Kubelet.  This is before the Kubelet pulled the container image(s) for the pod.
+        RFC 3339 date and time at which the object was acknowledged by the Kubelet. This is before the Kubelet pulled the container image(s) for the pod.
 
         :param start_time: The start_time of this V1PodStatus.
         :type: str
@@ -223,7 +223,7 @@ class V1PodStatus(object):
     def container_statuses(self):
         """
         Gets the container_statuses of this V1PodStatus.
-        list of container statuses; see http://releases.k8s.io/v1.0.4/docs/pod-states.md#container-statuses
+        The list has one entry per container in the manifest. Each entry is currently the output of `docker inspect`. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#container-statuses
 
         :return: The container_statuses of this V1PodStatus.
         :rtype: list[V1ContainerStatus]
@@ -234,7 +234,7 @@ class V1PodStatus(object):
     def container_statuses(self, container_statuses):
         """
         Sets the container_statuses of this V1PodStatus.
-        list of container statuses; see http://releases.k8s.io/v1.0.4/docs/pod-states.md#container-statuses
+        The list has one entry per container in the manifest. Each entry is currently the output of `docker inspect`. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#container-statuses
 
         :param container_statuses: The container_statuses of this V1PodStatus.
         :type: list[V1ContainerStatus]

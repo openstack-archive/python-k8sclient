@@ -51,7 +51,7 @@ class V1LoadBalancerIngress(object):
     def ip(self):
         """
         Gets the ip of this V1LoadBalancerIngress.
-        IP address of ingress point
+        IP is set for load-balancer ingress points that are IP based (typically GCE or OpenStack load-balancers)
 
         :return: The ip of this V1LoadBalancerIngress.
         :rtype: str
@@ -62,7 +62,7 @@ class V1LoadBalancerIngress(object):
     def ip(self, ip):
         """
         Sets the ip of this V1LoadBalancerIngress.
-        IP address of ingress point
+        IP is set for load-balancer ingress points that are IP based (typically GCE or OpenStack load-balancers)
 
         :param ip: The ip of this V1LoadBalancerIngress.
         :type: str
@@ -73,7 +73,7 @@ class V1LoadBalancerIngress(object):
     def hostname(self):
         """
         Gets the hostname of this V1LoadBalancerIngress.
-        hostname of ingress point
+        Hostname is set for load-balancer ingress points that are DNS based (typically AWS load-balancers)
 
         :return: The hostname of this V1LoadBalancerIngress.
         :rtype: str
@@ -84,7 +84,7 @@ class V1LoadBalancerIngress(object):
     def hostname(self, hostname):
         """
         Sets the hostname of this V1LoadBalancerIngress.
-        hostname of ingress point
+        Hostname is set for load-balancer ingress points that are DNS based (typically AWS load-balancers)
 
         :param hostname: The hostname of this V1LoadBalancerIngress.
         :type: str

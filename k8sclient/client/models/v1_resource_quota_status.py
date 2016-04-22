@@ -35,8 +35,8 @@ class V1ResourceQuotaStatus(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'hard': 'str',
-            'used': 'str'
+            'hard': 'object',
+            'used': 'object'
         }
 
         self.attribute_map = {
@@ -51,10 +51,10 @@ class V1ResourceQuotaStatus(object):
     def hard(self):
         """
         Gets the hard of this V1ResourceQuotaStatus.
-        hard is the set of enforced hard limits for each named resource; see http://releases.k8s.io/v1.0.4/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota
+        Hard is the set of enforced hard limits for each named resource. More info: http://releases.k8s.io/release-1.2/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota
 
         :return: The hard of this V1ResourceQuotaStatus.
-        :rtype: str
+        :rtype: object
         """
         return self._hard
 
@@ -62,10 +62,10 @@ class V1ResourceQuotaStatus(object):
     def hard(self, hard):
         """
         Sets the hard of this V1ResourceQuotaStatus.
-        hard is the set of enforced hard limits for each named resource; see http://releases.k8s.io/v1.0.4/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota
+        Hard is the set of enforced hard limits for each named resource. More info: http://releases.k8s.io/release-1.2/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota
 
         :param hard: The hard of this V1ResourceQuotaStatus.
-        :type: str
+        :type: object
         """
         self._hard = hard
 
@@ -73,10 +73,10 @@ class V1ResourceQuotaStatus(object):
     def used(self):
         """
         Gets the used of this V1ResourceQuotaStatus.
-        used is the current observed total usage of the resource in the namespace
+        Used is the current observed total usage of the resource in the namespace.
 
         :return: The used of this V1ResourceQuotaStatus.
-        :rtype: str
+        :rtype: object
         """
         return self._used
 
@@ -84,10 +84,10 @@ class V1ResourceQuotaStatus(object):
     def used(self, used):
         """
         Sets the used of this V1ResourceQuotaStatus.
-        used is the current observed total usage of the resource in the namespace
+        Used is the current observed total usage of the resource in the namespace.
 
         :param used: The used of this V1ResourceQuotaStatus.
-        :type: str
+        :type: object
         """
         self._used = used
 

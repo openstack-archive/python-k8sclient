@@ -38,6 +38,7 @@ class V1ISCSIVolumeSource(object):
             'target_portal': 'str',
             'iqn': 'str',
             'lun': 'int',
+            'iscsi_interface': 'str',
             'fs_type': 'str',
             'read_only': 'bool'
         }
@@ -46,6 +47,7 @@ class V1ISCSIVolumeSource(object):
             'target_portal': 'targetPortal',
             'iqn': 'iqn',
             'lun': 'lun',
+            'iscsi_interface': 'iscsiInterface',
             'fs_type': 'fsType',
             'read_only': 'readOnly'
         }
@@ -53,6 +55,7 @@ class V1ISCSIVolumeSource(object):
         self._target_portal = None
         self._iqn = None
         self._lun = None
+        self._iscsi_interface = None
         self._fs_type = None
         self._read_only = None
 
@@ -60,7 +63,7 @@ class V1ISCSIVolumeSource(object):
     def target_portal(self):
         """
         Gets the target_portal of this V1ISCSIVolumeSource.
-        iSCSI target portal
+        iSCSI target portal. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
 
         :return: The target_portal of this V1ISCSIVolumeSource.
         :rtype: str
@@ -71,7 +74,7 @@ class V1ISCSIVolumeSource(object):
     def target_portal(self, target_portal):
         """
         Sets the target_portal of this V1ISCSIVolumeSource.
-        iSCSI target portal
+        iSCSI target portal. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
 
         :param target_portal: The target_portal of this V1ISCSIVolumeSource.
         :type: str
@@ -82,7 +85,7 @@ class V1ISCSIVolumeSource(object):
     def iqn(self):
         """
         Gets the iqn of this V1ISCSIVolumeSource.
-        iSCSI Qualified Name
+        Target iSCSI Qualified Name.
 
         :return: The iqn of this V1ISCSIVolumeSource.
         :rtype: str
@@ -93,7 +96,7 @@ class V1ISCSIVolumeSource(object):
     def iqn(self, iqn):
         """
         Sets the iqn of this V1ISCSIVolumeSource.
-        iSCSI Qualified Name
+        Target iSCSI Qualified Name.
 
         :param iqn: The iqn of this V1ISCSIVolumeSource.
         :type: str
@@ -104,7 +107,7 @@ class V1ISCSIVolumeSource(object):
     def lun(self):
         """
         Gets the lun of this V1ISCSIVolumeSource.
-        iscsi target lun number
+        iSCSI target lun number.
 
         :return: The lun of this V1ISCSIVolumeSource.
         :rtype: int
@@ -115,7 +118,7 @@ class V1ISCSIVolumeSource(object):
     def lun(self, lun):
         """
         Sets the lun of this V1ISCSIVolumeSource.
-        iscsi target lun number
+        iSCSI target lun number.
 
         :param lun: The lun of this V1ISCSIVolumeSource.
         :type: int
@@ -123,10 +126,32 @@ class V1ISCSIVolumeSource(object):
         self._lun = lun
 
     @property
+    def iscsi_interface(self):
+        """
+        Gets the iscsi_interface of this V1ISCSIVolumeSource.
+        Optional: Defaults to 'default' (tcp). iSCSI interface name that uses an iSCSI transport.
+
+        :return: The iscsi_interface of this V1ISCSIVolumeSource.
+        :rtype: str
+        """
+        return self._iscsi_interface
+
+    @iscsi_interface.setter
+    def iscsi_interface(self, iscsi_interface):
+        """
+        Sets the iscsi_interface of this V1ISCSIVolumeSource.
+        Optional: Defaults to 'default' (tcp). iSCSI interface name that uses an iSCSI transport.
+
+        :param iscsi_interface: The iscsi_interface of this V1ISCSIVolumeSource.
+        :type: str
+        """
+        self._iscsi_interface = iscsi_interface
+
+    @property
     def fs_type(self):
         """
         Gets the fs_type of this V1ISCSIVolumeSource.
-        file system type to mount, such as ext4, xfs, ntfs
+        Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#iscsi
 
         :return: The fs_type of this V1ISCSIVolumeSource.
         :rtype: str
@@ -137,7 +162,7 @@ class V1ISCSIVolumeSource(object):
     def fs_type(self, fs_type):
         """
         Sets the fs_type of this V1ISCSIVolumeSource.
-        file system type to mount, such as ext4, xfs, ntfs
+        Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#iscsi
 
         :param fs_type: The fs_type of this V1ISCSIVolumeSource.
         :type: str
@@ -148,7 +173,7 @@ class V1ISCSIVolumeSource(object):
     def read_only(self):
         """
         Gets the read_only of this V1ISCSIVolumeSource.
-        read-only if true, read-write otherwise (false or unspecified)
+        ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.
 
         :return: The read_only of this V1ISCSIVolumeSource.
         :rtype: bool
@@ -159,7 +184,7 @@ class V1ISCSIVolumeSource(object):
     def read_only(self, read_only):
         """
         Sets the read_only of this V1ISCSIVolumeSource.
-        read-only if true, read-write otherwise (false or unspecified)
+        ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.
 
         :param read_only: The read_only of this V1ISCSIVolumeSource.
         :type: bool

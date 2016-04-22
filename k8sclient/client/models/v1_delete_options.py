@@ -54,7 +54,7 @@ class V1DeleteOptions(object):
     def kind(self):
         """
         Gets the kind of this V1DeleteOptions.
-        kind of object, in CamelCase; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#types-kinds
+        Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds
 
         :return: The kind of this V1DeleteOptions.
         :rtype: str
@@ -65,7 +65,7 @@ class V1DeleteOptions(object):
     def kind(self, kind):
         """
         Sets the kind of this V1DeleteOptions.
-        kind of object, in CamelCase; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#types-kinds
+        Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds
 
         :param kind: The kind of this V1DeleteOptions.
         :type: str
@@ -76,7 +76,7 @@ class V1DeleteOptions(object):
     def api_version(self):
         """
         Gets the api_version of this V1DeleteOptions.
-        version of the schema the object should have; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#resources
+        APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#resources
 
         :return: The api_version of this V1DeleteOptions.
         :rtype: str
@@ -87,7 +87,7 @@ class V1DeleteOptions(object):
     def api_version(self, api_version):
         """
         Sets the api_version of this V1DeleteOptions.
-        version of the schema the object should have; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#resources
+        APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#resources
 
         :param api_version: The api_version of this V1DeleteOptions.
         :type: str
@@ -98,7 +98,7 @@ class V1DeleteOptions(object):
     def grace_period_seconds(self):
         """
         Gets the grace_period_seconds of this V1DeleteOptions.
-        the duration in seconds to wait before deleting this object; defaults to a per object value if not specified; zero means delete immediately
+        The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 
         :return: The grace_period_seconds of this V1DeleteOptions.
         :rtype: int
@@ -109,7 +109,7 @@ class V1DeleteOptions(object):
     def grace_period_seconds(self, grace_period_seconds):
         """
         Sets the grace_period_seconds of this V1DeleteOptions.
-        the duration in seconds to wait before deleting this object; defaults to a per object value if not specified; zero means delete immediately
+        The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
 
         :param grace_period_seconds: The grace_period_seconds of this V1DeleteOptions.
         :type: int

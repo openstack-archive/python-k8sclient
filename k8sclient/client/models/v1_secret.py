@@ -38,7 +38,7 @@ class V1Secret(object):
             'kind': 'str',
             'api_version': 'str',
             'metadata': 'V1ObjectMeta',
-            'data': 'str',
+            'data': 'object',
             'type': 'str'
         }
 
@@ -60,7 +60,7 @@ class V1Secret(object):
     def kind(self):
         """
         Gets the kind of this V1Secret.
-        kind of object, in CamelCase; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#types-kinds
+        Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds
 
         :return: The kind of this V1Secret.
         :rtype: str
@@ -71,7 +71,7 @@ class V1Secret(object):
     def kind(self, kind):
         """
         Sets the kind of this V1Secret.
-        kind of object, in CamelCase; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#types-kinds
+        Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds
 
         :param kind: The kind of this V1Secret.
         :type: str
@@ -82,7 +82,7 @@ class V1Secret(object):
     def api_version(self):
         """
         Gets the api_version of this V1Secret.
-        version of the schema the object should have; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#resources
+        APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#resources
 
         :return: The api_version of this V1Secret.
         :rtype: str
@@ -93,7 +93,7 @@ class V1Secret(object):
     def api_version(self, api_version):
         """
         Sets the api_version of this V1Secret.
-        version of the schema the object should have; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#resources
+        APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#resources
 
         :param api_version: The api_version of this V1Secret.
         :type: str
@@ -104,7 +104,7 @@ class V1Secret(object):
     def metadata(self):
         """
         Gets the metadata of this V1Secret.
-        standard object metadata; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#metadata
+        Standard object's metadata. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#metadata
 
         :return: The metadata of this V1Secret.
         :rtype: V1ObjectMeta
@@ -115,7 +115,7 @@ class V1Secret(object):
     def metadata(self, metadata):
         """
         Sets the metadata of this V1Secret.
-        standard object metadata; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#metadata
+        Standard object's metadata. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#metadata
 
         :param metadata: The metadata of this V1Secret.
         :type: V1ObjectMeta
@@ -126,10 +126,10 @@ class V1Secret(object):
     def data(self):
         """
         Gets the data of this V1Secret.
-        data contains the secret data.  Each key must be a valid DNS_SUBDOMAIN or leading dot followed by valid DNS_SUBDOMAIN.  Each value must be a base64 encoded string as described in https://tools.ietf.org/html/rfc4648#section-4
+        Data contains the secret data. Each key must be a valid DNS_SUBDOMAIN or leading dot followed by valid DNS_SUBDOMAIN. The serialized form of the secret data is a base64 encoded string, representing the arbitrary (possibly non-string) data value here. Described in https://tools.ietf.org/html/rfc4648#section-4
 
         :return: The data of this V1Secret.
-        :rtype: str
+        :rtype: object
         """
         return self._data
 
@@ -137,10 +137,10 @@ class V1Secret(object):
     def data(self, data):
         """
         Sets the data of this V1Secret.
-        data contains the secret data.  Each key must be a valid DNS_SUBDOMAIN or leading dot followed by valid DNS_SUBDOMAIN.  Each value must be a base64 encoded string as described in https://tools.ietf.org/html/rfc4648#section-4
+        Data contains the secret data. Each key must be a valid DNS_SUBDOMAIN or leading dot followed by valid DNS_SUBDOMAIN. The serialized form of the secret data is a base64 encoded string, representing the arbitrary (possibly non-string) data value here. Described in https://tools.ietf.org/html/rfc4648#section-4
 
         :param data: The data of this V1Secret.
-        :type: str
+        :type: object
         """
         self._data = data
 
@@ -148,7 +148,7 @@ class V1Secret(object):
     def type(self):
         """
         Gets the type of this V1Secret.
-        type facilitates programmatic handling of secret data
+        Used to facilitate programmatic handling of secret data.
 
         :return: The type of this V1Secret.
         :rtype: str
@@ -159,7 +159,7 @@ class V1Secret(object):
     def type(self, type):
         """
         Sets the type of this V1Secret.
-        type facilitates programmatic handling of secret data
+        Used to facilitate programmatic handling of secret data.
 
         :param type: The type of this V1Secret.
         :type: str

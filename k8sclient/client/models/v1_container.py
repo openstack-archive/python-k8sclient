@@ -49,7 +49,10 @@ class V1Container(object):
             'lifecycle': 'V1Lifecycle',
             'termination_message_path': 'str',
             'image_pull_policy': 'str',
-            'security_context': 'V1SecurityContext'
+            'security_context': 'V1SecurityContext',
+            'stdin': 'bool',
+            'stdin_once': 'bool',
+            'tty': 'bool'
         }
 
         self.attribute_map = {
@@ -67,7 +70,10 @@ class V1Container(object):
             'lifecycle': 'lifecycle',
             'termination_message_path': 'terminationMessagePath',
             'image_pull_policy': 'imagePullPolicy',
-            'security_context': 'securityContext'
+            'security_context': 'securityContext',
+            'stdin': 'stdin',
+            'stdin_once': 'stdinOnce',
+            'tty': 'tty'
         }
 
         self._name = None
@@ -85,12 +91,15 @@ class V1Container(object):
         self._termination_message_path = None
         self._image_pull_policy = None
         self._security_context = None
+        self._stdin = None
+        self._stdin_once = None
+        self._tty = None
 
     @property
     def name(self):
         """
         Gets the name of this V1Container.
-        name of the container; must be a DNS_LABEL and unique within the pod; cannot be updated
+        Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
 
         :return: The name of this V1Container.
         :rtype: str
@@ -101,7 +110,7 @@ class V1Container(object):
     def name(self, name):
         """
         Sets the name of this V1Container.
-        name of the container; must be a DNS_LABEL and unique within the pod; cannot be updated
+        Name of the container specified as a DNS_LABEL. Each container in a pod must have a unique name (DNS_LABEL). Cannot be updated.
 
         :param name: The name of this V1Container.
         :type: str
@@ -112,7 +121,7 @@ class V1Container(object):
     def image(self):
         """
         Gets the image of this V1Container.
-        Docker image name; see http://releases.k8s.io/v1.0.4/docs/images.md
+        Docker image name. More info: http://releases.k8s.io/release-1.2/docs/user-guide/images.md
 
         :return: The image of this V1Container.
         :rtype: str
@@ -123,7 +132,7 @@ class V1Container(object):
     def image(self, image):
         """
         Sets the image of this V1Container.
-        Docker image name; see http://releases.k8s.io/v1.0.4/docs/images.md
+        Docker image name. More info: http://releases.k8s.io/release-1.2/docs/user-guide/images.md
 
         :param image: The image of this V1Container.
         :type: str
@@ -134,7 +143,7 @@ class V1Container(object):
     def command(self):
         """
         Gets the command of this V1Container.
-        entrypoint array; not executed within a shell; the docker image's entrypoint is used if this is not provided; cannot be updated; variable references $(VAR_NAME) are expanded using the container's environment variables; if a variable cannot be resolved, the reference in the input string will be unchanged; the $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME) ; escaped references will never be expanded, regardless of whether the variable exists or not; see http://releases.k8s.io/v1.0.4/docs/containers.md#containers-and-commands
+        Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/containers.md#containers-and-commands
 
         :return: The command of this V1Container.
         :rtype: list[str]
@@ -145,7 +154,7 @@ class V1Container(object):
     def command(self, command):
         """
         Sets the command of this V1Container.
-        entrypoint array; not executed within a shell; the docker image's entrypoint is used if this is not provided; cannot be updated; variable references $(VAR_NAME) are expanded using the container's environment variables; if a variable cannot be resolved, the reference in the input string will be unchanged; the $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME) ; escaped references will never be expanded, regardless of whether the variable exists or not; see http://releases.k8s.io/v1.0.4/docs/containers.md#containers-and-commands
+        Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/containers.md#containers-and-commands
 
         :param command: The command of this V1Container.
         :type: list[str]
@@ -156,7 +165,7 @@ class V1Container(object):
     def args(self):
         """
         Gets the args of this V1Container.
-        command array; the docker image's cmd is used if this is not provided; arguments to the entrypoint; cannot be updated; variable references $(VAR_NAME) are expanded using the container's environment variables; if a variable cannot be resolved, the reference in the input string will be unchanged; the $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME) ; escaped references will never be expanded, regardless of whether the variable exists or not; see http://releases.k8s.io/v1.0.4/docs/containers.md#containers-and-commands
+        Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/containers.md#containers-and-commands
 
         :return: The args of this V1Container.
         :rtype: list[str]
@@ -167,7 +176,7 @@ class V1Container(object):
     def args(self, args):
         """
         Sets the args of this V1Container.
-        command array; the docker image's cmd is used if this is not provided; arguments to the entrypoint; cannot be updated; variable references $(VAR_NAME) are expanded using the container's environment variables; if a variable cannot be resolved, the reference in the input string will be unchanged; the $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME) ; escaped references will never be expanded, regardless of whether the variable exists or not; see http://releases.k8s.io/v1.0.4/docs/containers.md#containers-and-commands
+        Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/containers.md#containers-and-commands
 
         :param args: The args of this V1Container.
         :type: list[str]
@@ -178,7 +187,7 @@ class V1Container(object):
     def working_dir(self):
         """
         Gets the working_dir of this V1Container.
-        container's working directory; defaults to image's default; cannot be updated
+        Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
 
         :return: The working_dir of this V1Container.
         :rtype: str
@@ -189,7 +198,7 @@ class V1Container(object):
     def working_dir(self, working_dir):
         """
         Sets the working_dir of this V1Container.
-        container's working directory; defaults to image's default; cannot be updated
+        Container's working directory. If not specified, the container runtime's default will be used, which might be configured in the container image. Cannot be updated.
 
         :param working_dir: The working_dir of this V1Container.
         :type: str
@@ -200,7 +209,7 @@ class V1Container(object):
     def ports(self):
         """
         Gets the ports of this V1Container.
-        list of ports to expose from the container; cannot be updated
+        List of ports to expose from the container. Exposing a port here gives the system additional information about the network connections a container uses, but is primarily informational. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default \"0.0.0.0\" address inside a container will be accessible from the network. Cannot be updated.
 
         :return: The ports of this V1Container.
         :rtype: list[V1ContainerPort]
@@ -211,7 +220,7 @@ class V1Container(object):
     def ports(self, ports):
         """
         Sets the ports of this V1Container.
-        list of ports to expose from the container; cannot be updated
+        List of ports to expose from the container. Exposing a port here gives the system additional information about the network connections a container uses, but is primarily informational. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default \"0.0.0.0\" address inside a container will be accessible from the network. Cannot be updated.
 
         :param ports: The ports of this V1Container.
         :type: list[V1ContainerPort]
@@ -222,7 +231,7 @@ class V1Container(object):
     def env(self):
         """
         Gets the env of this V1Container.
-        list of environment variables to set in the container; cannot be updated
+        List of environment variables to set in the container. Cannot be updated.
 
         :return: The env of this V1Container.
         :rtype: list[V1EnvVar]
@@ -233,7 +242,7 @@ class V1Container(object):
     def env(self, env):
         """
         Sets the env of this V1Container.
-        list of environment variables to set in the container; cannot be updated
+        List of environment variables to set in the container. Cannot be updated.
 
         :param env: The env of this V1Container.
         :type: list[V1EnvVar]
@@ -244,7 +253,7 @@ class V1Container(object):
     def resources(self):
         """
         Gets the resources of this V1Container.
-        Compute Resources required by this container; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/compute_resources.md
+        Compute Resources required by this container. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#resources
 
         :return: The resources of this V1Container.
         :rtype: V1ResourceRequirements
@@ -255,7 +264,7 @@ class V1Container(object):
     def resources(self, resources):
         """
         Sets the resources of this V1Container.
-        Compute Resources required by this container; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/compute_resources.md
+        Compute Resources required by this container. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#resources
 
         :param resources: The resources of this V1Container.
         :type: V1ResourceRequirements
@@ -266,7 +275,7 @@ class V1Container(object):
     def volume_mounts(self):
         """
         Gets the volume_mounts of this V1Container.
-        pod volumes to mount into the container's filesyste; cannot be updated
+        Pod volumes to mount into the container's filesyste. Cannot be updated.
 
         :return: The volume_mounts of this V1Container.
         :rtype: list[V1VolumeMount]
@@ -277,7 +286,7 @@ class V1Container(object):
     def volume_mounts(self, volume_mounts):
         """
         Sets the volume_mounts of this V1Container.
-        pod volumes to mount into the container's filesyste; cannot be updated
+        Pod volumes to mount into the container's filesyste. Cannot be updated.
 
         :param volume_mounts: The volume_mounts of this V1Container.
         :type: list[V1VolumeMount]
@@ -288,7 +297,7 @@ class V1Container(object):
     def liveness_probe(self):
         """
         Gets the liveness_probe of this V1Container.
-        periodic probe of container liveness; container will be restarted if the probe fails; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/pod-states.md#container-probes
+        Periodic probe of container liveness. Container will be restarted if the probe fails. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#container-probes
 
         :return: The liveness_probe of this V1Container.
         :rtype: V1Probe
@@ -299,7 +308,7 @@ class V1Container(object):
     def liveness_probe(self, liveness_probe):
         """
         Sets the liveness_probe of this V1Container.
-        periodic probe of container liveness; container will be restarted if the probe fails; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/pod-states.md#container-probes
+        Periodic probe of container liveness. Container will be restarted if the probe fails. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#container-probes
 
         :param liveness_probe: The liveness_probe of this V1Container.
         :type: V1Probe
@@ -310,7 +319,7 @@ class V1Container(object):
     def readiness_probe(self):
         """
         Gets the readiness_probe of this V1Container.
-        periodic probe of container service readiness; container will be removed from service endpoints if the probe fails; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/pod-states.md#container-probes
+        Periodic probe of container service readiness. Container will be removed from service endpoints if the probe fails. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#container-probes
 
         :return: The readiness_probe of this V1Container.
         :rtype: V1Probe
@@ -321,7 +330,7 @@ class V1Container(object):
     def readiness_probe(self, readiness_probe):
         """
         Sets the readiness_probe of this V1Container.
-        periodic probe of container service readiness; container will be removed from service endpoints if the probe fails; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/pod-states.md#container-probes
+        Periodic probe of container service readiness. Container will be removed from service endpoints if the probe fails. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#container-probes
 
         :param readiness_probe: The readiness_probe of this V1Container.
         :type: V1Probe
@@ -332,7 +341,7 @@ class V1Container(object):
     def lifecycle(self):
         """
         Gets the lifecycle of this V1Container.
-        actions that the management system should take in response to container lifecycle events; cannot be updated
+        Actions that the management system should take in response to container lifecycle events. Cannot be updated.
 
         :return: The lifecycle of this V1Container.
         :rtype: V1Lifecycle
@@ -343,7 +352,7 @@ class V1Container(object):
     def lifecycle(self, lifecycle):
         """
         Sets the lifecycle of this V1Container.
-        actions that the management system should take in response to container lifecycle events; cannot be updated
+        Actions that the management system should take in response to container lifecycle events. Cannot be updated.
 
         :param lifecycle: The lifecycle of this V1Container.
         :type: V1Lifecycle
@@ -354,7 +363,7 @@ class V1Container(object):
     def termination_message_path(self):
         """
         Gets the termination_message_path of this V1Container.
-        path at which the file to which the container's termination message will be written is mounted into the container's filesystem; message written is intended to be brief final status, such as an assertion failure message; defaults to /dev/termination-log; cannot be updated
+        Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Defaults to /dev/termination-log. Cannot be updated.
 
         :return: The termination_message_path of this V1Container.
         :rtype: str
@@ -365,7 +374,7 @@ class V1Container(object):
     def termination_message_path(self, termination_message_path):
         """
         Sets the termination_message_path of this V1Container.
-        path at which the file to which the container's termination message will be written is mounted into the container's filesystem; message written is intended to be brief final status, such as an assertion failure message; defaults to /dev/termination-log; cannot be updated
+        Optional: Path at which the file to which the container's termination message will be written is mounted into the container's filesystem. Message written is intended to be brief final status, such as an assertion failure message. Defaults to /dev/termination-log. Cannot be updated.
 
         :param termination_message_path: The termination_message_path of this V1Container.
         :type: str
@@ -376,7 +385,7 @@ class V1Container(object):
     def image_pull_policy(self):
         """
         Gets the image_pull_policy of this V1Container.
-        image pull policy; one of Always, Never, IfNotPresent; defaults to Always if :latest tag is specified, or IfNotPresent otherwise; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/images.md#updating-images
+        Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/images.md#updating-images
 
         :return: The image_pull_policy of this V1Container.
         :rtype: str
@@ -387,7 +396,7 @@ class V1Container(object):
     def image_pull_policy(self, image_pull_policy):
         """
         Sets the image_pull_policy of this V1Container.
-        image pull policy; one of Always, Never, IfNotPresent; defaults to Always if :latest tag is specified, or IfNotPresent otherwise; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/images.md#updating-images
+        Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/images.md#updating-images
 
         :param image_pull_policy: The image_pull_policy of this V1Container.
         :type: str
@@ -398,7 +407,7 @@ class V1Container(object):
     def security_context(self):
         """
         Gets the security_context of this V1Container.
-        security options the pod should run with; see http://releases.k8s.io/v1.0.4/docs/security_context.md
+        Security options the pod should run with. More info: http://releases.k8s.io/release-1.2/docs/design/security_context.md
 
         :return: The security_context of this V1Container.
         :rtype: V1SecurityContext
@@ -409,12 +418,78 @@ class V1Container(object):
     def security_context(self, security_context):
         """
         Sets the security_context of this V1Container.
-        security options the pod should run with; see http://releases.k8s.io/v1.0.4/docs/security_context.md
+        Security options the pod should run with. More info: http://releases.k8s.io/release-1.2/docs/design/security_context.md
 
         :param security_context: The security_context of this V1Container.
         :type: V1SecurityContext
         """
         self._security_context = security_context
+
+    @property
+    def stdin(self):
+        """
+        Gets the stdin of this V1Container.
+        Whether this container should allocate a buffer for stdin in the container runtime. If this is not set, reads from stdin in the container will always result in EOF. Default is false.
+
+        :return: The stdin of this V1Container.
+        :rtype: bool
+        """
+        return self._stdin
+
+    @stdin.setter
+    def stdin(self, stdin):
+        """
+        Sets the stdin of this V1Container.
+        Whether this container should allocate a buffer for stdin in the container runtime. If this is not set, reads from stdin in the container will always result in EOF. Default is false.
+
+        :param stdin: The stdin of this V1Container.
+        :type: bool
+        """
+        self._stdin = stdin
+
+    @property
+    def stdin_once(self):
+        """
+        Gets the stdin_once of this V1Container.
+        Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF. Default is false
+
+        :return: The stdin_once of this V1Container.
+        :rtype: bool
+        """
+        return self._stdin_once
+
+    @stdin_once.setter
+    def stdin_once(self, stdin_once):
+        """
+        Sets the stdin_once of this V1Container.
+        Whether the container runtime should close the stdin channel after it has been opened by a single attach. When stdin is true the stdin stream will remain open across multiple attach sessions. If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted. If this flag is false, a container processes that reads from stdin will never receive an EOF. Default is false
+
+        :param stdin_once: The stdin_once of this V1Container.
+        :type: bool
+        """
+        self._stdin_once = stdin_once
+
+    @property
+    def tty(self):
+        """
+        Gets the tty of this V1Container.
+        Whether this container should allocate a TTY for itself, also requires 'stdin' to be true. Default is false.
+
+        :return: The tty of this V1Container.
+        :rtype: bool
+        """
+        return self._tty
+
+    @tty.setter
+    def tty(self, tty):
+        """
+        Sets the tty of this V1Container.
+        Whether this container should allocate a TTY for itself, also requires 'stdin' to be true. Default is false.
+
+        :param tty: The tty of this V1Container.
+        :type: bool
+        """
+        self._tty = tty
 
     def to_dict(self):
         """

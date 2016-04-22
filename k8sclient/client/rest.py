@@ -23,6 +23,7 @@ import sys
 import io
 import json
 import ssl
+import certifi
 import logging
 
 # python 2 and python 3 compatibility library
@@ -67,23 +68,19 @@ class RESTResponse(io.IOBase):
 
 class RESTClientObject(object):
 
-    def __init__(self, pools_size=4,
-                 key_file=None, cert_file=None, ca_certs=None):
+    def __init__(self, pools_size=4):
         # http pool manager
         self.pool_manager = urllib3.PoolManager(
             num_pools=pools_size
         )
-        
-        # Note(suro-patz): Changing the behavior to accept security param
-        if ca_certs is None:
-            ca_certs = '/etc/ssl/certs/ca-certificates.crt'
+
+        # https pool manager
+        # certificates validated using Mozilla’s root certificates
         self.ssl_pool_manager = urllib3.PoolManager(
             num_pools=pools_size,
-            key_file=key_file,
-            cert_file=cert_file,
             cert_reqs=ssl.CERT_REQUIRED,
-            ca_certs=ca_certs,
-            assert_hostname=False)
+            ca_certs=certifi.where()
+        )
 
     def agent(self, url):
         """
@@ -232,52 +229,56 @@ class ApiException(Exception):
 
 class RESTClient(object):
     """
-    A class with methods to perform JSON requests.
+    A class with all class methods to perform JSON requests.
     """
 
-    def __init__(self, key_file=None, cert_file=None, ca_certs=None):
-        self.IMPL = RESTClientObject(key_file=key_file,
-                                     cert_file=cert_file,
-                                     ca_certs=ca_certs)
+    IMPL = RESTClientObject()
 
-    def request(self, *n, **kw):
+    @classmethod
+    def request(cls, *n, **kw):
         """
         Perform a REST request and parse the response.
         """
-        return self.IMPL.request(*n, **kw)
+        return cls.IMPL.request(*n, **kw)
 
-    def GET(self, *n, **kw):
+    @classmethod
+    def GET(cls, *n, **kw):
         """
         Perform a GET request using `RESTClient.request()`.
         """
-        return self.IMPL.GET(*n, **kw)
+        return cls.IMPL.GET(*n, **kw)
 
-    def HEAD(self, *n, **kw):
+    @classmethod
+    def HEAD(cls, *n, **kw):
         """
         Perform a HEAD request using `RESTClient.request()`.
         """
-        return self.IMPL.GET(*n, **kw)
+        return cls.IMPL.GET(*n, **kw)
 
-    def POST(self, *n, **kw):
+    @classmethod
+    def POST(cls, *n, **kw):
         """
         Perform a POST request using `RESTClient.request()`
         """
-        return self.IMPL.POST(*n, **kw)
+        return cls.IMPL.POST(*n, **kw)
 
-    def PUT(self, *n, **kw):
+    @classmethod
+    def PUT(cls, *n, **kw):
         """
         Perform a PUT request using `RESTClient.request()`
         """
-        return self.IMPL.PUT(*n, **kw)
+        return cls.IMPL.PUT(*n, **kw)
 
-    def PATCH(self, *n, **kw):
+    @classmethod
+    def PATCH(cls, *n, **kw):
         """
         Perform a PATCH request using `RESTClient.request()`
         """
-        return self.IMPL.PATCH(*n, **kw)
+        return cls.IMPL.PATCH(*n, **kw)
 
-    def DELETE(self, *n, **kw):
+    @classmethod
+    def DELETE(cls, *n, **kw):
         """
         Perform a DELETE request using `RESTClient.request()`
         """
-        return self.IMPL.DELETE(*n, **kw)
+        return cls.IMPL.DELETE(*n, **kw)
