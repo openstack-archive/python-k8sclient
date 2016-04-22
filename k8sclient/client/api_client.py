@@ -21,7 +21,6 @@ from . import models
 from .rest import RESTClient
 from .rest import ApiException
 
-import ast
 import os
 import re
 import json
@@ -34,10 +33,18 @@ from datetime import datetime
 from datetime import date
 
 # python 2 and python 3 compatibility library
+import six
 from six import iteritems
+import six.moves.builtins as __builtin__
 from six.moves.urllib import parse as urlparse
 
 from .configuration import Configuration
+
+if six.PY3:
+    import io
+    file_type = io.IOBase
+else:
+    file_type = file  # noqa
 
 
 class ApiClient(object):
@@ -184,7 +191,8 @@ class ApiClient(object):
         """
         if isinstance(obj, type(None)):
             return None
-        elif isinstance(obj, (unicode, str, int, float, bool, tuple, file)):
+        elif isinstance(obj, (six.text_type, str, int, float,
+                              bool, tuple, file_type)):
             return obj
         elif isinstance(obj, list):
             return [self.sanitize_for_serialization(sub_obj)
@@ -257,10 +265,10 @@ class ApiClient(object):
             # for native types
             if klass in ['int', 'float', 'str', 'bool',
                          "date", 'datetime', "object"]:
-                klass = ast.literal_eval(klass)
+                klass = getattr(__builtin__, klass)
             # for model types
             else:
-                klass = ast.literal_eval('models.' + klass)
+                klass = getattr(models, klass)
 
         if klass in [int, float, str, bool]:
             return self.__deserialize_primitive(data, klass)
@@ -485,7 +493,7 @@ class ApiClient(object):
         try:
             value = klass(data)
         except UnicodeEncodeError:
-            value = unicode(data)
+            value = six.text_type(data)
         except TypeError:
             value = data
         return value
