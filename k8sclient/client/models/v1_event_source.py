@@ -51,7 +51,7 @@ class V1EventSource(object):
     def component(self):
         """
         Gets the component of this V1EventSource.
-        component that generated the event
+        Component from which the event is generated.
 
         :return: The component of this V1EventSource.
         :rtype: str
@@ -62,7 +62,7 @@ class V1EventSource(object):
     def component(self, component):
         """
         Sets the component of this V1EventSource.
-        component that generated the event
+        Component from which the event is generated.
 
         :param component: The component of this V1EventSource.
         :type: str
@@ -73,7 +73,7 @@ class V1EventSource(object):
     def host(self):
         """
         Gets the host of this V1EventSource.
-        name of the host where the event is generated
+        Host name on which the event is generated.
 
         :return: The host of this V1EventSource.
         :rtype: str
@@ -84,7 +84,7 @@ class V1EventSource(object):
     def host(self, host):
         """
         Sets the host of this V1EventSource.
-        name of the host where the event is generated
+        Host name on which the event is generated.
 
         :param host: The host of this V1EventSource.
         :type: str

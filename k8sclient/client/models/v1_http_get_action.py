@@ -38,26 +38,29 @@ class V1HTTPGetAction(object):
             'path': 'str',
             'port': 'str',
             'host': 'str',
-            'scheme': 'str'
+            'scheme': 'str',
+            'http_headers': 'list[V1HTTPHeader]'
         }
 
         self.attribute_map = {
             'path': 'path',
             'port': 'port',
             'host': 'host',
-            'scheme': 'scheme'
+            'scheme': 'scheme',
+            'http_headers': 'httpHeaders'
         }
 
         self._path = None
         self._port = None
         self._host = None
         self._scheme = None
+        self._http_headers = None
 
     @property
     def path(self):
         """
         Gets the path of this V1HTTPGetAction.
-        path to access on the HTTP server
+        Path to access on the HTTP server.
 
         :return: The path of this V1HTTPGetAction.
         :rtype: str
@@ -68,7 +71,7 @@ class V1HTTPGetAction(object):
     def path(self, path):
         """
         Sets the path of this V1HTTPGetAction.
-        path to access on the HTTP server
+        Path to access on the HTTP server.
 
         :param path: The path of this V1HTTPGetAction.
         :type: str
@@ -79,7 +82,7 @@ class V1HTTPGetAction(object):
     def port(self):
         """
         Gets the port of this V1HTTPGetAction.
-        number or name of the port to access on the container; number must be in the range 1 to 65535; name must be an IANA_SVC_NAME
+        Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
         :return: The port of this V1HTTPGetAction.
         :rtype: str
@@ -90,7 +93,7 @@ class V1HTTPGetAction(object):
     def port(self, port):
         """
         Sets the port of this V1HTTPGetAction.
-        number or name of the port to access on the container; number must be in the range 1 to 65535; name must be an IANA_SVC_NAME
+        Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
         :param port: The port of this V1HTTPGetAction.
         :type: str
@@ -101,7 +104,7 @@ class V1HTTPGetAction(object):
     def host(self):
         """
         Gets the host of this V1HTTPGetAction.
-        hostname to connect to; defaults to pod IP
+        Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.
 
         :return: The host of this V1HTTPGetAction.
         :rtype: str
@@ -112,7 +115,7 @@ class V1HTTPGetAction(object):
     def host(self, host):
         """
         Sets the host of this V1HTTPGetAction.
-        hostname to connect to; defaults to pod IP
+        Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.
 
         :param host: The host of this V1HTTPGetAction.
         :type: str
@@ -123,7 +126,7 @@ class V1HTTPGetAction(object):
     def scheme(self):
         """
         Gets the scheme of this V1HTTPGetAction.
-        scheme to connect with, must be HTTP or HTTPS, defaults to HTTP
+        Scheme to use for connecting to the host. Defaults to HTTP.
 
         :return: The scheme of this V1HTTPGetAction.
         :rtype: str
@@ -134,12 +137,34 @@ class V1HTTPGetAction(object):
     def scheme(self, scheme):
         """
         Sets the scheme of this V1HTTPGetAction.
-        scheme to connect with, must be HTTP or HTTPS, defaults to HTTP
+        Scheme to use for connecting to the host. Defaults to HTTP.
 
         :param scheme: The scheme of this V1HTTPGetAction.
         :type: str
         """
         self._scheme = scheme
+
+    @property
+    def http_headers(self):
+        """
+        Gets the http_headers of this V1HTTPGetAction.
+        Custom headers to set in the request. HTTP allows repeated headers.
+
+        :return: The http_headers of this V1HTTPGetAction.
+        :rtype: list[V1HTTPHeader]
+        """
+        return self._http_headers
+
+    @http_headers.setter
+    def http_headers(self, http_headers):
+        """
+        Sets the http_headers of this V1HTTPGetAction.
+        Custom headers to set in the request. HTTP allows repeated headers.
+
+        :param http_headers: The http_headers of this V1HTTPGetAction.
+        :type: list[V1HTTPHeader]
+        """
+        self._http_headers = http_headers
 
     def to_dict(self):
         """

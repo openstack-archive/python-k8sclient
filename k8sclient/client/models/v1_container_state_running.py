@@ -48,7 +48,7 @@ class V1ContainerStateRunning(object):
     def started_at(self):
         """
         Gets the started_at of this V1ContainerStateRunning.
-        time at which the container was last (re-)started
+        Time at which the container was last (re-)started
 
         :return: The started_at of this V1ContainerStateRunning.
         :rtype: str
@@ -59,7 +59,7 @@ class V1ContainerStateRunning(object):
     def started_at(self, started_at):
         """
         Sets the started_at of this V1ContainerStateRunning.
-        time at which the container was last (re-)started
+        Time at which the container was last (re-)started
 
         :param started_at: The started_at of this V1ContainerStateRunning.
         :type: str

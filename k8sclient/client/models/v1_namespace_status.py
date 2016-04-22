@@ -48,7 +48,7 @@ class V1NamespaceStatus(object):
     def phase(self):
         """
         Gets the phase of this V1NamespaceStatus.
-        phase is the current lifecycle phase of the namespace; see http://releases.k8s.io/v1.0.4/docs/design/namespaces.md#phases
+        Phase is the current lifecycle phase of the namespace. More info: http://releases.k8s.io/release-1.2/docs/design/namespaces.md#phases
 
         :return: The phase of this V1NamespaceStatus.
         :rtype: str
@@ -59,7 +59,7 @@ class V1NamespaceStatus(object):
     def phase(self, phase):
         """
         Sets the phase of this V1NamespaceStatus.
-        phase is the current lifecycle phase of the namespace; see http://releases.k8s.io/v1.0.4/docs/design/namespaces.md#phases
+        Phase is the current lifecycle phase of the namespace. More info: http://releases.k8s.io/release-1.2/docs/design/namespaces.md#phases
 
         :param phase: The phase of this V1NamespaceStatus.
         :type: str

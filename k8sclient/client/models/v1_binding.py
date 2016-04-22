@@ -57,7 +57,7 @@ class V1Binding(object):
     def kind(self):
         """
         Gets the kind of this V1Binding.
-        kind of object, in CamelCase; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#types-kinds
+        Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds
 
         :return: The kind of this V1Binding.
         :rtype: str
@@ -68,7 +68,7 @@ class V1Binding(object):
     def kind(self, kind):
         """
         Sets the kind of this V1Binding.
-        kind of object, in CamelCase; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#types-kinds
+        Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds
 
         :param kind: The kind of this V1Binding.
         :type: str
@@ -79,7 +79,7 @@ class V1Binding(object):
     def api_version(self):
         """
         Gets the api_version of this V1Binding.
-        version of the schema the object should have; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#resources
+        APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#resources
 
         :return: The api_version of this V1Binding.
         :rtype: str
@@ -90,7 +90,7 @@ class V1Binding(object):
     def api_version(self, api_version):
         """
         Sets the api_version of this V1Binding.
-        version of the schema the object should have; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#resources
+        APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#resources
 
         :param api_version: The api_version of this V1Binding.
         :type: str
@@ -101,7 +101,7 @@ class V1Binding(object):
     def metadata(self):
         """
         Gets the metadata of this V1Binding.
-        standard object metadata; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#metadata
+        Standard object's metadata. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#metadata
 
         :return: The metadata of this V1Binding.
         :rtype: V1ObjectMeta
@@ -112,7 +112,7 @@ class V1Binding(object):
     def metadata(self, metadata):
         """
         Sets the metadata of this V1Binding.
-        standard object metadata; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#metadata
+        Standard object's metadata. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#metadata
 
         :param metadata: The metadata of this V1Binding.
         :type: V1ObjectMeta
@@ -123,7 +123,7 @@ class V1Binding(object):
     def target(self):
         """
         Gets the target of this V1Binding.
-        an object to bind to
+        The target object that you want to bind to the standard object.
 
         :return: The target of this V1Binding.
         :rtype: V1ObjectReference
@@ -134,7 +134,7 @@ class V1Binding(object):
     def target(self, target):
         """
         Sets the target of this V1Binding.
-        an object to bind to
+        The target object that you want to bind to the standard object.
 
         :param target: The target of this V1Binding.
         :type: V1ObjectReference

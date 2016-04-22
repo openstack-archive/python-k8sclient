@@ -57,7 +57,7 @@ class V1NodeSpec(object):
     def pod_cidr(self):
         """
         Gets the pod_cidr of this V1NodeSpec.
-        pod IP range assigned to the node
+        PodCIDR represents the pod IP range assigned to the node.
 
         :return: The pod_cidr of this V1NodeSpec.
         :rtype: str
@@ -68,7 +68,7 @@ class V1NodeSpec(object):
     def pod_cidr(self, pod_cidr):
         """
         Sets the pod_cidr of this V1NodeSpec.
-        pod IP range assigned to the node
+        PodCIDR represents the pod IP range assigned to the node.
 
         :param pod_cidr: The pod_cidr of this V1NodeSpec.
         :type: str
@@ -79,7 +79,7 @@ class V1NodeSpec(object):
     def external_id(self):
         """
         Gets the external_id of this V1NodeSpec.
-        deprecated. External ID assigned to the node by some machine database (e.g. a cloud provider). Defaults to node name when empty.
+        External ID of the node assigned by some machine database (e.g. a cloud provider). Deprecated.
 
         :return: The external_id of this V1NodeSpec.
         :rtype: str
@@ -90,7 +90,7 @@ class V1NodeSpec(object):
     def external_id(self, external_id):
         """
         Sets the external_id of this V1NodeSpec.
-        deprecated. External ID assigned to the node by some machine database (e.g. a cloud provider). Defaults to node name when empty.
+        External ID of the node assigned by some machine database (e.g. a cloud provider). Deprecated.
 
         :param external_id: The external_id of this V1NodeSpec.
         :type: str
@@ -123,7 +123,7 @@ class V1NodeSpec(object):
     def unschedulable(self):
         """
         Gets the unschedulable of this V1NodeSpec.
-        disable pod scheduling on the node; see http://releases.k8s.io/v1.0.4/docs/node.md#manual-node-administration
+        Unschedulable controls node schedulability of new pods. By default, node is schedulable. More info: http://releases.k8s.io/release-1.2/docs/admin/node.md#manual-node-administration\"`
 
         :return: The unschedulable of this V1NodeSpec.
         :rtype: bool
@@ -134,7 +134,7 @@ class V1NodeSpec(object):
     def unschedulable(self, unschedulable):
         """
         Sets the unschedulable of this V1NodeSpec.
-        disable pod scheduling on the node; see http://releases.k8s.io/v1.0.4/docs/node.md#manual-node-administration
+        Unschedulable controls node schedulability of new pods. By default, node is schedulable. More info: http://releases.k8s.io/release-1.2/docs/admin/node.md#manual-node-administration\"`
 
         :param unschedulable: The unschedulable of this V1NodeSpec.
         :type: bool

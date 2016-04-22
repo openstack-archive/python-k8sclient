@@ -54,7 +54,7 @@ class V1Handler(object):
     def _exec(self):
         """
         Gets the _exec of this V1Handler.
-        exec-based handler
+        One and only one of the following should be specified. Exec specifies the action to take.
 
         :return: The _exec of this V1Handler.
         :rtype: V1ExecAction
@@ -65,7 +65,7 @@ class V1Handler(object):
     def _exec(self, _exec):
         """
         Sets the _exec of this V1Handler.
-        exec-based handler
+        One and only one of the following should be specified. Exec specifies the action to take.
 
         :param _exec: The _exec of this V1Handler.
         :type: V1ExecAction
@@ -76,7 +76,7 @@ class V1Handler(object):
     def http_get(self):
         """
         Gets the http_get of this V1Handler.
-        HTTP-based handler
+        HTTPGet specifies the http request to perform.
 
         :return: The http_get of this V1Handler.
         :rtype: V1HTTPGetAction
@@ -87,7 +87,7 @@ class V1Handler(object):
     def http_get(self, http_get):
         """
         Sets the http_get of this V1Handler.
-        HTTP-based handler
+        HTTPGet specifies the http request to perform.
 
         :param http_get: The http_get of this V1Handler.
         :type: V1HTTPGetAction
@@ -98,7 +98,7 @@ class V1Handler(object):
     def tcp_socket(self):
         """
         Gets the tcp_socket of this V1Handler.
-        TCP-based handler; TCP hooks not yet supported
+        TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported
 
         :return: The tcp_socket of this V1Handler.
         :rtype: V1TCPSocketAction
@@ -109,7 +109,7 @@ class V1Handler(object):
     def tcp_socket(self, tcp_socket):
         """
         Sets the tcp_socket of this V1Handler.
-        TCP-based handler; TCP hooks not yet supported
+        TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported
 
         :param tcp_socket: The tcp_socket of this V1Handler.
         :type: V1TCPSocketAction

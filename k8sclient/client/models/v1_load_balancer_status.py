@@ -48,7 +48,7 @@ class V1LoadBalancerStatus(object):
     def ingress(self):
         """
         Gets the ingress of this V1LoadBalancerStatus.
-        load-balancer ingress points
+        Ingress is a list containing ingress points for the load-balancer. Traffic intended for the service should be sent to these ingress points.
 
         :return: The ingress of this V1LoadBalancerStatus.
         :rtype: list[V1LoadBalancerIngress]
@@ -59,7 +59,7 @@ class V1LoadBalancerStatus(object):
     def ingress(self, ingress):
         """
         Sets the ingress of this V1LoadBalancerStatus.
-        load-balancer ingress points
+        Ingress is a list containing ingress points for the load-balancer. Traffic intended for the service should be sent to these ingress points.
 
         :param ingress: The ingress of this V1LoadBalancerStatus.
         :type: list[V1LoadBalancerIngress]

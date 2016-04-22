@@ -66,7 +66,7 @@ class V1ContainerStateTerminated(object):
     def exit_code(self):
         """
         Gets the exit_code of this V1ContainerStateTerminated.
-        exit status from the last termination of the container
+        Exit status from the last termination of the container
 
         :return: The exit_code of this V1ContainerStateTerminated.
         :rtype: int
@@ -77,7 +77,7 @@ class V1ContainerStateTerminated(object):
     def exit_code(self, exit_code):
         """
         Sets the exit_code of this V1ContainerStateTerminated.
-        exit status from the last termination of the container
+        Exit status from the last termination of the container
 
         :param exit_code: The exit_code of this V1ContainerStateTerminated.
         :type: int
@@ -88,7 +88,7 @@ class V1ContainerStateTerminated(object):
     def signal(self):
         """
         Gets the signal of this V1ContainerStateTerminated.
-        signal from the last termination of the container
+        Signal from the last termination of the container
 
         :return: The signal of this V1ContainerStateTerminated.
         :rtype: int
@@ -99,7 +99,7 @@ class V1ContainerStateTerminated(object):
     def signal(self, signal):
         """
         Sets the signal of this V1ContainerStateTerminated.
-        signal from the last termination of the container
+        Signal from the last termination of the container
 
         :param signal: The signal of this V1ContainerStateTerminated.
         :type: int
@@ -132,7 +132,7 @@ class V1ContainerStateTerminated(object):
     def message(self):
         """
         Gets the message of this V1ContainerStateTerminated.
-        message regarding the last termination of the container
+        Message regarding the last termination of the container
 
         :return: The message of this V1ContainerStateTerminated.
         :rtype: str
@@ -143,7 +143,7 @@ class V1ContainerStateTerminated(object):
     def message(self, message):
         """
         Sets the message of this V1ContainerStateTerminated.
-        message regarding the last termination of the container
+        Message regarding the last termination of the container
 
         :param message: The message of this V1ContainerStateTerminated.
         :type: str
@@ -154,7 +154,7 @@ class V1ContainerStateTerminated(object):
     def started_at(self):
         """
         Gets the started_at of this V1ContainerStateTerminated.
-        time at which previous execution of the container started
+        Time at which previous execution of the container started
 
         :return: The started_at of this V1ContainerStateTerminated.
         :rtype: str
@@ -165,7 +165,7 @@ class V1ContainerStateTerminated(object):
     def started_at(self, started_at):
         """
         Sets the started_at of this V1ContainerStateTerminated.
-        time at which previous execution of the container started
+        Time at which previous execution of the container started
 
         :param started_at: The started_at of this V1ContainerStateTerminated.
         :type: str
@@ -176,7 +176,7 @@ class V1ContainerStateTerminated(object):
     def finished_at(self):
         """
         Gets the finished_at of this V1ContainerStateTerminated.
-        time at which the container last terminated
+        Time at which the container last terminated
 
         :return: The finished_at of this V1ContainerStateTerminated.
         :rtype: str
@@ -187,7 +187,7 @@ class V1ContainerStateTerminated(object):
     def finished_at(self, finished_at):
         """
         Sets the finished_at of this V1ContainerStateTerminated.
-        time at which the container last terminated
+        Time at which the container last terminated
 
         :param finished_at: The finished_at of this V1ContainerStateTerminated.
         :type: str
@@ -198,7 +198,7 @@ class V1ContainerStateTerminated(object):
     def container_id(self):
         """
         Gets the container_id of this V1ContainerStateTerminated.
-        container's ID in the format 'docker://<container_id>'
+        Container's ID in the format 'docker://<container_id>'
 
         :return: The container_id of this V1ContainerStateTerminated.
         :rtype: str
@@ -209,7 +209,7 @@ class V1ContainerStateTerminated(object):
     def container_id(self, container_id):
         """
         Sets the container_id of this V1ContainerStateTerminated.
-        container's ID in the format 'docker://<container_id>'
+        Container's ID in the format 'docker://<container_id>'
 
         :param container_id: The container_id of this V1ContainerStateTerminated.
         :type: str

@@ -35,23 +35,26 @@ class V1ResourceQuotaSpec(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'hard': 'str'
+            'hard': 'object',
+            'scopes': 'list[V1ResourceQuotaScope]'
         }
 
         self.attribute_map = {
-            'hard': 'hard'
+            'hard': 'hard',
+            'scopes': 'scopes'
         }
 
         self._hard = None
+        self._scopes = None
 
     @property
     def hard(self):
         """
         Gets the hard of this V1ResourceQuotaSpec.
-        hard is the set of desired hard limits for each named resource; see http://releases.k8s.io/v1.0.4/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota
+        Hard is the set of desired hard limits for each named resource. More info: http://releases.k8s.io/release-1.2/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota
 
         :return: The hard of this V1ResourceQuotaSpec.
-        :rtype: str
+        :rtype: object
         """
         return self._hard
 
@@ -59,12 +62,34 @@ class V1ResourceQuotaSpec(object):
     def hard(self, hard):
         """
         Sets the hard of this V1ResourceQuotaSpec.
-        hard is the set of desired hard limits for each named resource; see http://releases.k8s.io/v1.0.4/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota
+        Hard is the set of desired hard limits for each named resource. More info: http://releases.k8s.io/release-1.2/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota
 
         :param hard: The hard of this V1ResourceQuotaSpec.
-        :type: str
+        :type: object
         """
         self._hard = hard
+
+    @property
+    def scopes(self):
+        """
+        Gets the scopes of this V1ResourceQuotaSpec.
+        A collection of filters that must match each object tracked by a quota. If not specified, the quota matches all objects.
+
+        :return: The scopes of this V1ResourceQuotaSpec.
+        :rtype: list[V1ResourceQuotaScope]
+        """
+        return self._scopes
+
+    @scopes.setter
+    def scopes(self, scopes):
+        """
+        Sets the scopes of this V1ResourceQuotaSpec.
+        A collection of filters that must match each object tracked by a quota. If not specified, the quota matches all objects.
+
+        :param scopes: The scopes of this V1ResourceQuotaSpec.
+        :type: list[V1ResourceQuotaScope]
+        """
+        self._scopes = scopes
 
     def to_dict(self):
         """

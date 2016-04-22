@@ -51,7 +51,7 @@ class V1ObjectFieldSelector(object):
     def api_version(self):
         """
         Gets the api_version of this V1ObjectFieldSelector.
-        version of the schema that fieldPath is written in terms of; defaults to v1
+        Version of the schema the FieldPath is written in terms of, defaults to \"v1\".
 
         :return: The api_version of this V1ObjectFieldSelector.
         :rtype: str
@@ -62,7 +62,7 @@ class V1ObjectFieldSelector(object):
     def api_version(self, api_version):
         """
         Sets the api_version of this V1ObjectFieldSelector.
-        version of the schema that fieldPath is written in terms of; defaults to v1
+        Version of the schema the FieldPath is written in terms of, defaults to \"v1\".
 
         :param api_version: The api_version of this V1ObjectFieldSelector.
         :type: str
@@ -73,7 +73,7 @@ class V1ObjectFieldSelector(object):
     def field_path(self):
         """
         Gets the field_path of this V1ObjectFieldSelector.
-        path of the field to select in the specified API version
+        Path of the field to select in the specified API version.
 
         :return: The field_path of this V1ObjectFieldSelector.
         :rtype: str
@@ -84,7 +84,7 @@ class V1ObjectFieldSelector(object):
     def field_path(self, field_path):
         """
         Sets the field_path of this V1ObjectFieldSelector.
-        path of the field to select in the specified API version
+        Path of the field to select in the specified API version.
 
         :param field_path: The field_path of this V1ObjectFieldSelector.
         :type: str

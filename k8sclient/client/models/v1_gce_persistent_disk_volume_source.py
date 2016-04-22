@@ -57,7 +57,7 @@ class V1GCEPersistentDiskVolumeSource(object):
     def pd_name(self):
         """
         Gets the pd_name of this V1GCEPersistentDiskVolumeSource.
-        unique name of the PD resource in GCE; see http://releases.k8s.io/v1.0.4/docs/volumes.md#gcepersistentdisk
+        Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk
 
         :return: The pd_name of this V1GCEPersistentDiskVolumeSource.
         :rtype: str
@@ -68,7 +68,7 @@ class V1GCEPersistentDiskVolumeSource(object):
     def pd_name(self, pd_name):
         """
         Sets the pd_name of this V1GCEPersistentDiskVolumeSource.
-        unique name of the PD resource in GCE; see http://releases.k8s.io/v1.0.4/docs/volumes.md#gcepersistentdisk
+        Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk
 
         :param pd_name: The pd_name of this V1GCEPersistentDiskVolumeSource.
         :type: str
@@ -79,7 +79,7 @@ class V1GCEPersistentDiskVolumeSource(object):
     def fs_type(self):
         """
         Gets the fs_type of this V1GCEPersistentDiskVolumeSource.
-        file system type to mount, such as ext4, xfs, ntfs; see http://releases.k8s.io/v1.0.4/docs/volumes.md#gcepersistentdisk
+        Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk
 
         :return: The fs_type of this V1GCEPersistentDiskVolumeSource.
         :rtype: str
@@ -90,7 +90,7 @@ class V1GCEPersistentDiskVolumeSource(object):
     def fs_type(self, fs_type):
         """
         Sets the fs_type of this V1GCEPersistentDiskVolumeSource.
-        file system type to mount, such as ext4, xfs, ntfs; see http://releases.k8s.io/v1.0.4/docs/volumes.md#gcepersistentdisk
+        Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk
 
         :param fs_type: The fs_type of this V1GCEPersistentDiskVolumeSource.
         :type: str
@@ -101,7 +101,7 @@ class V1GCEPersistentDiskVolumeSource(object):
     def partition(self):
         """
         Gets the partition of this V1GCEPersistentDiskVolumeSource.
-        partition on the disk to mount (e.g., '1' for /dev/sda1); if omitted the plain device name (e.g., /dev/sda) will be mounted; see http://releases.k8s.io/v1.0.4/docs/volumes.md#gcepersistentdisk
+        The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as \"1\". Similarly, the volume partition for /dev/sda is \"0\" (or you can leave the property empty). More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk
 
         :return: The partition of this V1GCEPersistentDiskVolumeSource.
         :rtype: int
@@ -112,7 +112,7 @@ class V1GCEPersistentDiskVolumeSource(object):
     def partition(self, partition):
         """
         Sets the partition of this V1GCEPersistentDiskVolumeSource.
-        partition on the disk to mount (e.g., '1' for /dev/sda1); if omitted the plain device name (e.g., /dev/sda) will be mounted; see http://releases.k8s.io/v1.0.4/docs/volumes.md#gcepersistentdisk
+        The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as \"1\". Similarly, the volume partition for /dev/sda is \"0\" (or you can leave the property empty). More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk
 
         :param partition: The partition of this V1GCEPersistentDiskVolumeSource.
         :type: int
@@ -123,7 +123,7 @@ class V1GCEPersistentDiskVolumeSource(object):
     def read_only(self):
         """
         Gets the read_only of this V1GCEPersistentDiskVolumeSource.
-        read-only if true, read-write otherwise (false or unspecified); see http://releases.k8s.io/v1.0.4/docs/volumes.md#gcepersistentdisk
+        ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk
 
         :return: The read_only of this V1GCEPersistentDiskVolumeSource.
         :rtype: bool
@@ -134,7 +134,7 @@ class V1GCEPersistentDiskVolumeSource(object):
     def read_only(self, read_only):
         """
         Sets the read_only of this V1GCEPersistentDiskVolumeSource.
-        read-only if true, read-write otherwise (false or unspecified); see http://releases.k8s.io/v1.0.4/docs/volumes.md#gcepersistentdisk
+        ReadOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#gcepersistentdisk
 
         :param read_only: The read_only of this V1GCEPersistentDiskVolumeSource.
         :type: bool

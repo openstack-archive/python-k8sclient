@@ -69,7 +69,7 @@ class V1ContainerStatus(object):
     def name(self):
         """
         Gets the name of this V1ContainerStatus.
-        name of the container; must be a DNS_LABEL and unique within the pod; cannot be updated
+        This must be a DNS_LABEL. Each container in a pod must have a unique name. Cannot be updated.
 
         :return: The name of this V1ContainerStatus.
         :rtype: str
@@ -80,7 +80,7 @@ class V1ContainerStatus(object):
     def name(self, name):
         """
         Sets the name of this V1ContainerStatus.
-        name of the container; must be a DNS_LABEL and unique within the pod; cannot be updated
+        This must be a DNS_LABEL. Each container in a pod must have a unique name. Cannot be updated.
 
         :param name: The name of this V1ContainerStatus.
         :type: str
@@ -91,7 +91,7 @@ class V1ContainerStatus(object):
     def state(self):
         """
         Gets the state of this V1ContainerStatus.
-        details about the container's current condition
+        Details about the container's current condition.
 
         :return: The state of this V1ContainerStatus.
         :rtype: V1ContainerState
@@ -102,7 +102,7 @@ class V1ContainerStatus(object):
     def state(self, state):
         """
         Sets the state of this V1ContainerStatus.
-        details about the container's current condition
+        Details about the container's current condition.
 
         :param state: The state of this V1ContainerStatus.
         :type: V1ContainerState
@@ -113,7 +113,7 @@ class V1ContainerStatus(object):
     def last_state(self):
         """
         Gets the last_state of this V1ContainerStatus.
-        details about the container's last termination condition
+        Details about the container's last termination condition.
 
         :return: The last_state of this V1ContainerStatus.
         :rtype: V1ContainerState
@@ -124,7 +124,7 @@ class V1ContainerStatus(object):
     def last_state(self, last_state):
         """
         Sets the last_state of this V1ContainerStatus.
-        details about the container's last termination condition
+        Details about the container's last termination condition.
 
         :param last_state: The last_state of this V1ContainerStatus.
         :type: V1ContainerState
@@ -135,7 +135,7 @@ class V1ContainerStatus(object):
     def ready(self):
         """
         Gets the ready of this V1ContainerStatus.
-        specifies whether the container has passed its readiness probe
+        Specifies whether the container has passed its readiness probe.
 
         :return: The ready of this V1ContainerStatus.
         :rtype: bool
@@ -146,7 +146,7 @@ class V1ContainerStatus(object):
     def ready(self, ready):
         """
         Sets the ready of this V1ContainerStatus.
-        specifies whether the container has passed its readiness probe
+        Specifies whether the container has passed its readiness probe.
 
         :param ready: The ready of this V1ContainerStatus.
         :type: bool
@@ -157,7 +157,7 @@ class V1ContainerStatus(object):
     def restart_count(self):
         """
         Gets the restart_count of this V1ContainerStatus.
-        the number of times the container has been restarted, currently based on the number of dead containers that have not yet been removed
+        The number of times the container has been restarted, currently based on the number of dead containers that have not yet been removed. Note that this is calculated from dead containers. But those containers are subject to garbage collection. This value will get capped at 5 by GC.
 
         :return: The restart_count of this V1ContainerStatus.
         :rtype: int
@@ -168,7 +168,7 @@ class V1ContainerStatus(object):
     def restart_count(self, restart_count):
         """
         Sets the restart_count of this V1ContainerStatus.
-        the number of times the container has been restarted, currently based on the number of dead containers that have not yet been removed
+        The number of times the container has been restarted, currently based on the number of dead containers that have not yet been removed. Note that this is calculated from dead containers. But those containers are subject to garbage collection. This value will get capped at 5 by GC.
 
         :param restart_count: The restart_count of this V1ContainerStatus.
         :type: int
@@ -179,7 +179,7 @@ class V1ContainerStatus(object):
     def image(self):
         """
         Gets the image of this V1ContainerStatus.
-        image of the container; see http://releases.k8s.io/v1.0.4/docs/images.md
+        The image the container is running. More info: http://releases.k8s.io/release-1.2/docs/user-guide/images.md
 
         :return: The image of this V1ContainerStatus.
         :rtype: str
@@ -190,7 +190,7 @@ class V1ContainerStatus(object):
     def image(self, image):
         """
         Sets the image of this V1ContainerStatus.
-        image of the container; see http://releases.k8s.io/v1.0.4/docs/images.md
+        The image the container is running. More info: http://releases.k8s.io/release-1.2/docs/user-guide/images.md
 
         :param image: The image of this V1ContainerStatus.
         :type: str
@@ -201,7 +201,7 @@ class V1ContainerStatus(object):
     def image_id(self):
         """
         Gets the image_id of this V1ContainerStatus.
-        ID of the container's image
+        ImageID of the container's image.
 
         :return: The image_id of this V1ContainerStatus.
         :rtype: str
@@ -212,7 +212,7 @@ class V1ContainerStatus(object):
     def image_id(self, image_id):
         """
         Sets the image_id of this V1ContainerStatus.
-        ID of the container's image
+        ImageID of the container's image.
 
         :param image_id: The image_id of this V1ContainerStatus.
         :type: str
@@ -223,7 +223,7 @@ class V1ContainerStatus(object):
     def container_id(self):
         """
         Gets the container_id of this V1ContainerStatus.
-        container's ID in the format 'docker://<container_id>'; see http://releases.k8s.io/v1.0.4/docs/container-environment.md#container-information
+        Container's ID in the format 'docker://<container_id>'. More info: http://releases.k8s.io/release-1.2/docs/user-guide/container-environment.md#container-information
 
         :return: The container_id of this V1ContainerStatus.
         :rtype: str
@@ -234,7 +234,7 @@ class V1ContainerStatus(object):
     def container_id(self, container_id):
         """
         Sets the container_id of this V1ContainerStatus.
-        container's ID in the format 'docker://<container_id>'; see http://releases.k8s.io/v1.0.4/docs/container-environment.md#container-information
+        Container's ID in the format 'docker://<container_id>'. More info: http://releases.k8s.io/release-1.2/docs/user-guide/container-environment.md#container-information
 
         :param container_id: The container_id of this V1ContainerStatus.
         :type: str

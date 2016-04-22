@@ -57,7 +57,7 @@ class V1Endpoints(object):
     def kind(self):
         """
         Gets the kind of this V1Endpoints.
-        kind of object, in CamelCase; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#types-kinds
+        Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds
 
         :return: The kind of this V1Endpoints.
         :rtype: str
@@ -68,7 +68,7 @@ class V1Endpoints(object):
     def kind(self, kind):
         """
         Sets the kind of this V1Endpoints.
-        kind of object, in CamelCase; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#types-kinds
+        Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds
 
         :param kind: The kind of this V1Endpoints.
         :type: str
@@ -79,7 +79,7 @@ class V1Endpoints(object):
     def api_version(self):
         """
         Gets the api_version of this V1Endpoints.
-        version of the schema the object should have; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#resources
+        APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#resources
 
         :return: The api_version of this V1Endpoints.
         :rtype: str
@@ -90,7 +90,7 @@ class V1Endpoints(object):
     def api_version(self, api_version):
         """
         Sets the api_version of this V1Endpoints.
-        version of the schema the object should have; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#resources
+        APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#resources
 
         :param api_version: The api_version of this V1Endpoints.
         :type: str
@@ -101,7 +101,7 @@ class V1Endpoints(object):
     def metadata(self):
         """
         Gets the metadata of this V1Endpoints.
-        standard object metadata; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#metadata
+        Standard object's metadata. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#metadata
 
         :return: The metadata of this V1Endpoints.
         :rtype: V1ObjectMeta
@@ -112,7 +112,7 @@ class V1Endpoints(object):
     def metadata(self, metadata):
         """
         Sets the metadata of this V1Endpoints.
-        standard object metadata; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#metadata
+        Standard object's metadata. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#metadata
 
         :param metadata: The metadata of this V1Endpoints.
         :type: V1ObjectMeta
@@ -123,7 +123,7 @@ class V1Endpoints(object):
     def subsets(self):
         """
         Gets the subsets of this V1Endpoints.
-        sets of addresses and ports that comprise a service
+        The set of all endpoints is the union of all subsets. Addresses are placed into subsets according to the IPs they share. A single address with multiple ports, some of which are ready and some of which are not (because they come from different containers) will result in the address being displayed in different subsets for the different ports. No address will appear in both Addresses and NotReadyAddresses in the same subset. Sets of addresses and ports that comprise a service.
 
         :return: The subsets of this V1Endpoints.
         :rtype: list[V1EndpointSubset]
@@ -134,7 +134,7 @@ class V1Endpoints(object):
     def subsets(self, subsets):
         """
         Sets the subsets of this V1Endpoints.
-        sets of addresses and ports that comprise a service
+        The set of all endpoints is the union of all subsets. Addresses are placed into subsets according to the IPs they share. A single address with multiple ports, some of which are ready and some of which are not (because they come from different containers) will result in the address being displayed in different subsets for the different ports. No address will appear in both Addresses and NotReadyAddresses in the same subset. Sets of addresses and ports that comprise a service.
 
         :param subsets: The subsets of this V1Endpoints.
         :type: list[V1EndpointSubset]

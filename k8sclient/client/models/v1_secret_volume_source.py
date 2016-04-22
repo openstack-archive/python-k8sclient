@@ -48,7 +48,7 @@ class V1SecretVolumeSource(object):
     def secret_name(self):
         """
         Gets the secret_name of this V1SecretVolumeSource.
-        secretName is the name of a secret in the pod's namespace; see http://releases.k8s.io/v1.0.4/docs/volumes.md#secrets
+        Name of the secret in the pod's namespace to use. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#secrets
 
         :return: The secret_name of this V1SecretVolumeSource.
         :rtype: str
@@ -59,7 +59,7 @@ class V1SecretVolumeSource(object):
     def secret_name(self, secret_name):
         """
         Sets the secret_name of this V1SecretVolumeSource.
-        secretName is the name of a secret in the pod's namespace; see http://releases.k8s.io/v1.0.4/docs/volumes.md#secrets
+        Name of the secret in the pod's namespace to use. More info: http://releases.k8s.io/release-1.2/docs/user-guide/volumes.md#secrets
 
         :param secret_name: The secret_name of this V1SecretVolumeSource.
         :type: str
