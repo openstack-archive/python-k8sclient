@@ -21,6 +21,7 @@ from . import models
 from .rest import RESTClient
 from .rest import ApiException
 
+import ast
 import os
 import re
 import urllib
@@ -259,10 +260,10 @@ class ApiClient(object):
             # for native types
             if klass in ['int', 'float', 'str', 'bool',
                          "date", 'datetime', "object"]:
-                klass = eval(klass)
+                klass = ast.literal_eval(klass)
             # for model types
             else:
-                klass = eval('models.' + klass)
+                klass = ast.literal_eval('models.' + klass)
 
         if klass in [int, float, str, bool]:
             return self.__deserialize_primitive(data, klass)
