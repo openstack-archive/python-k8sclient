@@ -51,7 +51,7 @@ class V1Capabilities(object):
     def add(self):
         """
         Gets the add of this V1Capabilities.
-        added capabilities
+        Added capabilities
 
         :return: The add of this V1Capabilities.
         :rtype: list[V1Capability]
@@ -62,7 +62,7 @@ class V1Capabilities(object):
     def add(self, add):
         """
         Sets the add of this V1Capabilities.
-        added capabilities
+        Added capabilities
 
         :param add: The add of this V1Capabilities.
         :type: list[V1Capability]
@@ -73,7 +73,7 @@ class V1Capabilities(object):
     def drop(self):
         """
         Gets the drop of this V1Capabilities.
-        droped capabilities
+        Removed capabilities
 
         :return: The drop of this V1Capabilities.
         :rtype: list[V1Capability]
@@ -84,7 +84,7 @@ class V1Capabilities(object):
     def drop(self, drop):
         """
         Sets the drop of this V1Capabilities.
-        droped capabilities
+        Removed capabilities
 
         :param drop: The drop of this V1Capabilities.
         :type: list[V1Capability]

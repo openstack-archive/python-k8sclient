@@ -36,22 +36,25 @@ class V1GitRepoVolumeSource(object):
         """
         self.swagger_types = {
             'repository': 'str',
-            'revision': 'str'
+            'revision': 'str',
+            'directory': 'str'
         }
 
         self.attribute_map = {
             'repository': 'repository',
-            'revision': 'revision'
+            'revision': 'revision',
+            'directory': 'directory'
         }
 
         self._repository = None
         self._revision = None
+        self._directory = None
 
     @property
     def repository(self):
         """
         Gets the repository of this V1GitRepoVolumeSource.
-        repository URL
+        Repository URL
 
         :return: The repository of this V1GitRepoVolumeSource.
         :rtype: str
@@ -62,7 +65,7 @@ class V1GitRepoVolumeSource(object):
     def repository(self, repository):
         """
         Sets the repository of this V1GitRepoVolumeSource.
-        repository URL
+        Repository URL
 
         :param repository: The repository of this V1GitRepoVolumeSource.
         :type: str
@@ -73,7 +76,7 @@ class V1GitRepoVolumeSource(object):
     def revision(self):
         """
         Gets the revision of this V1GitRepoVolumeSource.
-        commit hash for the specified revision
+        Commit hash for the specified revision.
 
         :return: The revision of this V1GitRepoVolumeSource.
         :rtype: str
@@ -84,12 +87,34 @@ class V1GitRepoVolumeSource(object):
     def revision(self, revision):
         """
         Sets the revision of this V1GitRepoVolumeSource.
-        commit hash for the specified revision
+        Commit hash for the specified revision.
 
         :param revision: The revision of this V1GitRepoVolumeSource.
         :type: str
         """
         self._revision = revision
+
+    @property
+    def directory(self):
+        """
+        Gets the directory of this V1GitRepoVolumeSource.
+        Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
+
+        :return: The directory of this V1GitRepoVolumeSource.
+        :rtype: str
+        """
+        return self._directory
+
+    @directory.setter
+    def directory(self, directory):
+        """
+        Sets the directory of this V1GitRepoVolumeSource.
+        Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
+
+        :param directory: The directory of this V1GitRepoVolumeSource.
+        :type: str
+        """
+        self._directory = directory
 
     def to_dict(self):
         """

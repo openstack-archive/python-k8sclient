@@ -23,6 +23,7 @@ from .rest import ApiException
 
 import os
 import re
+import urllib
 import json
 import mimetypes
 import random
@@ -33,18 +34,16 @@ from datetime import datetime
 from datetime import date
 
 # python 2 and python 3 compatibility library
-import six
 from six import iteritems
-import six.moves.builtins as __builtin__
-from six.moves.urllib import parse as urlparse
+
+try:
+    # for python3
+    from urllib.parse import quote
+except ImportError:
+    # for python2
+    from urllib import quote
 
 from .configuration import Configuration
-
-if six.PY3:
-    import io
-    file_type = io.IOBase
-else:
-    file_type = file  # noqa
 
 
 class ApiClient(object):
@@ -65,8 +64,7 @@ class ApiClient(object):
     :param header_value: a header value to pass when making calls to the API.
     """
     def __init__(self, host=Configuration().host,
-                 header_name=None, header_value=None, cookie=None,
-                 key_file=None, cert_file=None, ca_certs=None):
+                 header_name=None, header_value=None, cookie=None):
 
         """
         Constructor of the class.
@@ -78,9 +76,6 @@ class ApiClient(object):
         self.cookie = cookie
         # Set default User-Agent.
         self.user_agent = 'Python-Swagger'
-        self.RESTClient = RESTClient(key_file=key_file,
-                                     cert_file=cert_file,
-                                     ca_certs=ca_certs)
 
     @property
     def user_agent(self):
@@ -116,7 +111,7 @@ class ApiClient(object):
         if path_params:
             path_params = self.sanitize_for_serialization(path_params)
             for k, v in iteritems(path_params):
-                replacement = urlparse.quote(str(self.to_path_value(v)))
+                replacement = quote(str(self.to_path_value(v)))
                 resource_path = resource_path.\
                     replace('{' + k + '}', replacement)
 
@@ -191,8 +186,7 @@ class ApiClient(object):
         """
         if isinstance(obj, type(None)):
             return None
-        elif isinstance(obj, (six.text_type, str, int, float,
-                              bool, tuple, file_type)):
+        elif isinstance(obj, (str, int, float, bool, tuple)):
             return obj
         elif isinstance(obj, list):
             return [self.sanitize_for_serialization(sub_obj)
@@ -263,15 +257,12 @@ class ApiClient(object):
 
             # convert str to class
             # for native types
-            if klass in ['int', 'float', 'str', 'bool', 'object']:
-                klass = getattr(__builtin__, klass)
-            elif klass == 'date':
-                klass = date
-            elif klass == 'datetime':
-                klass = datetime
+            if klass in ['int', 'float', 'str', 'bool',
+                         "date", 'datetime', "object"]:
+                klass = eval(klass)
             # for model types
             else:
-                klass = getattr(models, klass)
+                klass = eval('models.' + klass)
 
         if klass in [int, float, str, bool]:
             return self.__deserialize_primitive(data, klass)
@@ -333,38 +324,38 @@ class ApiClient(object):
     def request(self, method, url, query_params=None, headers=None,
                 post_params=None, body=None):
         """
-        Makes the HTTP request using instance of rest client.
+        Makes the HTTP request using RESTClient.
         """
         if method == "GET":
-            return self.RESTClient.GET(url,
-                                       query_params=query_params,
-                                       headers=headers)
+            return RESTClient.GET(url,
+                                  query_params=query_params,
+                                  headers=headers)
         elif method == "HEAD":
-            return self.RESTClient.HEAD(url,
-                                        query_params=query_params,
-                                        headers=headers)
+            return RESTClient.HEAD(url,
+                                   query_params=query_params,
+                                   headers=headers)
         elif method == "POST":
-            return self.RESTClient.POST(url,
-                                        query_params=query_params,
-                                        headers=headers,
-                                        post_params=post_params,
-                                        body=body)
+            return RESTClient.POST(url,
+                                   query_params=query_params,
+                                   headers=headers,
+                                   post_params=post_params,
+                                   body=body)
         elif method == "PUT":
-            return self.RESTClient.PUT(url,
-                                       query_params=query_params,
-                                       headers=headers,
-                                       post_params=post_params,
-                                       body=body)
+            return RESTClient.PUT(url,
+                                  query_params=query_params,
+                                  headers=headers,
+                                  post_params=post_params,
+                                  body=body)
         elif method == "PATCH":
-            return self.RESTClient.PATCH(url,
-                                         query_params=query_params,
-                                         headers=headers,
-                                         post_params=post_params,
-                                         body=body)
+            return RESTClient.PATCH(url,
+                                    query_params=query_params,
+                                    headers=headers,
+                                    post_params=post_params,
+                                    body=body)
         elif method == "DELETE":
-            return self.RESTClient.DELETE(url,
-                                          query_params=query_params,
-                                          headers=headers)
+            return RESTClient.DELETE(url,
+                                     query_params=query_params,
+                                     headers=headers)
         else:
             raise ValueError(
                 "http method must be `GET`, `HEAD`,"
@@ -496,7 +487,7 @@ class ApiClient(object):
         try:
             value = klass(data)
         except UnicodeEncodeError:
-            value = six.text_type(data)
+            value = unicode(data)
         except TypeError:
             value = data
         return value

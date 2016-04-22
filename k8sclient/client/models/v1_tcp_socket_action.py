@@ -48,7 +48,7 @@ class V1TCPSocketAction(object):
     def port(self):
         """
         Gets the port of this V1TCPSocketAction.
-        number of name of the port to access on the container; number must be in the range 1 to 65535; name must be an IANA_SVC_NAME
+        Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
         :return: The port of this V1TCPSocketAction.
         :rtype: str
@@ -59,7 +59,7 @@ class V1TCPSocketAction(object):
     def port(self, port):
         """
         Sets the port of this V1TCPSocketAction.
-        number of name of the port to access on the container; number must be in the range 1 to 65535; name must be an IANA_SVC_NAME
+        Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
 
         :param port: The port of this V1TCPSocketAction.
         :type: str

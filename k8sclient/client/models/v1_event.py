@@ -44,7 +44,8 @@ class V1Event(object):
             'source': 'V1EventSource',
             'first_timestamp': 'str',
             'last_timestamp': 'str',
-            'count': 'int'
+            'count': 'int',
+            'type': 'str'
         }
 
         self.attribute_map = {
@@ -57,7 +58,8 @@ class V1Event(object):
             'source': 'source',
             'first_timestamp': 'firstTimestamp',
             'last_timestamp': 'lastTimestamp',
-            'count': 'count'
+            'count': 'count',
+            'type': 'type'
         }
 
         self._kind = None
@@ -70,12 +72,13 @@ class V1Event(object):
         self._first_timestamp = None
         self._last_timestamp = None
         self._count = None
+        self._type = None
 
     @property
     def kind(self):
         """
         Gets the kind of this V1Event.
-        kind of object, in CamelCase; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#types-kinds
+        Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds
 
         :return: The kind of this V1Event.
         :rtype: str
@@ -86,7 +89,7 @@ class V1Event(object):
     def kind(self, kind):
         """
         Sets the kind of this V1Event.
-        kind of object, in CamelCase; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#types-kinds
+        Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds
 
         :param kind: The kind of this V1Event.
         :type: str
@@ -97,7 +100,7 @@ class V1Event(object):
     def api_version(self):
         """
         Gets the api_version of this V1Event.
-        version of the schema the object should have; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#resources
+        APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#resources
 
         :return: The api_version of this V1Event.
         :rtype: str
@@ -108,7 +111,7 @@ class V1Event(object):
     def api_version(self, api_version):
         """
         Sets the api_version of this V1Event.
-        version of the schema the object should have; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#resources
+        APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#resources
 
         :param api_version: The api_version of this V1Event.
         :type: str
@@ -119,7 +122,7 @@ class V1Event(object):
     def metadata(self):
         """
         Gets the metadata of this V1Event.
-        standard object metadata; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#metadata
+        Standard object's metadata. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#metadata
 
         :return: The metadata of this V1Event.
         :rtype: V1ObjectMeta
@@ -130,7 +133,7 @@ class V1Event(object):
     def metadata(self, metadata):
         """
         Sets the metadata of this V1Event.
-        standard object metadata; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#metadata
+        Standard object's metadata. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#metadata
 
         :param metadata: The metadata of this V1Event.
         :type: V1ObjectMeta
@@ -141,7 +144,7 @@ class V1Event(object):
     def involved_object(self):
         """
         Gets the involved_object of this V1Event.
-        object this event is about
+        The object that this event is about.
 
         :return: The involved_object of this V1Event.
         :rtype: V1ObjectReference
@@ -152,7 +155,7 @@ class V1Event(object):
     def involved_object(self, involved_object):
         """
         Sets the involved_object of this V1Event.
-        object this event is about
+        The object that this event is about.
 
         :param involved_object: The involved_object of this V1Event.
         :type: V1ObjectReference
@@ -163,7 +166,7 @@ class V1Event(object):
     def reason(self):
         """
         Gets the reason of this V1Event.
-        short, machine understandable string that gives the reason for the transition into the object's current status
+        This should be a short, machine understandable string that gives the reason for the transition into the object's current status.
 
         :return: The reason of this V1Event.
         :rtype: str
@@ -174,7 +177,7 @@ class V1Event(object):
     def reason(self, reason):
         """
         Sets the reason of this V1Event.
-        short, machine understandable string that gives the reason for the transition into the object's current status
+        This should be a short, machine understandable string that gives the reason for the transition into the object's current status.
 
         :param reason: The reason of this V1Event.
         :type: str
@@ -185,7 +188,7 @@ class V1Event(object):
     def message(self):
         """
         Gets the message of this V1Event.
-        human-readable description of the status of this operation
+        A human-readable description of the status of this operation.
 
         :return: The message of this V1Event.
         :rtype: str
@@ -196,7 +199,7 @@ class V1Event(object):
     def message(self, message):
         """
         Sets the message of this V1Event.
-        human-readable description of the status of this operation
+        A human-readable description of the status of this operation.
 
         :param message: The message of this V1Event.
         :type: str
@@ -207,7 +210,7 @@ class V1Event(object):
     def source(self):
         """
         Gets the source of this V1Event.
-        component reporting this event
+        The component reporting this event. Should be a short machine understandable string.
 
         :return: The source of this V1Event.
         :rtype: V1EventSource
@@ -218,7 +221,7 @@ class V1Event(object):
     def source(self, source):
         """
         Sets the source of this V1Event.
-        component reporting this event
+        The component reporting this event. Should be a short machine understandable string.
 
         :param source: The source of this V1Event.
         :type: V1EventSource
@@ -229,7 +232,7 @@ class V1Event(object):
     def first_timestamp(self):
         """
         Gets the first_timestamp of this V1Event.
-        the time at which the event was first recorded
+        The time at which the event was first recorded. (Time of server receipt is in TypeMeta.)
 
         :return: The first_timestamp of this V1Event.
         :rtype: str
@@ -240,7 +243,7 @@ class V1Event(object):
     def first_timestamp(self, first_timestamp):
         """
         Sets the first_timestamp of this V1Event.
-        the time at which the event was first recorded
+        The time at which the event was first recorded. (Time of server receipt is in TypeMeta.)
 
         :param first_timestamp: The first_timestamp of this V1Event.
         :type: str
@@ -251,7 +254,7 @@ class V1Event(object):
     def last_timestamp(self):
         """
         Gets the last_timestamp of this V1Event.
-        the time at which the most recent occurrence of this event was recorded
+        The time at which the most recent occurrence of this event was recorded.
 
         :return: The last_timestamp of this V1Event.
         :rtype: str
@@ -262,7 +265,7 @@ class V1Event(object):
     def last_timestamp(self, last_timestamp):
         """
         Sets the last_timestamp of this V1Event.
-        the time at which the most recent occurrence of this event was recorded
+        The time at which the most recent occurrence of this event was recorded.
 
         :param last_timestamp: The last_timestamp of this V1Event.
         :type: str
@@ -273,7 +276,7 @@ class V1Event(object):
     def count(self):
         """
         Gets the count of this V1Event.
-        the number of times this event has occurred
+        The number of times this event has occurred.
 
         :return: The count of this V1Event.
         :rtype: int
@@ -284,12 +287,34 @@ class V1Event(object):
     def count(self, count):
         """
         Sets the count of this V1Event.
-        the number of times this event has occurred
+        The number of times this event has occurred.
 
         :param count: The count of this V1Event.
         :type: int
         """
         self._count = count
+
+    @property
+    def type(self):
+        """
+        Gets the type of this V1Event.
+        Type of this event (Normal, Warning), new types could be added in the future
+
+        :return: The type of this V1Event.
+        :rtype: str
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """
+        Sets the type of this V1Event.
+        Type of this event (Normal, Warning), new types could be added in the future
+
+        :param type: The type of this V1Event.
+        :type: str
+        """
+        self._type = type
 
     def to_dict(self):
         """

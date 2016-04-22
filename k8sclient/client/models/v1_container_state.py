@@ -54,7 +54,7 @@ class V1ContainerState(object):
     def waiting(self):
         """
         Gets the waiting of this V1ContainerState.
-        details about a waiting container
+        Details about a waiting container
 
         :return: The waiting of this V1ContainerState.
         :rtype: V1ContainerStateWaiting
@@ -65,7 +65,7 @@ class V1ContainerState(object):
     def waiting(self, waiting):
         """
         Sets the waiting of this V1ContainerState.
-        details about a waiting container
+        Details about a waiting container
 
         :param waiting: The waiting of this V1ContainerState.
         :type: V1ContainerStateWaiting
@@ -76,7 +76,7 @@ class V1ContainerState(object):
     def running(self):
         """
         Gets the running of this V1ContainerState.
-        details about a running container
+        Details about a running container
 
         :return: The running of this V1ContainerState.
         :rtype: V1ContainerStateRunning
@@ -87,7 +87,7 @@ class V1ContainerState(object):
     def running(self, running):
         """
         Sets the running of this V1ContainerState.
-        details about a running container
+        Details about a running container
 
         :param running: The running of this V1ContainerState.
         :type: V1ContainerStateRunning
@@ -98,7 +98,7 @@ class V1ContainerState(object):
     def terminated(self):
         """
         Gets the terminated of this V1ContainerState.
-        details about a terminated container
+        Details about a terminated container
 
         :return: The terminated of this V1ContainerState.
         :rtype: V1ContainerStateTerminated
@@ -109,7 +109,7 @@ class V1ContainerState(object):
     def terminated(self, terminated):
         """
         Sets the terminated of this V1ContainerState.
-        details about a terminated container
+        Details about a terminated container
 
         :param terminated: The terminated of this V1ContainerState.
         :type: V1ContainerStateTerminated

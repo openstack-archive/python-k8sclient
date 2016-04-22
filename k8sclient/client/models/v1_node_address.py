@@ -51,7 +51,7 @@ class V1NodeAddress(object):
     def type(self):
         """
         Gets the type of this V1NodeAddress.
-        node address type, one of Hostname, ExternalIP or InternalIP
+        Node address type, one of Hostname, ExternalIP or InternalIP.
 
         :return: The type of this V1NodeAddress.
         :rtype: str
@@ -62,7 +62,7 @@ class V1NodeAddress(object):
     def type(self, type):
         """
         Sets the type of this V1NodeAddress.
-        node address type, one of Hostname, ExternalIP or InternalIP
+        Node address type, one of Hostname, ExternalIP or InternalIP.
 
         :param type: The type of this V1NodeAddress.
         :type: str
@@ -73,7 +73,7 @@ class V1NodeAddress(object):
     def address(self):
         """
         Gets the address of this V1NodeAddress.
-        the node address
+        The node address.
 
         :return: The address of this V1NodeAddress.
         :rtype: str
@@ -84,7 +84,7 @@ class V1NodeAddress(object):
     def address(self, address):
         """
         Sets the address of this V1NodeAddress.
-        the node address
+        The node address.
 
         :param address: The address of this V1NodeAddress.
         :type: str

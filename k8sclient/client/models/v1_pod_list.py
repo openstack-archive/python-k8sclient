@@ -37,7 +37,7 @@ class V1PodList(object):
         self.swagger_types = {
             'kind': 'str',
             'api_version': 'str',
-            'metadata': 'V1ListMeta',
+            'metadata': 'UnversionedListMeta',
             'items': 'list[V1Pod]'
         }
 
@@ -57,7 +57,7 @@ class V1PodList(object):
     def kind(self):
         """
         Gets the kind of this V1PodList.
-        kind of object, in CamelCase; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#types-kinds
+        Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds
 
         :return: The kind of this V1PodList.
         :rtype: str
@@ -68,7 +68,7 @@ class V1PodList(object):
     def kind(self, kind):
         """
         Sets the kind of this V1PodList.
-        kind of object, in CamelCase; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#types-kinds
+        Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds
 
         :param kind: The kind of this V1PodList.
         :type: str
@@ -79,7 +79,7 @@ class V1PodList(object):
     def api_version(self):
         """
         Gets the api_version of this V1PodList.
-        version of the schema the object should have; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#resources
+        APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#resources
 
         :return: The api_version of this V1PodList.
         :rtype: str
@@ -90,7 +90,7 @@ class V1PodList(object):
     def api_version(self, api_version):
         """
         Sets the api_version of this V1PodList.
-        version of the schema the object should have; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#resources
+        APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#resources
 
         :param api_version: The api_version of this V1PodList.
         :type: str
@@ -101,10 +101,10 @@ class V1PodList(object):
     def metadata(self):
         """
         Gets the metadata of this V1PodList.
-        standard list metadata; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#types-kinds
+        Standard list metadata. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds
 
         :return: The metadata of this V1PodList.
-        :rtype: V1ListMeta
+        :rtype: UnversionedListMeta
         """
         return self._metadata
 
@@ -112,10 +112,10 @@ class V1PodList(object):
     def metadata(self, metadata):
         """
         Sets the metadata of this V1PodList.
-        standard list metadata; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#types-kinds
+        Standard list metadata. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds
 
         :param metadata: The metadata of this V1PodList.
-        :type: V1ListMeta
+        :type: UnversionedListMeta
         """
         self._metadata = metadata
 
@@ -123,7 +123,7 @@ class V1PodList(object):
     def items(self):
         """
         Gets the items of this V1PodList.
-        list of pods; see http://releases.k8s.io/v1.0.4/docs/pods.md
+        List of pods. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pods.md
 
         :return: The items of this V1PodList.
         :rtype: list[V1Pod]
@@ -134,7 +134,7 @@ class V1PodList(object):
     def items(self, items):
         """
         Sets the items of this V1PodList.
-        list of pods; see http://releases.k8s.io/v1.0.4/docs/pods.md
+        List of pods. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pods.md
 
         :param items: The items of this V1PodList.
         :type: list[V1Pod]

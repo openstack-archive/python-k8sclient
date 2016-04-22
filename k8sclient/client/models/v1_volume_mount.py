@@ -54,7 +54,7 @@ class V1VolumeMount(object):
     def name(self):
         """
         Gets the name of this V1VolumeMount.
-        name of the volume to mount
+        This must match the Name of a Volume.
 
         :return: The name of this V1VolumeMount.
         :rtype: str
@@ -65,7 +65,7 @@ class V1VolumeMount(object):
     def name(self, name):
         """
         Sets the name of this V1VolumeMount.
-        name of the volume to mount
+        This must match the Name of a Volume.
 
         :param name: The name of this V1VolumeMount.
         :type: str
@@ -76,7 +76,7 @@ class V1VolumeMount(object):
     def read_only(self):
         """
         Gets the read_only of this V1VolumeMount.
-        mounted read-only if true, read-write otherwise (false or unspecified)
+        Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.
 
         :return: The read_only of this V1VolumeMount.
         :rtype: bool
@@ -87,7 +87,7 @@ class V1VolumeMount(object):
     def read_only(self, read_only):
         """
         Sets the read_only of this V1VolumeMount.
-        mounted read-only if true, read-write otherwise (false or unspecified)
+        Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.
 
         :param read_only: The read_only of this V1VolumeMount.
         :type: bool
@@ -98,7 +98,7 @@ class V1VolumeMount(object):
     def mount_path(self):
         """
         Gets the mount_path of this V1VolumeMount.
-        path within the container at which the volume should be mounted
+        Path within the container at which the volume should be mounted.  Must not contain ':'.
 
         :return: The mount_path of this V1VolumeMount.
         :rtype: str
@@ -109,7 +109,7 @@ class V1VolumeMount(object):
     def mount_path(self, mount_path):
         """
         Sets the mount_path of this V1VolumeMount.
-        path within the container at which the volume should be mounted
+        Path within the container at which the volume should be mounted.  Must not contain ':'.
 
         :param mount_path: The mount_path of this V1VolumeMount.
         :type: str

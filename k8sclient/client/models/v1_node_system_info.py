@@ -69,7 +69,7 @@ class V1NodeSystemInfo(object):
     def machine_id(self):
         """
         Gets the machine_id of this V1NodeSystemInfo.
-        machine-id reported by the node
+        Machine ID reported by the node.
 
         :return: The machine_id of this V1NodeSystemInfo.
         :rtype: str
@@ -80,7 +80,7 @@ class V1NodeSystemInfo(object):
     def machine_id(self, machine_id):
         """
         Sets the machine_id of this V1NodeSystemInfo.
-        machine-id reported by the node
+        Machine ID reported by the node.
 
         :param machine_id: The machine_id of this V1NodeSystemInfo.
         :type: str
@@ -91,7 +91,7 @@ class V1NodeSystemInfo(object):
     def system_uuid(self):
         """
         Gets the system_uuid of this V1NodeSystemInfo.
-        system-uuid reported by the node
+        System UUID reported by the node.
 
         :return: The system_uuid of this V1NodeSystemInfo.
         :rtype: str
@@ -102,7 +102,7 @@ class V1NodeSystemInfo(object):
     def system_uuid(self, system_uuid):
         """
         Sets the system_uuid of this V1NodeSystemInfo.
-        system-uuid reported by the node
+        System UUID reported by the node.
 
         :param system_uuid: The system_uuid of this V1NodeSystemInfo.
         :type: str
@@ -113,7 +113,7 @@ class V1NodeSystemInfo(object):
     def boot_id(self):
         """
         Gets the boot_id of this V1NodeSystemInfo.
-        boot id is the boot-id reported by the node
+        Boot ID reported by the node.
 
         :return: The boot_id of this V1NodeSystemInfo.
         :rtype: str
@@ -124,7 +124,7 @@ class V1NodeSystemInfo(object):
     def boot_id(self, boot_id):
         """
         Sets the boot_id of this V1NodeSystemInfo.
-        boot id is the boot-id reported by the node
+        Boot ID reported by the node.
 
         :param boot_id: The boot_id of this V1NodeSystemInfo.
         :type: str
@@ -135,7 +135,7 @@ class V1NodeSystemInfo(object):
     def kernel_version(self):
         """
         Gets the kernel_version of this V1NodeSystemInfo.
-        Kernel version reported by the node from 'uname -r' (e.g. 3.16.0-0.bpo.4-amd64)
+        Kernel Version reported by the node from 'uname -r' (e.g. 3.16.0-0.bpo.4-amd64).
 
         :return: The kernel_version of this V1NodeSystemInfo.
         :rtype: str
@@ -146,7 +146,7 @@ class V1NodeSystemInfo(object):
     def kernel_version(self, kernel_version):
         """
         Sets the kernel_version of this V1NodeSystemInfo.
-        Kernel version reported by the node from 'uname -r' (e.g. 3.16.0-0.bpo.4-amd64)
+        Kernel Version reported by the node from 'uname -r' (e.g. 3.16.0-0.bpo.4-amd64).
 
         :param kernel_version: The kernel_version of this V1NodeSystemInfo.
         :type: str
@@ -157,7 +157,7 @@ class V1NodeSystemInfo(object):
     def os_image(self):
         """
         Gets the os_image of this V1NodeSystemInfo.
-        OS image used reported by the node from /etc/os-release (e.g. Debian GNU/Linux 7 (wheezy))
+        OS Image reported by the node from /etc/os-release (e.g. Debian GNU/Linux 7 (wheezy)).
 
         :return: The os_image of this V1NodeSystemInfo.
         :rtype: str
@@ -168,7 +168,7 @@ class V1NodeSystemInfo(object):
     def os_image(self, os_image):
         """
         Sets the os_image of this V1NodeSystemInfo.
-        OS image used reported by the node from /etc/os-release (e.g. Debian GNU/Linux 7 (wheezy))
+        OS Image reported by the node from /etc/os-release (e.g. Debian GNU/Linux 7 (wheezy)).
 
         :param os_image: The os_image of this V1NodeSystemInfo.
         :type: str
@@ -179,7 +179,7 @@ class V1NodeSystemInfo(object):
     def container_runtime_version(self):
         """
         Gets the container_runtime_version of this V1NodeSystemInfo.
-        Container runtime version reported by the node through runtime remote API (e.g. docker://1.5.0)
+        ContainerRuntime Version reported by the node through runtime remote API (e.g. docker://1.5.0).
 
         :return: The container_runtime_version of this V1NodeSystemInfo.
         :rtype: str
@@ -190,7 +190,7 @@ class V1NodeSystemInfo(object):
     def container_runtime_version(self, container_runtime_version):
         """
         Sets the container_runtime_version of this V1NodeSystemInfo.
-        Container runtime version reported by the node through runtime remote API (e.g. docker://1.5.0)
+        ContainerRuntime Version reported by the node through runtime remote API (e.g. docker://1.5.0).
 
         :param container_runtime_version: The container_runtime_version of this V1NodeSystemInfo.
         :type: str
@@ -201,7 +201,7 @@ class V1NodeSystemInfo(object):
     def kubelet_version(self):
         """
         Gets the kubelet_version of this V1NodeSystemInfo.
-        Kubelet version reported by the node
+        Kubelet Version reported by the node.
 
         :return: The kubelet_version of this V1NodeSystemInfo.
         :rtype: str
@@ -212,7 +212,7 @@ class V1NodeSystemInfo(object):
     def kubelet_version(self, kubelet_version):
         """
         Sets the kubelet_version of this V1NodeSystemInfo.
-        Kubelet version reported by the node
+        Kubelet Version reported by the node.
 
         :param kubelet_version: The kubelet_version of this V1NodeSystemInfo.
         :type: str
@@ -223,7 +223,7 @@ class V1NodeSystemInfo(object):
     def kube_proxy_version(self):
         """
         Gets the kube_proxy_version of this V1NodeSystemInfo.
-        Kube-proxy version reported by the node
+        KubeProxy Version reported by the node.
 
         :return: The kube_proxy_version of this V1NodeSystemInfo.
         :rtype: str
@@ -234,7 +234,7 @@ class V1NodeSystemInfo(object):
     def kube_proxy_version(self, kube_proxy_version):
         """
         Sets the kube_proxy_version of this V1NodeSystemInfo.
-        Kube-proxy version reported by the node
+        KubeProxy Version reported by the node.
 
         :param kube_proxy_version: The kube_proxy_version of this V1NodeSystemInfo.
         :type: str

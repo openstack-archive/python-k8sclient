@@ -36,22 +36,34 @@ class V1PodCondition(object):
         """
         self.swagger_types = {
             'type': 'str',
-            'status': 'str'
+            'status': 'str',
+            'last_probe_time': 'str',
+            'last_transition_time': 'str',
+            'reason': 'str',
+            'message': 'str'
         }
 
         self.attribute_map = {
             'type': 'type',
-            'status': 'status'
+            'status': 'status',
+            'last_probe_time': 'lastProbeTime',
+            'last_transition_time': 'lastTransitionTime',
+            'reason': 'reason',
+            'message': 'message'
         }
 
         self._type = None
         self._status = None
+        self._last_probe_time = None
+        self._last_transition_time = None
+        self._reason = None
+        self._message = None
 
     @property
     def type(self):
         """
         Gets the type of this V1PodCondition.
-        kind of the condition, currently only Ready; see http://releases.k8s.io/v1.0.4/docs/pod-states.md#pod-conditions
+        Type is the type of the condition. Currently only Ready. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#pod-conditions
 
         :return: The type of this V1PodCondition.
         :rtype: str
@@ -62,7 +74,7 @@ class V1PodCondition(object):
     def type(self, type):
         """
         Sets the type of this V1PodCondition.
-        kind of the condition, currently only Ready; see http://releases.k8s.io/v1.0.4/docs/pod-states.md#pod-conditions
+        Type is the type of the condition. Currently only Ready. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#pod-conditions
 
         :param type: The type of this V1PodCondition.
         :type: str
@@ -73,7 +85,7 @@ class V1PodCondition(object):
     def status(self):
         """
         Gets the status of this V1PodCondition.
-        status of the condition, one of True, False, Unknown; see http://releases.k8s.io/v1.0.4/docs/pod-states.md#pod-conditions
+        Status is the status of the condition. Can be True, False, Unknown. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#pod-conditions
 
         :return: The status of this V1PodCondition.
         :rtype: str
@@ -84,12 +96,100 @@ class V1PodCondition(object):
     def status(self, status):
         """
         Sets the status of this V1PodCondition.
-        status of the condition, one of True, False, Unknown; see http://releases.k8s.io/v1.0.4/docs/pod-states.md#pod-conditions
+        Status is the status of the condition. Can be True, False, Unknown. More info: http://releases.k8s.io/release-1.2/docs/user-guide/pod-states.md#pod-conditions
 
         :param status: The status of this V1PodCondition.
         :type: str
         """
         self._status = status
+
+    @property
+    def last_probe_time(self):
+        """
+        Gets the last_probe_time of this V1PodCondition.
+        Last time we probed the condition.
+
+        :return: The last_probe_time of this V1PodCondition.
+        :rtype: str
+        """
+        return self._last_probe_time
+
+    @last_probe_time.setter
+    def last_probe_time(self, last_probe_time):
+        """
+        Sets the last_probe_time of this V1PodCondition.
+        Last time we probed the condition.
+
+        :param last_probe_time: The last_probe_time of this V1PodCondition.
+        :type: str
+        """
+        self._last_probe_time = last_probe_time
+
+    @property
+    def last_transition_time(self):
+        """
+        Gets the last_transition_time of this V1PodCondition.
+        Last time the condition transitioned from one status to another.
+
+        :return: The last_transition_time of this V1PodCondition.
+        :rtype: str
+        """
+        return self._last_transition_time
+
+    @last_transition_time.setter
+    def last_transition_time(self, last_transition_time):
+        """
+        Sets the last_transition_time of this V1PodCondition.
+        Last time the condition transitioned from one status to another.
+
+        :param last_transition_time: The last_transition_time of this V1PodCondition.
+        :type: str
+        """
+        self._last_transition_time = last_transition_time
+
+    @property
+    def reason(self):
+        """
+        Gets the reason of this V1PodCondition.
+        Unique, one-word, CamelCase reason for the condition's last transition.
+
+        :return: The reason of this V1PodCondition.
+        :rtype: str
+        """
+        return self._reason
+
+    @reason.setter
+    def reason(self, reason):
+        """
+        Sets the reason of this V1PodCondition.
+        Unique, one-word, CamelCase reason for the condition's last transition.
+
+        :param reason: The reason of this V1PodCondition.
+        :type: str
+        """
+        self._reason = reason
+
+    @property
+    def message(self):
+        """
+        Gets the message of this V1PodCondition.
+        Human-readable message indicating details about last transition.
+
+        :return: The message of this V1PodCondition.
+        :rtype: str
+        """
+        return self._message
+
+    @message.setter
+    def message(self, message):
+        """
+        Sets the message of this V1PodCondition.
+        Human-readable message indicating details about last transition.
+
+        :param message: The message of this V1PodCondition.
+        :type: str
+        """
+        self._message = message
 
     def to_dict(self):
         """

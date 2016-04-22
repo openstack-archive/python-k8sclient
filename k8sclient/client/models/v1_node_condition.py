@@ -63,7 +63,7 @@ class V1NodeCondition(object):
     def type(self):
         """
         Gets the type of this V1NodeCondition.
-        type of node condition, currently only Ready
+        Type of node condition.
 
         :return: The type of this V1NodeCondition.
         :rtype: str
@@ -74,7 +74,7 @@ class V1NodeCondition(object):
     def type(self, type):
         """
         Sets the type of this V1NodeCondition.
-        type of node condition, currently only Ready
+        Type of node condition.
 
         :param type: The type of this V1NodeCondition.
         :type: str
@@ -85,7 +85,7 @@ class V1NodeCondition(object):
     def status(self):
         """
         Gets the status of this V1NodeCondition.
-        status of the condition, one of True, False, Unknown
+        Status of the condition, one of True, False, Unknown.
 
         :return: The status of this V1NodeCondition.
         :rtype: str
@@ -96,7 +96,7 @@ class V1NodeCondition(object):
     def status(self, status):
         """
         Sets the status of this V1NodeCondition.
-        status of the condition, one of True, False, Unknown
+        Status of the condition, one of True, False, Unknown.
 
         :param status: The status of this V1NodeCondition.
         :type: str
@@ -107,7 +107,7 @@ class V1NodeCondition(object):
     def last_heartbeat_time(self):
         """
         Gets the last_heartbeat_time of this V1NodeCondition.
-        last time we got an update on a given condition
+        Last time we got an update on a given condition.
 
         :return: The last_heartbeat_time of this V1NodeCondition.
         :rtype: str
@@ -118,7 +118,7 @@ class V1NodeCondition(object):
     def last_heartbeat_time(self, last_heartbeat_time):
         """
         Sets the last_heartbeat_time of this V1NodeCondition.
-        last time we got an update on a given condition
+        Last time we got an update on a given condition.
 
         :param last_heartbeat_time: The last_heartbeat_time of this V1NodeCondition.
         :type: str
@@ -129,7 +129,7 @@ class V1NodeCondition(object):
     def last_transition_time(self):
         """
         Gets the last_transition_time of this V1NodeCondition.
-        last time the condition transit from one status to another
+        Last time the condition transit from one status to another.
 
         :return: The last_transition_time of this V1NodeCondition.
         :rtype: str
@@ -140,7 +140,7 @@ class V1NodeCondition(object):
     def last_transition_time(self, last_transition_time):
         """
         Sets the last_transition_time of this V1NodeCondition.
-        last time the condition transit from one status to another
+        Last time the condition transit from one status to another.
 
         :param last_transition_time: The last_transition_time of this V1NodeCondition.
         :type: str
@@ -151,7 +151,7 @@ class V1NodeCondition(object):
     def reason(self):
         """
         Gets the reason of this V1NodeCondition.
-        (brief) reason for the condition's last transition
+        (brief) reason for the condition's last transition.
 
         :return: The reason of this V1NodeCondition.
         :rtype: str
@@ -162,7 +162,7 @@ class V1NodeCondition(object):
     def reason(self, reason):
         """
         Sets the reason of this V1NodeCondition.
-        (brief) reason for the condition's last transition
+        (brief) reason for the condition's last transition.
 
         :param reason: The reason of this V1NodeCondition.
         :type: str
@@ -173,7 +173,7 @@ class V1NodeCondition(object):
     def message(self):
         """
         Gets the message of this V1NodeCondition.
-        human readable message indicating details about last transition
+        Human readable message indicating details about last transition.
 
         :return: The message of this V1NodeCondition.
         :rtype: str
@@ -184,7 +184,7 @@ class V1NodeCondition(object):
     def message(self, message):
         """
         Sets the message of this V1NodeCondition.
-        human readable message indicating details about last transition
+        Human readable message indicating details about last transition.
 
         :param message: The message of this V1NodeCondition.
         :type: str
