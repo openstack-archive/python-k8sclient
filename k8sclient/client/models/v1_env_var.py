@@ -54,7 +54,7 @@ class V1EnvVar(object):
     def name(self):
         """
         Gets the name of this V1EnvVar.
-        name of the environment variable; must be a C_IDENTIFIER
+        Name of the environment variable. Must be a C_IDENTIFIER.
 
         :return: The name of this V1EnvVar.
         :rtype: str
@@ -65,7 +65,7 @@ class V1EnvVar(object):
     def name(self, name):
         """
         Sets the name of this V1EnvVar.
-        name of the environment variable; must be a C_IDENTIFIER
+        Name of the environment variable. Must be a C_IDENTIFIER.
 
         :param name: The name of this V1EnvVar.
         :type: str
@@ -76,7 +76,7 @@ class V1EnvVar(object):
     def value(self):
         """
         Gets the value of this V1EnvVar.
-        value of the environment variable; defaults to empty string; variable references $(VAR_NAME) are expanded using the previously defined environment varibles in the container and any service environment variables; if a variable cannot be resolved, the reference in the input string will be unchanged; the $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME) ; escaped references will never be expanded, regardless of whether the variable exists or not
+        Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\".
 
         :return: The value of this V1EnvVar.
         :rtype: str
@@ -87,7 +87,7 @@ class V1EnvVar(object):
     def value(self, value):
         """
         Sets the value of this V1EnvVar.
-        value of the environment variable; defaults to empty string; variable references $(VAR_NAME) are expanded using the previously defined environment varibles in the container and any service environment variables; if a variable cannot be resolved, the reference in the input string will be unchanged; the $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME) ; escaped references will never be expanded, regardless of whether the variable exists or not
+        Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\".
 
         :param value: The value of this V1EnvVar.
         :type: str
@@ -98,7 +98,7 @@ class V1EnvVar(object):
     def value_from(self):
         """
         Gets the value_from of this V1EnvVar.
-        source for the environment variable's value; cannot be used if value is not empty
+        Source for the environment variable's value. Cannot be used if value is not empty.
 
         :return: The value_from of this V1EnvVar.
         :rtype: V1EnvVarSource
@@ -109,7 +109,7 @@ class V1EnvVar(object):
     def value_from(self, value_from):
         """
         Sets the value_from of this V1EnvVar.
-        source for the environment variable's value; cannot be used if value is not empty
+        Source for the environment variable's value. Cannot be used if value is not empty.
 
         :param value_from: The value_from of this V1EnvVar.
         :type: V1EnvVarSource

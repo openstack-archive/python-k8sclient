@@ -48,7 +48,7 @@ class V1LimitRangeSpec(object):
     def limits(self):
         """
         Gets the limits of this V1LimitRangeSpec.
-        limits is the list of LimitRangeItem objects that are enforced
+        Limits is the list of LimitRangeItem objects that are enforced.
 
         :return: The limits of this V1LimitRangeSpec.
         :rtype: list[V1LimitRangeItem]
@@ -59,7 +59,7 @@ class V1LimitRangeSpec(object):
     def limits(self, limits):
         """
         Sets the limits of this V1LimitRangeSpec.
-        limits is the list of LimitRangeItem objects that are enforced
+        Limits is the list of LimitRangeItem objects that are enforced.
 
         :param limits: The limits of this V1LimitRangeSpec.
         :type: list[V1LimitRangeItem]

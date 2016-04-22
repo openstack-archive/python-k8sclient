@@ -36,22 +36,25 @@ class V1ReplicationControllerStatus(object):
         """
         self.swagger_types = {
             'replicas': 'int',
+            'fully_labeled_replicas': 'int',
             'observed_generation': 'int'
         }
 
         self.attribute_map = {
             'replicas': 'replicas',
+            'fully_labeled_replicas': 'fullyLabeledReplicas',
             'observed_generation': 'observedGeneration'
         }
 
         self._replicas = None
+        self._fully_labeled_replicas = None
         self._observed_generation = None
 
     @property
     def replicas(self):
         """
         Gets the replicas of this V1ReplicationControllerStatus.
-        most recently oberved number of replicas; see http://releases.k8s.io/v1.0.4/docs/replication-controller.md#what-is-a-replication-controller
+        Replicas is the most recently oberved number of replicas. More info: http://releases.k8s.io/release-1.2/docs/user-guide/replication-controller.md#what-is-a-replication-controller
 
         :return: The replicas of this V1ReplicationControllerStatus.
         :rtype: int
@@ -62,7 +65,7 @@ class V1ReplicationControllerStatus(object):
     def replicas(self, replicas):
         """
         Sets the replicas of this V1ReplicationControllerStatus.
-        most recently oberved number of replicas; see http://releases.k8s.io/v1.0.4/docs/replication-controller.md#what-is-a-replication-controller
+        Replicas is the most recently oberved number of replicas. More info: http://releases.k8s.io/release-1.2/docs/user-guide/replication-controller.md#what-is-a-replication-controller
 
         :param replicas: The replicas of this V1ReplicationControllerStatus.
         :type: int
@@ -70,10 +73,32 @@ class V1ReplicationControllerStatus(object):
         self._replicas = replicas
 
     @property
+    def fully_labeled_replicas(self):
+        """
+        Gets the fully_labeled_replicas of this V1ReplicationControllerStatus.
+        The number of pods that have labels matching the labels of the pod template of the replication controller.
+
+        :return: The fully_labeled_replicas of this V1ReplicationControllerStatus.
+        :rtype: int
+        """
+        return self._fully_labeled_replicas
+
+    @fully_labeled_replicas.setter
+    def fully_labeled_replicas(self, fully_labeled_replicas):
+        """
+        Sets the fully_labeled_replicas of this V1ReplicationControllerStatus.
+        The number of pods that have labels matching the labels of the pod template of the replication controller.
+
+        :param fully_labeled_replicas: The fully_labeled_replicas of this V1ReplicationControllerStatus.
+        :type: int
+        """
+        self._fully_labeled_replicas = fully_labeled_replicas
+
+    @property
     def observed_generation(self):
         """
         Gets the observed_generation of this V1ReplicationControllerStatus.
-        reflects the generation of the most recently observed replication controller
+        ObservedGeneration reflects the generation of the most recently observed replication controller.
 
         :return: The observed_generation of this V1ReplicationControllerStatus.
         :rtype: int
@@ -84,7 +109,7 @@ class V1ReplicationControllerStatus(object):
     def observed_generation(self, observed_generation):
         """
         Sets the observed_generation of this V1ReplicationControllerStatus.
-        reflects the generation of the most recently observed replication controller
+        ObservedGeneration reflects the generation of the most recently observed replication controller.
 
         :param observed_generation: The observed_generation of this V1ReplicationControllerStatus.
         :type: int

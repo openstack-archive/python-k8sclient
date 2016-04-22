@@ -57,7 +57,7 @@ class V1SELinuxOptions(object):
     def user(self):
         """
         Gets the user of this V1SELinuxOptions.
-        the user label to apply to the container; see http://releases.k8s.io/v1.0.4/docs/labels.md
+        User is a SELinux user label that applies to the container.
 
         :return: The user of this V1SELinuxOptions.
         :rtype: str
@@ -68,7 +68,7 @@ class V1SELinuxOptions(object):
     def user(self, user):
         """
         Sets the user of this V1SELinuxOptions.
-        the user label to apply to the container; see http://releases.k8s.io/v1.0.4/docs/labels.md
+        User is a SELinux user label that applies to the container.
 
         :param user: The user of this V1SELinuxOptions.
         :type: str
@@ -79,7 +79,7 @@ class V1SELinuxOptions(object):
     def role(self):
         """
         Gets the role of this V1SELinuxOptions.
-        the role label to apply to the container; see http://releases.k8s.io/v1.0.4/docs/labels.md
+        Role is a SELinux role label that applies to the container.
 
         :return: The role of this V1SELinuxOptions.
         :rtype: str
@@ -90,7 +90,7 @@ class V1SELinuxOptions(object):
     def role(self, role):
         """
         Sets the role of this V1SELinuxOptions.
-        the role label to apply to the container; see http://releases.k8s.io/v1.0.4/docs/labels.md
+        Role is a SELinux role label that applies to the container.
 
         :param role: The role of this V1SELinuxOptions.
         :type: str
@@ -101,7 +101,7 @@ class V1SELinuxOptions(object):
     def type(self):
         """
         Gets the type of this V1SELinuxOptions.
-        the type label to apply to the container; see http://releases.k8s.io/v1.0.4/docs/labels.md
+        Type is a SELinux type label that applies to the container.
 
         :return: The type of this V1SELinuxOptions.
         :rtype: str
@@ -112,7 +112,7 @@ class V1SELinuxOptions(object):
     def type(self, type):
         """
         Sets the type of this V1SELinuxOptions.
-        the type label to apply to the container; see http://releases.k8s.io/v1.0.4/docs/labels.md
+        Type is a SELinux type label that applies to the container.
 
         :param type: The type of this V1SELinuxOptions.
         :type: str
@@ -123,7 +123,7 @@ class V1SELinuxOptions(object):
     def level(self):
         """
         Gets the level of this V1SELinuxOptions.
-        the level label to apply to the container; see http://releases.k8s.io/v1.0.4/docs/labels.md
+        Level is SELinux level label that applies to the container.
 
         :return: The level of this V1SELinuxOptions.
         :rtype: str
@@ -134,7 +134,7 @@ class V1SELinuxOptions(object):
     def level(self, level):
         """
         Sets the level of this V1SELinuxOptions.
-        the level label to apply to the container; see http://releases.k8s.io/v1.0.4/docs/labels.md
+        Level is SELinux level label that applies to the container.
 
         :param level: The level of this V1SELinuxOptions.
         :type: str

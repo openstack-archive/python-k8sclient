@@ -36,28 +36,34 @@ class V1LimitRangeItem(object):
         """
         self.swagger_types = {
             'type': 'str',
-            'max': 'str',
-            'min': 'str',
-            'default': 'str'
+            'max': 'Any',
+            'min': 'Any',
+            'default': 'Any',
+            'default_request': 'Any',
+            'max_limit_request_ratio': 'Any'
         }
 
         self.attribute_map = {
             'type': 'type',
             'max': 'max',
             'min': 'min',
-            'default': 'default'
+            'default': 'default',
+            'default_request': 'defaultRequest',
+            'max_limit_request_ratio': 'maxLimitRequestRatio'
         }
 
         self._type = None
         self._max = None
         self._min = None
         self._default = None
+        self._default_request = None
+        self._max_limit_request_ratio = None
 
     @property
     def type(self):
         """
         Gets the type of this V1LimitRangeItem.
-        type of resource that this limit applies to
+        Type of resource that this limit applies to.
 
         :return: The type of this V1LimitRangeItem.
         :rtype: str
@@ -68,7 +74,7 @@ class V1LimitRangeItem(object):
     def type(self, type):
         """
         Sets the type of this V1LimitRangeItem.
-        type of resource that this limit applies to
+        Type of resource that this limit applies to.
 
         :param type: The type of this V1LimitRangeItem.
         :type: str
@@ -79,10 +85,10 @@ class V1LimitRangeItem(object):
     def max(self):
         """
         Gets the max of this V1LimitRangeItem.
-        max usage constraints on this kind by resource name
+        Max usage constraints on this kind by resource name.
 
         :return: The max of this V1LimitRangeItem.
-        :rtype: str
+        :rtype: Any
         """
         return self._max
 
@@ -90,10 +96,10 @@ class V1LimitRangeItem(object):
     def max(self, max):
         """
         Sets the max of this V1LimitRangeItem.
-        max usage constraints on this kind by resource name
+        Max usage constraints on this kind by resource name.
 
         :param max: The max of this V1LimitRangeItem.
-        :type: str
+        :type: Any
         """
         self._max = max
 
@@ -101,10 +107,10 @@ class V1LimitRangeItem(object):
     def min(self):
         """
         Gets the min of this V1LimitRangeItem.
-        min usage constraints on this kind by resource name
+        Min usage constraints on this kind by resource name.
 
         :return: The min of this V1LimitRangeItem.
-        :rtype: str
+        :rtype: Any
         """
         return self._min
 
@@ -112,10 +118,10 @@ class V1LimitRangeItem(object):
     def min(self, min):
         """
         Sets the min of this V1LimitRangeItem.
-        min usage constraints on this kind by resource name
+        Min usage constraints on this kind by resource name.
 
         :param min: The min of this V1LimitRangeItem.
-        :type: str
+        :type: Any
         """
         self._min = min
 
@@ -123,10 +129,10 @@ class V1LimitRangeItem(object):
     def default(self):
         """
         Gets the default of this V1LimitRangeItem.
-        default values on this kind by resource name if omitted
+        Default resource requirement limit value by resource name if resource limit is omitted.
 
         :return: The default of this V1LimitRangeItem.
-        :rtype: str
+        :rtype: Any
         """
         return self._default
 
@@ -134,12 +140,56 @@ class V1LimitRangeItem(object):
     def default(self, default):
         """
         Sets the default of this V1LimitRangeItem.
-        default values on this kind by resource name if omitted
+        Default resource requirement limit value by resource name if resource limit is omitted.
 
         :param default: The default of this V1LimitRangeItem.
-        :type: str
+        :type: Any
         """
         self._default = default
+
+    @property
+    def default_request(self):
+        """
+        Gets the default_request of this V1LimitRangeItem.
+        DefaultRequest is the default resource requirement request value by resource name if resource request is omitted.
+
+        :return: The default_request of this V1LimitRangeItem.
+        :rtype: Any
+        """
+        return self._default_request
+
+    @default_request.setter
+    def default_request(self, default_request):
+        """
+        Sets the default_request of this V1LimitRangeItem.
+        DefaultRequest is the default resource requirement request value by resource name if resource request is omitted.
+
+        :param default_request: The default_request of this V1LimitRangeItem.
+        :type: Any
+        """
+        self._default_request = default_request
+
+    @property
+    def max_limit_request_ratio(self):
+        """
+        Gets the max_limit_request_ratio of this V1LimitRangeItem.
+        MaxLimitRequestRatio if specified, the named resource must have a request and limit that are both non-zero where limit divided by request is less than or equal to the enumerated value; this represents the max burst for the named resource.
+
+        :return: The max_limit_request_ratio of this V1LimitRangeItem.
+        :rtype: Any
+        """
+        return self._max_limit_request_ratio
+
+    @max_limit_request_ratio.setter
+    def max_limit_request_ratio(self, max_limit_request_ratio):
+        """
+        Sets the max_limit_request_ratio of this V1LimitRangeItem.
+        MaxLimitRequestRatio if specified, the named resource must have a request and limit that are both non-zero where limit divided by request is less than or equal to the enumerated value; this represents the max burst for the named resource.
+
+        :param max_limit_request_ratio: The max_limit_request_ratio of this V1LimitRangeItem.
+        :type: Any
+        """
+        self._max_limit_request_ratio = max_limit_request_ratio
 
     def to_dict(self):
         """

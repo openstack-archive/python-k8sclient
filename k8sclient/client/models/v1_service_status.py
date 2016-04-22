@@ -48,7 +48,7 @@ class V1ServiceStatus(object):
     def load_balancer(self):
         """
         Gets the load_balancer of this V1ServiceStatus.
-        status of load-balancer
+        LoadBalancer contains the current status of the load-balancer, if one is present.
 
         :return: The load_balancer of this V1ServiceStatus.
         :rtype: V1LoadBalancerStatus
@@ -59,7 +59,7 @@ class V1ServiceStatus(object):
     def load_balancer(self, load_balancer):
         """
         Sets the load_balancer of this V1ServiceStatus.
-        status of load-balancer
+        LoadBalancer contains the current status of the load-balancer, if one is present.
 
         :param load_balancer: The load_balancer of this V1ServiceStatus.
         :type: V1LoadBalancerStatus

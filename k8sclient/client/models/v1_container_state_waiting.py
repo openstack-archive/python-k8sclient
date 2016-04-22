@@ -35,20 +35,23 @@ class V1ContainerStateWaiting(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'reason': 'str'
+            'reason': 'str',
+            'message': 'str'
         }
 
         self.attribute_map = {
-            'reason': 'reason'
+            'reason': 'reason',
+            'message': 'message'
         }
 
         self._reason = None
+        self._message = None
 
     @property
     def reason(self):
         """
         Gets the reason of this V1ContainerStateWaiting.
-        (brief) reason the container is not yet running, such as pulling its image
+        (brief) reason the container is not yet running.
 
         :return: The reason of this V1ContainerStateWaiting.
         :rtype: str
@@ -59,12 +62,34 @@ class V1ContainerStateWaiting(object):
     def reason(self, reason):
         """
         Sets the reason of this V1ContainerStateWaiting.
-        (brief) reason the container is not yet running, such as pulling its image
+        (brief) reason the container is not yet running.
 
         :param reason: The reason of this V1ContainerStateWaiting.
         :type: str
         """
         self._reason = reason
+
+    @property
+    def message(self):
+        """
+        Gets the message of this V1ContainerStateWaiting.
+        Message regarding why the container is not yet running.
+
+        :return: The message of this V1ContainerStateWaiting.
+        :rtype: str
+        """
+        return self._message
+
+    @message.setter
+    def message(self, message):
+        """
+        Sets the message of this V1ContainerStateWaiting.
+        Message regarding why the container is not yet running.
+
+        :param message: The message of this V1ContainerStateWaiting.
+        :type: str
+        """
+        self._message = message
 
     def to_dict(self):
         """

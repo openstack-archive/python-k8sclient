@@ -57,7 +57,7 @@ class V1ComponentCondition(object):
     def type(self):
         """
         Gets the type of this V1ComponentCondition.
-        type of component condition, currently only Healthy
+        Type of condition for a component. Valid value: \"Healthy\"
 
         :return: The type of this V1ComponentCondition.
         :rtype: str
@@ -68,7 +68,7 @@ class V1ComponentCondition(object):
     def type(self, type):
         """
         Sets the type of this V1ComponentCondition.
-        type of component condition, currently only Healthy
+        Type of condition for a component. Valid value: \"Healthy\"
 
         :param type: The type of this V1ComponentCondition.
         :type: str
@@ -79,7 +79,7 @@ class V1ComponentCondition(object):
     def status(self):
         """
         Gets the status of this V1ComponentCondition.
-        current status of this component condition, one of True, False, Unknown
+        Status of the condition for a component. Valid values for \"Healthy\": \"True\", \"False\", or \"Unknown\".
 
         :return: The status of this V1ComponentCondition.
         :rtype: str
@@ -90,7 +90,7 @@ class V1ComponentCondition(object):
     def status(self, status):
         """
         Sets the status of this V1ComponentCondition.
-        current status of this component condition, one of True, False, Unknown
+        Status of the condition for a component. Valid values for \"Healthy\": \"True\", \"False\", or \"Unknown\".
 
         :param status: The status of this V1ComponentCondition.
         :type: str
@@ -101,7 +101,7 @@ class V1ComponentCondition(object):
     def message(self):
         """
         Gets the message of this V1ComponentCondition.
-        health check message received from the component
+        Message about the condition for a component. For example, information about a health check.
 
         :return: The message of this V1ComponentCondition.
         :rtype: str
@@ -112,7 +112,7 @@ class V1ComponentCondition(object):
     def message(self, message):
         """
         Sets the message of this V1ComponentCondition.
-        health check message received from the component
+        Message about the condition for a component. For example, information about a health check.
 
         :param message: The message of this V1ComponentCondition.
         :type: str
@@ -123,7 +123,7 @@ class V1ComponentCondition(object):
     def error(self):
         """
         Gets the error of this V1ComponentCondition.
-        error code from health check attempt (if any)
+        Condition error code for a component. For example, a health check error code.
 
         :return: The error of this V1ComponentCondition.
         :rtype: str
@@ -134,7 +134,7 @@ class V1ComponentCondition(object):
     def error(self, error):
         """
         Sets the error of this V1ComponentCondition.
-        error code from health check attempt (if any)
+        Condition error code for a component. For example, a health check error code.
 
         :param error: The error of this V1ComponentCondition.
         :type: str

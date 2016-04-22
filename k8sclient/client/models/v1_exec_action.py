@@ -48,7 +48,7 @@ class V1ExecAction(object):
     def command(self):
         """
         Gets the command of this V1ExecAction.
-        command line to execute inside the container; working directory for the command is root ('/') in the container's file system; the command is exec'd, not run inside a shell; exit status of 0 is treated as live/healthy and non-zero is unhealthy
+        Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
 
         :return: The command of this V1ExecAction.
         :rtype: list[str]
@@ -59,7 +59,7 @@ class V1ExecAction(object):
     def command(self, command):
         """
         Sets the command of this V1ExecAction.
-        command line to execute inside the container; working directory for the command is root ('/') in the container's file system; the command is exec'd, not run inside a shell; exit status of 0 is treated as live/healthy and non-zero is unhealthy
+        Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
 
         :param command: The command of this V1ExecAction.
         :type: list[str]

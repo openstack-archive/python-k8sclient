@@ -54,7 +54,7 @@ class V1GlusterfsVolumeSource(object):
     def endpoints(self):
         """
         Gets the endpoints of this V1GlusterfsVolumeSource.
-        gluster hosts endpoints name; see http://releases.k8s.io/v1.0.4/examples/glusterfs/README.md#create-a-pod
+        EndpointsName is the endpoint name that details Glusterfs topology. More info: http://releases.k8s.io/release-1.2/examples/glusterfs/README.md#create-a-pod
 
         :return: The endpoints of this V1GlusterfsVolumeSource.
         :rtype: str
@@ -65,7 +65,7 @@ class V1GlusterfsVolumeSource(object):
     def endpoints(self, endpoints):
         """
         Sets the endpoints of this V1GlusterfsVolumeSource.
-        gluster hosts endpoints name; see http://releases.k8s.io/v1.0.4/examples/glusterfs/README.md#create-a-pod
+        EndpointsName is the endpoint name that details Glusterfs topology. More info: http://releases.k8s.io/release-1.2/examples/glusterfs/README.md#create-a-pod
 
         :param endpoints: The endpoints of this V1GlusterfsVolumeSource.
         :type: str
@@ -76,7 +76,7 @@ class V1GlusterfsVolumeSource(object):
     def path(self):
         """
         Gets the path of this V1GlusterfsVolumeSource.
-        path to gluster volume; see http://releases.k8s.io/v1.0.4/examples/glusterfs/README.md#create-a-pod
+        Path is the Glusterfs volume path. More info: http://releases.k8s.io/release-1.2/examples/glusterfs/README.md#create-a-pod
 
         :return: The path of this V1GlusterfsVolumeSource.
         :rtype: str
@@ -87,7 +87,7 @@ class V1GlusterfsVolumeSource(object):
     def path(self, path):
         """
         Sets the path of this V1GlusterfsVolumeSource.
-        path to gluster volume; see http://releases.k8s.io/v1.0.4/examples/glusterfs/README.md#create-a-pod
+        Path is the Glusterfs volume path. More info: http://releases.k8s.io/release-1.2/examples/glusterfs/README.md#create-a-pod
 
         :param path: The path of this V1GlusterfsVolumeSource.
         :type: str
@@ -98,7 +98,7 @@ class V1GlusterfsVolumeSource(object):
     def read_only(self):
         """
         Gets the read_only of this V1GlusterfsVolumeSource.
-        glusterfs volume to be mounted with read-only permissions; see http://releases.k8s.io/v1.0.4/examples/glusterfs/README.md#create-a-pod
+        ReadOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: http://releases.k8s.io/release-1.2/examples/glusterfs/README.md#create-a-pod
 
         :return: The read_only of this V1GlusterfsVolumeSource.
         :rtype: bool
@@ -109,7 +109,7 @@ class V1GlusterfsVolumeSource(object):
     def read_only(self, read_only):
         """
         Sets the read_only of this V1GlusterfsVolumeSource.
-        glusterfs volume to be mounted with read-only permissions; see http://releases.k8s.io/v1.0.4/examples/glusterfs/README.md#create-a-pod
+        ReadOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: http://releases.k8s.io/release-1.2/examples/glusterfs/README.md#create-a-pod
 
         :param read_only: The read_only of this V1GlusterfsVolumeSource.
         :type: bool

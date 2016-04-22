@@ -51,7 +51,7 @@ class V1Lifecycle(object):
     def post_start(self):
         """
         Gets the post_start of this V1Lifecycle.
-        called immediately after a container is started; if the handler fails, the container is terminated and restarted according to its restart policy; other management of the container blocks until the hook completes; see http://releases.k8s.io/v1.0.4/docs/container-environment.md#hook-details
+        PostStart is called immediately after a container is created. If the handler fails, the container is terminated and restarted according to its restart policy. Other management of the container blocks until the hook completes. More info: http://releases.k8s.io/release-1.2/docs/user-guide/container-environment.md#hook-details
 
         :return: The post_start of this V1Lifecycle.
         :rtype: V1Handler
@@ -62,7 +62,7 @@ class V1Lifecycle(object):
     def post_start(self, post_start):
         """
         Sets the post_start of this V1Lifecycle.
-        called immediately after a container is started; if the handler fails, the container is terminated and restarted according to its restart policy; other management of the container blocks until the hook completes; see http://releases.k8s.io/v1.0.4/docs/container-environment.md#hook-details
+        PostStart is called immediately after a container is created. If the handler fails, the container is terminated and restarted according to its restart policy. Other management of the container blocks until the hook completes. More info: http://releases.k8s.io/release-1.2/docs/user-guide/container-environment.md#hook-details
 
         :param post_start: The post_start of this V1Lifecycle.
         :type: V1Handler
@@ -73,7 +73,7 @@ class V1Lifecycle(object):
     def pre_stop(self):
         """
         Gets the pre_stop of this V1Lifecycle.
-        called before a container is terminated; the container is terminated after the handler completes; other management of the container blocks until the hook completes; see http://releases.k8s.io/v1.0.4/docs/container-environment.md#hook-details
+        PreStop is called immediately before a container is terminated. The container is terminated after the handler completes. The reason for termination is passed to the handler. Regardless of the outcome of the handler, the container is eventually terminated. Other management of the container blocks until the hook completes. More info: http://releases.k8s.io/release-1.2/docs/user-guide/container-environment.md#hook-details
 
         :return: The pre_stop of this V1Lifecycle.
         :rtype: V1Handler
@@ -84,7 +84,7 @@ class V1Lifecycle(object):
     def pre_stop(self, pre_stop):
         """
         Sets the pre_stop of this V1Lifecycle.
-        called before a container is terminated; the container is terminated after the handler completes; other management of the container blocks until the hook completes; see http://releases.k8s.io/v1.0.4/docs/container-environment.md#hook-details
+        PreStop is called immediately before a container is terminated. The container is terminated after the handler completes. The reason for termination is passed to the handler. Regardless of the outcome of the handler, the container is eventually terminated. Other management of the container blocks until the hook completes. More info: http://releases.k8s.io/release-1.2/docs/user-guide/container-environment.md#hook-details
 
         :param pre_stop: The pre_stop of this V1Lifecycle.
         :type: V1Handler

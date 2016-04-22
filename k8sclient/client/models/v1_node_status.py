@@ -35,35 +35,44 @@ class V1NodeStatus(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'capacity': 'str',
+            'capacity': 'Any',
+            'allocatable': 'Any',
             'phase': 'str',
             'conditions': 'list[V1NodeCondition]',
             'addresses': 'list[V1NodeAddress]',
-            'node_info': 'V1NodeSystemInfo'
+            'daemon_endpoints': 'V1NodeDaemonEndpoints',
+            'node_info': 'V1NodeSystemInfo',
+            'images': 'list[V1ContainerImage]'
         }
 
         self.attribute_map = {
             'capacity': 'capacity',
+            'allocatable': 'allocatable',
             'phase': 'phase',
             'conditions': 'conditions',
             'addresses': 'addresses',
-            'node_info': 'nodeInfo'
+            'daemon_endpoints': 'daemonEndpoints',
+            'node_info': 'nodeInfo',
+            'images': 'images'
         }
 
         self._capacity = None
+        self._allocatable = None
         self._phase = None
         self._conditions = None
         self._addresses = None
+        self._daemon_endpoints = None
         self._node_info = None
+        self._images = None
 
     @property
     def capacity(self):
         """
         Gets the capacity of this V1NodeStatus.
-        compute resource capacity of the node; see http://releases.k8s.io/v1.0.4/docs/compute_resources.md
+        Capacity represents the total resources of a node. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#capacity for more details.
 
         :return: The capacity of this V1NodeStatus.
-        :rtype: str
+        :rtype: Any
         """
         return self._capacity
 
@@ -71,18 +80,40 @@ class V1NodeStatus(object):
     def capacity(self, capacity):
         """
         Sets the capacity of this V1NodeStatus.
-        compute resource capacity of the node; see http://releases.k8s.io/v1.0.4/docs/compute_resources.md
+        Capacity represents the total resources of a node. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#capacity for more details.
 
         :param capacity: The capacity of this V1NodeStatus.
-        :type: str
+        :type: Any
         """
         self._capacity = capacity
+
+    @property
+    def allocatable(self):
+        """
+        Gets the allocatable of this V1NodeStatus.
+        Allocatable represents the resources of a node that are available for scheduling. Defaults to Capacity.
+
+        :return: The allocatable of this V1NodeStatus.
+        :rtype: Any
+        """
+        return self._allocatable
+
+    @allocatable.setter
+    def allocatable(self, allocatable):
+        """
+        Sets the allocatable of this V1NodeStatus.
+        Allocatable represents the resources of a node that are available for scheduling. Defaults to Capacity.
+
+        :param allocatable: The allocatable of this V1NodeStatus.
+        :type: Any
+        """
+        self._allocatable = allocatable
 
     @property
     def phase(self):
         """
         Gets the phase of this V1NodeStatus.
-        most recently observed lifecycle phase of the node; see http://releases.k8s.io/v1.0.4/docs/node.md#node-phase
+        NodePhase is the recently observed lifecycle phase of the node. More info: http://releases.k8s.io/release-1.2/docs/admin/node.md#node-phase
 
         :return: The phase of this V1NodeStatus.
         :rtype: str
@@ -93,7 +124,7 @@ class V1NodeStatus(object):
     def phase(self, phase):
         """
         Sets the phase of this V1NodeStatus.
-        most recently observed lifecycle phase of the node; see http://releases.k8s.io/v1.0.4/docs/node.md#node-phase
+        NodePhase is the recently observed lifecycle phase of the node. More info: http://releases.k8s.io/release-1.2/docs/admin/node.md#node-phase
 
         :param phase: The phase of this V1NodeStatus.
         :type: str
@@ -104,7 +135,7 @@ class V1NodeStatus(object):
     def conditions(self):
         """
         Gets the conditions of this V1NodeStatus.
-        list of node conditions observed; see http://releases.k8s.io/v1.0.4/docs/node.md#node-condition
+        Conditions is an array of current observed node conditions. More info: http://releases.k8s.io/release-1.2/docs/admin/node.md#node-condition
 
         :return: The conditions of this V1NodeStatus.
         :rtype: list[V1NodeCondition]
@@ -115,7 +146,7 @@ class V1NodeStatus(object):
     def conditions(self, conditions):
         """
         Sets the conditions of this V1NodeStatus.
-        list of node conditions observed; see http://releases.k8s.io/v1.0.4/docs/node.md#node-condition
+        Conditions is an array of current observed node conditions. More info: http://releases.k8s.io/release-1.2/docs/admin/node.md#node-condition
 
         :param conditions: The conditions of this V1NodeStatus.
         :type: list[V1NodeCondition]
@@ -126,7 +157,7 @@ class V1NodeStatus(object):
     def addresses(self):
         """
         Gets the addresses of this V1NodeStatus.
-        list of addresses reachable to the node; see http://releases.k8s.io/v1.0.4/docs/node.md#node-addresses
+        List of addresses reachable to the node. Queried from cloud provider, if available. More info: http://releases.k8s.io/release-1.2/docs/admin/node.md#node-addresses
 
         :return: The addresses of this V1NodeStatus.
         :rtype: list[V1NodeAddress]
@@ -137,7 +168,7 @@ class V1NodeStatus(object):
     def addresses(self, addresses):
         """
         Sets the addresses of this V1NodeStatus.
-        list of addresses reachable to the node; see http://releases.k8s.io/v1.0.4/docs/node.md#node-addresses
+        List of addresses reachable to the node. Queried from cloud provider, if available. More info: http://releases.k8s.io/release-1.2/docs/admin/node.md#node-addresses
 
         :param addresses: The addresses of this V1NodeStatus.
         :type: list[V1NodeAddress]
@@ -145,10 +176,32 @@ class V1NodeStatus(object):
         self._addresses = addresses
 
     @property
+    def daemon_endpoints(self):
+        """
+        Gets the daemon_endpoints of this V1NodeStatus.
+        Endpoints of daemons running on the Node.
+
+        :return: The daemon_endpoints of this V1NodeStatus.
+        :rtype: V1NodeDaemonEndpoints
+        """
+        return self._daemon_endpoints
+
+    @daemon_endpoints.setter
+    def daemon_endpoints(self, daemon_endpoints):
+        """
+        Sets the daemon_endpoints of this V1NodeStatus.
+        Endpoints of daemons running on the Node.
+
+        :param daemon_endpoints: The daemon_endpoints of this V1NodeStatus.
+        :type: V1NodeDaemonEndpoints
+        """
+        self._daemon_endpoints = daemon_endpoints
+
+    @property
     def node_info(self):
         """
         Gets the node_info of this V1NodeStatus.
-        set of ids/uuids to uniquely identify the node; see http://releases.k8s.io/v1.0.4/docs/node.md#node-info
+        Set of ids/uuids to uniquely identify the node. More info: http://releases.k8s.io/release-1.2/docs/admin/node.md#node-info
 
         :return: The node_info of this V1NodeStatus.
         :rtype: V1NodeSystemInfo
@@ -159,12 +212,34 @@ class V1NodeStatus(object):
     def node_info(self, node_info):
         """
         Sets the node_info of this V1NodeStatus.
-        set of ids/uuids to uniquely identify the node; see http://releases.k8s.io/v1.0.4/docs/node.md#node-info
+        Set of ids/uuids to uniquely identify the node. More info: http://releases.k8s.io/release-1.2/docs/admin/node.md#node-info
 
         :param node_info: The node_info of this V1NodeStatus.
         :type: V1NodeSystemInfo
         """
         self._node_info = node_info
+
+    @property
+    def images(self):
+        """
+        Gets the images of this V1NodeStatus.
+        List of container images on this node
+
+        :return: The images of this V1NodeStatus.
+        :rtype: list[V1ContainerImage]
+        """
+        return self._images
+
+    @images.setter
+    def images(self, images):
+        """
+        Sets the images of this V1NodeStatus.
+        List of container images on this node
+
+        :param images: The images of this V1NodeStatus.
+        :type: list[V1ContainerImage]
+        """
+        self._images = images
 
     def to_dict(self):
         """

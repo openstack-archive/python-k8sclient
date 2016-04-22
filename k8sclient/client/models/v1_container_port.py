@@ -60,7 +60,7 @@ class V1ContainerPort(object):
     def name(self):
         """
         Gets the name of this V1ContainerPort.
-        name for the port that can be referred to by services; must be an IANA_SVC_NAME and unique within the pod
+        If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services.
 
         :return: The name of this V1ContainerPort.
         :rtype: str
@@ -71,7 +71,7 @@ class V1ContainerPort(object):
     def name(self, name):
         """
         Sets the name of this V1ContainerPort.
-        name for the port that can be referred to by services; must be an IANA_SVC_NAME and unique within the pod
+        If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services.
 
         :param name: The name of this V1ContainerPort.
         :type: str
@@ -82,7 +82,7 @@ class V1ContainerPort(object):
     def host_port(self):
         """
         Gets the host_port of this V1ContainerPort.
-        number of port to expose on the host; most containers do not need this
+        Number of port to expose on the host. If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this.
 
         :return: The host_port of this V1ContainerPort.
         :rtype: int
@@ -93,7 +93,7 @@ class V1ContainerPort(object):
     def host_port(self, host_port):
         """
         Sets the host_port of this V1ContainerPort.
-        number of port to expose on the host; most containers do not need this
+        Number of port to expose on the host. If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this.
 
         :param host_port: The host_port of this V1ContainerPort.
         :type: int
@@ -104,7 +104,7 @@ class V1ContainerPort(object):
     def container_port(self):
         """
         Gets the container_port of this V1ContainerPort.
-        number of port to expose on the pod's IP address
+        Number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536.
 
         :return: The container_port of this V1ContainerPort.
         :rtype: int
@@ -115,7 +115,7 @@ class V1ContainerPort(object):
     def container_port(self, container_port):
         """
         Sets the container_port of this V1ContainerPort.
-        number of port to expose on the pod's IP address
+        Number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536.
 
         :param container_port: The container_port of this V1ContainerPort.
         :type: int
@@ -126,7 +126,7 @@ class V1ContainerPort(object):
     def protocol(self):
         """
         Gets the protocol of this V1ContainerPort.
-        protocol for port; must be UDP or TCP; TCP if unspecified
+        Protocol for port. Must be UDP or TCP. Defaults to \"TCP\".
 
         :return: The protocol of this V1ContainerPort.
         :rtype: str
@@ -137,7 +137,7 @@ class V1ContainerPort(object):
     def protocol(self, protocol):
         """
         Sets the protocol of this V1ContainerPort.
-        protocol for port; must be UDP or TCP; TCP if unspecified
+        Protocol for port. Must be UDP or TCP. Defaults to \"TCP\".
 
         :param protocol: The protocol of this V1ContainerPort.
         :type: str
@@ -148,7 +148,7 @@ class V1ContainerPort(object):
     def host_ip(self):
         """
         Gets the host_ip of this V1ContainerPort.
-        host IP to bind the port to
+        What host IP to bind the external port to.
 
         :return: The host_ip of this V1ContainerPort.
         :rtype: str
@@ -159,7 +159,7 @@ class V1ContainerPort(object):
     def host_ip(self, host_ip):
         """
         Sets the host_ip of this V1ContainerPort.
-        host IP to bind the port to
+        What host IP to bind the external port to.
 
         :param host_ip: The host_ip of this V1ContainerPort.
         :type: str

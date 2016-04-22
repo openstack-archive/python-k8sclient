@@ -60,7 +60,7 @@ class V1PersistentVolumeClaim(object):
     def kind(self):
         """
         Gets the kind of this V1PersistentVolumeClaim.
-        kind of object, in CamelCase; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#types-kinds
+        Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds
 
         :return: The kind of this V1PersistentVolumeClaim.
         :rtype: str
@@ -71,7 +71,7 @@ class V1PersistentVolumeClaim(object):
     def kind(self, kind):
         """
         Sets the kind of this V1PersistentVolumeClaim.
-        kind of object, in CamelCase; cannot be updated; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#types-kinds
+        Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#types-kinds
 
         :param kind: The kind of this V1PersistentVolumeClaim.
         :type: str
@@ -82,7 +82,7 @@ class V1PersistentVolumeClaim(object):
     def api_version(self):
         """
         Gets the api_version of this V1PersistentVolumeClaim.
-        version of the schema the object should have; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#resources
+        APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#resources
 
         :return: The api_version of this V1PersistentVolumeClaim.
         :rtype: str
@@ -93,7 +93,7 @@ class V1PersistentVolumeClaim(object):
     def api_version(self, api_version):
         """
         Sets the api_version of this V1PersistentVolumeClaim.
-        version of the schema the object should have; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#resources
+        APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#resources
 
         :param api_version: The api_version of this V1PersistentVolumeClaim.
         :type: str
@@ -104,7 +104,7 @@ class V1PersistentVolumeClaim(object):
     def metadata(self):
         """
         Gets the metadata of this V1PersistentVolumeClaim.
-        standard object metadata; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#metadata
+        Standard object's metadata. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#metadata
 
         :return: The metadata of this V1PersistentVolumeClaim.
         :rtype: V1ObjectMeta
@@ -115,7 +115,7 @@ class V1PersistentVolumeClaim(object):
     def metadata(self, metadata):
         """
         Sets the metadata of this V1PersistentVolumeClaim.
-        standard object metadata; see http://releases.k8s.io/v1.0.4/docs/api-conventions.md#metadata
+        Standard object's metadata. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#metadata
 
         :param metadata: The metadata of this V1PersistentVolumeClaim.
         :type: V1ObjectMeta
@@ -126,7 +126,7 @@ class V1PersistentVolumeClaim(object):
     def spec(self):
         """
         Gets the spec of this V1PersistentVolumeClaim.
-        the desired characteristics of a volume; see http://releases.k8s.io/v1.0.4/docs/persistent-volumes.md#persistentvolumeclaims
+        Spec defines the desired characteristics of a volume requested by a pod author. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#persistentvolumeclaims
 
         :return: The spec of this V1PersistentVolumeClaim.
         :rtype: V1PersistentVolumeClaimSpec
@@ -137,7 +137,7 @@ class V1PersistentVolumeClaim(object):
     def spec(self, spec):
         """
         Sets the spec of this V1PersistentVolumeClaim.
-        the desired characteristics of a volume; see http://releases.k8s.io/v1.0.4/docs/persistent-volumes.md#persistentvolumeclaims
+        Spec defines the desired characteristics of a volume requested by a pod author. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#persistentvolumeclaims
 
         :param spec: The spec of this V1PersistentVolumeClaim.
         :type: V1PersistentVolumeClaimSpec
@@ -148,7 +148,7 @@ class V1PersistentVolumeClaim(object):
     def status(self):
         """
         Gets the status of this V1PersistentVolumeClaim.
-        the current status of a persistent volume claim; read-only; see http://releases.k8s.io/v1.0.4/docs/persistent-volumes.md#persistentvolumeclaims
+        Status represents the current information/status of a persistent volume claim. Read-only. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#persistentvolumeclaims
 
         :return: The status of this V1PersistentVolumeClaim.
         :rtype: V1PersistentVolumeClaimStatus
@@ -159,7 +159,7 @@ class V1PersistentVolumeClaim(object):
     def status(self, status):
         """
         Sets the status of this V1PersistentVolumeClaim.
-        the current status of a persistent volume claim; read-only; see http://releases.k8s.io/v1.0.4/docs/persistent-volumes.md#persistentvolumeclaims
+        Status represents the current information/status of a persistent volume claim. Read-only. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#persistentvolumeclaims
 
         :param status: The status of this V1PersistentVolumeClaim.
         :type: V1PersistentVolumeClaimStatus

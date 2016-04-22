@@ -51,7 +51,7 @@ class V1PersistentVolumeClaimVolumeSource(object):
     def claim_name(self):
         """
         Gets the claim_name of this V1PersistentVolumeClaimVolumeSource.
-        the name of the claim in the same namespace to be mounted as a volume; see http://releases.k8s.io/v1.0.4/docs/persistent-volumes.md#persistentvolumeclaims
+        ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#persistentvolumeclaims
 
         :return: The claim_name of this V1PersistentVolumeClaimVolumeSource.
         :rtype: str
@@ -62,7 +62,7 @@ class V1PersistentVolumeClaimVolumeSource(object):
     def claim_name(self, claim_name):
         """
         Sets the claim_name of this V1PersistentVolumeClaimVolumeSource.
-        the name of the claim in the same namespace to be mounted as a volume; see http://releases.k8s.io/v1.0.4/docs/persistent-volumes.md#persistentvolumeclaims
+        ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#persistentvolumeclaims
 
         :param claim_name: The claim_name of this V1PersistentVolumeClaimVolumeSource.
         :type: str
@@ -73,7 +73,7 @@ class V1PersistentVolumeClaimVolumeSource(object):
     def read_only(self):
         """
         Gets the read_only of this V1PersistentVolumeClaimVolumeSource.
-        mount volume as read-only when true; default false
+        Will force the ReadOnly setting in VolumeMounts. Default false.
 
         :return: The read_only of this V1PersistentVolumeClaimVolumeSource.
         :rtype: bool
@@ -84,7 +84,7 @@ class V1PersistentVolumeClaimVolumeSource(object):
     def read_only(self, read_only):
         """
         Sets the read_only of this V1PersistentVolumeClaimVolumeSource.
-        mount volume as read-only when true; default false
+        Will force the ReadOnly setting in VolumeMounts. Default false.
 
         :param read_only: The read_only of this V1PersistentVolumeClaimVolumeSource.
         :type: bool

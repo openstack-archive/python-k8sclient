@@ -54,7 +54,7 @@ class V1EndpointPort(object):
     def name(self):
         """
         Gets the name of this V1EndpointPort.
-        name of this port
+        The name of this port (corresponds to ServicePort.Name). Must be a DNS_LABEL. Optional only if one port is defined.
 
         :return: The name of this V1EndpointPort.
         :rtype: str
@@ -65,7 +65,7 @@ class V1EndpointPort(object):
     def name(self, name):
         """
         Sets the name of this V1EndpointPort.
-        name of this port
+        The name of this port (corresponds to ServicePort.Name). Must be a DNS_LABEL. Optional only if one port is defined.
 
         :param name: The name of this V1EndpointPort.
         :type: str
@@ -76,7 +76,7 @@ class V1EndpointPort(object):
     def port(self):
         """
         Gets the port of this V1EndpointPort.
-        port number of the endpoint
+        The port number of the endpoint.
 
         :return: The port of this V1EndpointPort.
         :rtype: int
@@ -87,7 +87,7 @@ class V1EndpointPort(object):
     def port(self, port):
         """
         Sets the port of this V1EndpointPort.
-        port number of the endpoint
+        The port number of the endpoint.
 
         :param port: The port of this V1EndpointPort.
         :type: int
@@ -98,7 +98,7 @@ class V1EndpointPort(object):
     def protocol(self):
         """
         Gets the protocol of this V1EndpointPort.
-        protocol for this port; must be UDP or TCP; TCP if unspecified
+        The IP protocol for this port. Must be UDP or TCP. Default is TCP.
 
         :return: The protocol of this V1EndpointPort.
         :rtype: str
@@ -109,7 +109,7 @@ class V1EndpointPort(object):
     def protocol(self, protocol):
         """
         Sets the protocol of this V1EndpointPort.
-        protocol for this port; must be UDP or TCP; TCP if unspecified
+        The IP protocol for this port. Must be UDP or TCP. Default is TCP.
 
         :param protocol: The protocol of this V1EndpointPort.
         :type: str

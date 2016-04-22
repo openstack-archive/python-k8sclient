@@ -36,11 +36,13 @@ class V1ServiceSpec(object):
         """
         self.swagger_types = {
             'ports': 'list[V1ServicePort]',
-            'selector': 'str',
+            'selector': 'Any',
             'cluster_ip': 'str',
             'type': 'str',
+            'external_i_ps': 'list[str]',
             'deprecated_public_i_ps': 'list[str]',
-            'session_affinity': 'str'
+            'session_affinity': 'str',
+            'load_balancer_ip': 'str'
         }
 
         self.attribute_map = {
@@ -48,22 +50,26 @@ class V1ServiceSpec(object):
             'selector': 'selector',
             'cluster_ip': 'clusterIP',
             'type': 'type',
+            'external_i_ps': 'externalIPs',
             'deprecated_public_i_ps': 'deprecatedPublicIPs',
-            'session_affinity': 'sessionAffinity'
+            'session_affinity': 'sessionAffinity',
+            'load_balancer_ip': 'loadBalancerIP'
         }
 
         self._ports = None
         self._selector = None
         self._cluster_ip = None
         self._type = None
+        self._external_i_ps = None
         self._deprecated_public_i_ps = None
         self._session_affinity = None
+        self._load_balancer_ip = None
 
     @property
     def ports(self):
         """
         Gets the ports of this V1ServiceSpec.
-        ports exposed by the service; see http://releases.k8s.io/v1.0.4/docs/services.md#virtual-ips-and-service-proxies
+        The list of ports that are exposed by this service. More info: http://releases.k8s.io/release-1.2/docs/user-guide/services.md#virtual-ips-and-service-proxies
 
         :return: The ports of this V1ServiceSpec.
         :rtype: list[V1ServicePort]
@@ -74,7 +80,7 @@ class V1ServiceSpec(object):
     def ports(self, ports):
         """
         Sets the ports of this V1ServiceSpec.
-        ports exposed by the service; see http://releases.k8s.io/v1.0.4/docs/services.md#virtual-ips-and-service-proxies
+        The list of ports that are exposed by this service. More info: http://releases.k8s.io/release-1.2/docs/user-guide/services.md#virtual-ips-and-service-proxies
 
         :param ports: The ports of this V1ServiceSpec.
         :type: list[V1ServicePort]
@@ -85,10 +91,10 @@ class V1ServiceSpec(object):
     def selector(self):
         """
         Gets the selector of this V1ServiceSpec.
-        label keys and values that must match in order to receive traffic for this service; if empty, all pods are selected, if not specified, endpoints must be manually specified; see http://releases.k8s.io/v1.0.4/docs/services.md#overview
+        This service will route traffic to pods having labels matching this selector. Label keys and values that must match in order to receive traffic for this service. If empty, all pods are selected, if not specified, endpoints must be manually specified. More info: http://releases.k8s.io/release-1.2/docs/user-guide/services.md#overview
 
         :return: The selector of this V1ServiceSpec.
-        :rtype: str
+        :rtype: Any
         """
         return self._selector
 
@@ -96,10 +102,10 @@ class V1ServiceSpec(object):
     def selector(self, selector):
         """
         Sets the selector of this V1ServiceSpec.
-        label keys and values that must match in order to receive traffic for this service; if empty, all pods are selected, if not specified, endpoints must be manually specified; see http://releases.k8s.io/v1.0.4/docs/services.md#overview
+        This service will route traffic to pods having labels matching this selector. Label keys and values that must match in order to receive traffic for this service. If empty, all pods are selected, if not specified, endpoints must be manually specified. More info: http://releases.k8s.io/release-1.2/docs/user-guide/services.md#overview
 
         :param selector: The selector of this V1ServiceSpec.
-        :type: str
+        :type: Any
         """
         self._selector = selector
 
@@ -107,7 +113,7 @@ class V1ServiceSpec(object):
     def cluster_ip(self):
         """
         Gets the cluster_ip of this V1ServiceSpec.
-        IP address of the service; usually assigned by the system; if specified, it will be allocated to the service if unused or else creation of the service will fail; cannot be updated; 'None' can be specified for a headless service when proxying is not required; see http://releases.k8s.io/v1.0.4/docs/services.md#virtual-ips-and-service-proxies
+        ClusterIP is usually assigned by the master and is the IP address of the service. If specified, it will be allocated to the service if it is unused or else creation of the service will fail. Valid values are None, empty string (\"\"), or a valid IP address. 'None' can be specified for a headless service when proxying is not required. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/services.md#virtual-ips-and-service-proxies
 
         :return: The cluster_ip of this V1ServiceSpec.
         :rtype: str
@@ -118,7 +124,7 @@ class V1ServiceSpec(object):
     def cluster_ip(self, cluster_ip):
         """
         Sets the cluster_ip of this V1ServiceSpec.
-        IP address of the service; usually assigned by the system; if specified, it will be allocated to the service if unused or else creation of the service will fail; cannot be updated; 'None' can be specified for a headless service when proxying is not required; see http://releases.k8s.io/v1.0.4/docs/services.md#virtual-ips-and-service-proxies
+        ClusterIP is usually assigned by the master and is the IP address of the service. If specified, it will be allocated to the service if it is unused or else creation of the service will fail. Valid values are None, empty string (\"\"), or a valid IP address. 'None' can be specified for a headless service when proxying is not required. Cannot be updated. More info: http://releases.k8s.io/release-1.2/docs/user-guide/services.md#virtual-ips-and-service-proxies
 
         :param cluster_ip: The cluster_ip of this V1ServiceSpec.
         :type: str
@@ -129,7 +135,7 @@ class V1ServiceSpec(object):
     def type(self):
         """
         Gets the type of this V1ServiceSpec.
-        type of this service; must be ClusterIP, NodePort, or LoadBalancer; defaults to ClusterIP; see http://releases.k8s.io/v1.0.4/docs/services.md#external-services
+        Type of exposed service. Must be ClusterIP, NodePort, or LoadBalancer. Defaults to ClusterIP. More info: http://releases.k8s.io/release-1.2/docs/user-guide/services.md#external-services
 
         :return: The type of this V1ServiceSpec.
         :rtype: str
@@ -140,7 +146,7 @@ class V1ServiceSpec(object):
     def type(self, type):
         """
         Sets the type of this V1ServiceSpec.
-        type of this service; must be ClusterIP, NodePort, or LoadBalancer; defaults to ClusterIP; see http://releases.k8s.io/v1.0.4/docs/services.md#external-services
+        Type of exposed service. Must be ClusterIP, NodePort, or LoadBalancer. Defaults to ClusterIP. More info: http://releases.k8s.io/release-1.2/docs/user-guide/services.md#external-services
 
         :param type: The type of this V1ServiceSpec.
         :type: str
@@ -148,10 +154,32 @@ class V1ServiceSpec(object):
         self._type = type
 
     @property
+    def external_i_ps(self):
+        """
+        Gets the external_i_ps of this V1ServiceSpec.
+        externalIPs is a list of IP addresses for which nodes in the cluster will also accept traffic for this service.  These IPs are not managed by Kubernetes.  The user is responsible for ensuring that traffic arrives at a node with this IP.  A common example is external load-balancers that are not part of the Kubernetes system.  A previous form of this functionality exists as the deprecatedPublicIPs field.  When using this field, callers should also clear the deprecatedPublicIPs field.
+
+        :return: The external_i_ps of this V1ServiceSpec.
+        :rtype: list[str]
+        """
+        return self._external_i_ps
+
+    @external_i_ps.setter
+    def external_i_ps(self, external_i_ps):
+        """
+        Sets the external_i_ps of this V1ServiceSpec.
+        externalIPs is a list of IP addresses for which nodes in the cluster will also accept traffic for this service.  These IPs are not managed by Kubernetes.  The user is responsible for ensuring that traffic arrives at a node with this IP.  A common example is external load-balancers that are not part of the Kubernetes system.  A previous form of this functionality exists as the deprecatedPublicIPs field.  When using this field, callers should also clear the deprecatedPublicIPs field.
+
+        :param external_i_ps: The external_i_ps of this V1ServiceSpec.
+        :type: list[str]
+        """
+        self._external_i_ps = external_i_ps
+
+    @property
     def deprecated_public_i_ps(self):
         """
         Gets the deprecated_public_i_ps of this V1ServiceSpec.
-        deprecated. externally visible IPs (e.g. load balancers) that should be proxied to this service
+        deprecatedPublicIPs is deprecated and replaced by the externalIPs field with almost the exact same semantics.  This field is retained in the v1 API for compatibility until at least 8/20/2016.  It will be removed from any new API revisions.  If both deprecatedPublicIPs *and* externalIPs are set, deprecatedPublicIPs is used.
 
         :return: The deprecated_public_i_ps of this V1ServiceSpec.
         :rtype: list[str]
@@ -162,7 +190,7 @@ class V1ServiceSpec(object):
     def deprecated_public_i_ps(self, deprecated_public_i_ps):
         """
         Sets the deprecated_public_i_ps of this V1ServiceSpec.
-        deprecated. externally visible IPs (e.g. load balancers) that should be proxied to this service
+        deprecatedPublicIPs is deprecated and replaced by the externalIPs field with almost the exact same semantics.  This field is retained in the v1 API for compatibility until at least 8/20/2016.  It will be removed from any new API revisions.  If both deprecatedPublicIPs *and* externalIPs are set, deprecatedPublicIPs is used.
 
         :param deprecated_public_i_ps: The deprecated_public_i_ps of this V1ServiceSpec.
         :type: list[str]
@@ -173,7 +201,7 @@ class V1ServiceSpec(object):
     def session_affinity(self):
         """
         Gets the session_affinity of this V1ServiceSpec.
-        enable client IP based session affinity; must be ClientIP or None; defaults to None; see http://releases.k8s.io/v1.0.4/docs/services.md#virtual-ips-and-service-proxies
+        Supports \"ClientIP\" and \"None\". Used to maintain session affinity. Enable client IP based session affinity. Must be ClientIP or None. Defaults to None. More info: http://releases.k8s.io/release-1.2/docs/user-guide/services.md#virtual-ips-and-service-proxies
 
         :return: The session_affinity of this V1ServiceSpec.
         :rtype: str
@@ -184,12 +212,34 @@ class V1ServiceSpec(object):
     def session_affinity(self, session_affinity):
         """
         Sets the session_affinity of this V1ServiceSpec.
-        enable client IP based session affinity; must be ClientIP or None; defaults to None; see http://releases.k8s.io/v1.0.4/docs/services.md#virtual-ips-and-service-proxies
+        Supports \"ClientIP\" and \"None\". Used to maintain session affinity. Enable client IP based session affinity. Must be ClientIP or None. Defaults to None. More info: http://releases.k8s.io/release-1.2/docs/user-guide/services.md#virtual-ips-and-service-proxies
 
         :param session_affinity: The session_affinity of this V1ServiceSpec.
         :type: str
         """
         self._session_affinity = session_affinity
+
+    @property
+    def load_balancer_ip(self):
+        """
+        Gets the load_balancer_ip of this V1ServiceSpec.
+        Only applies to Service Type: LoadBalancer LoadBalancer will get created with the IP specified in this field. This feature depends on whether the underlying cloud-provider supports specifying the loadBalancerIP when a load balancer is created. This field will be ignored if the cloud-provider does not support the feature.
+
+        :return: The load_balancer_ip of this V1ServiceSpec.
+        :rtype: str
+        """
+        return self._load_balancer_ip
+
+    @load_balancer_ip.setter
+    def load_balancer_ip(self, load_balancer_ip):
+        """
+        Sets the load_balancer_ip of this V1ServiceSpec.
+        Only applies to Service Type: LoadBalancer LoadBalancer will get created with the IP specified in this field. This feature depends on whether the underlying cloud-provider supports specifying the loadBalancerIP when a load balancer is created. This field will be ignored if the cloud-provider does not support the feature.
+
+        :param load_balancer_ip: The load_balancer_ip of this V1ServiceSpec.
+        :type: str
+        """
+        self._load_balancer_ip = load_balancer_ip
 
     def to_dict(self):
         """
