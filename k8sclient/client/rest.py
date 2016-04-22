@@ -232,56 +232,52 @@ class ApiException(Exception):
 
 class RESTClient(object):
     """
-    A class with all class methods to perform JSON requests.
+    A class with methods to perform JSON requests.
     """
 
-    IMPL = RESTClientObject()
+    def __init__(self, key_file=None, cert_file=None, ca_certs=None):
+        self.IMPL = RESTClientObject(key_file=key_file,
+                                     cert_file=cert_file,
+                                     ca_certs=ca_certs)
 
-    @classmethod
-    def request(cls, *n, **kw):
+    def request(self, *n, **kw):
         """
         Perform a REST request and parse the response.
         """
-        return cls.IMPL.request(*n, **kw)
+        return self.IMPL.request(*n, **kw)
 
-    @classmethod
-    def GET(cls, *n, **kw):
+    def GET(self, *n, **kw):
         """
         Perform a GET request using `RESTClient.request()`.
         """
-        return cls.IMPL.GET(*n, **kw)
+        return self.IMPL.GET(*n, **kw)
 
-    @classmethod
-    def HEAD(cls, *n, **kw):
+    def HEAD(self, *n, **kw):
         """
         Perform a HEAD request using `RESTClient.request()`.
         """
-        return cls.IMPL.GET(*n, **kw)
+        return self.IMPL.GET(*n, **kw)
 
-    @classmethod
-    def POST(cls, *n, **kw):
+    def POST(self, *n, **kw):
         """
         Perform a POST request using `RESTClient.request()`
         """
-        return cls.IMPL.POST(*n, **kw)
+        return self.IMPL.POST(*n, **kw)
 
-    @classmethod
-    def PUT(cls, *n, **kw):
+    def PUT(self, *n, **kw):
         """
         Perform a PUT request using `RESTClient.request()`
         """
-        return cls.IMPL.PUT(*n, **kw)
+        return self.IMPL.PUT(*n, **kw)
 
-    @classmethod
-    def PATCH(cls, *n, **kw):
+    def PATCH(self, *n, **kw):
         """
         Perform a PATCH request using `RESTClient.request()`
         """
-        return cls.IMPL.PATCH(*n, **kw)
+        return self.IMPL.PATCH(*n, **kw)
 
-    @classmethod
-    def DELETE(cls, *n, **kw):
+    def DELETE(self, *n, **kw):
         """
         Perform a DELETE request using `RESTClient.request()`
         """
-        return cls.IMPL.DELETE(*n, **kw)
+        return self.IMPL.DELETE(*n, **kw)
