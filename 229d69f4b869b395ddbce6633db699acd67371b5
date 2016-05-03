@@ -1,0 +1,8 @@
+Code-Review+2: Davanum Srinivas (dims) <davanum@gmail.com>
+Workflow+1: Davanum Srinivas (dims) <davanum@gmail.com>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Tue, 03 May 2016 15:38:57 +0000
+Reviewed-on: https://review.openstack.org/312105
+Project: openstack/python-k8sclient
+Branch: refs/heads/master
