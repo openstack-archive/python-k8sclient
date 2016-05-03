@@ -19,7 +19,7 @@ test_k8sclient
 Tests for `k8sclient` module. Deploy Kubernetes using:
 http://kubernetes.io/docs/getting-started-guides/docker/
 
-and then run this test.
+and then run this test
 """
 
 from testtools.testcase import unittest
