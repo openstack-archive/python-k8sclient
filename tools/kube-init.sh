@@ -16,6 +16,15 @@ trap "clean_exit" EXIT
 # Switch off SE-Linux
 setenforce 0
 
+# Install docker if needed
+path_to_executable=$(which docker)
+if [ -x "$path_to_executable" ] ; then
+    echo "Found Docker installation"
+else
+    curl -sSL https://get.docker.io | sudo bash
+fi
+docker --version
+
 # Get the latest stable version of kubernetes
 export K8S_VERSION=$(curl -sS https://storage.googleapis.com/kubernetes-release/release/stable.txt)
 echo "K8S_VERSION : ${K8S_VERSION}"
@@ -55,7 +64,8 @@ chmod 755 kubectl
 ./kubectl get nodes
 
 echo "Waiting for master components to start..."
-while true; do
+for i in {1..300}
+do
     running_count=$(./kubectl -s=http://127.0.0.1:8080 get pods --no-headers 2>/dev/null | grep "Running" | wc -l)
     # We expect to have 3 running pods - etcd, master and kube-proxy.
     if [ "$running_count" -ge 3 ]; then
@@ -64,6 +74,7 @@ while true; do
     echo -n "."
     sleep 1
 done
+
 echo "SUCCESS"
 echo "Cluster created!"
 echo ""
