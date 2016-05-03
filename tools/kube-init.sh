@@ -1,6 +1,17 @@
-#!/bin/sh
+#!/bin/bash
 
 set -x
+
+function clean_exit(){
+    local error_code="$?"
+    local spawned=$(jobs -p)
+    if [ -n "$spawned" ]; then
+        kill $(jobs -p)
+    fi
+    return $error_code
+}
+
+trap "clean_exit" EXIT
 
 # Switch off SE-Linux
 setenforce 0
@@ -56,3 +67,7 @@ done
 echo "SUCCESS"
 echo "Cluster created!"
 echo ""
+
+set -x -e
+# Yield execution to venv command
+$*
