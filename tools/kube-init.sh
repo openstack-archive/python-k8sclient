@@ -68,6 +68,7 @@ echo "SUCCESS"
 echo "Cluster created!"
 echo ""
 
+echo "Running tests..."
 set -x -e
 # Yield execution to venv command
 $*
