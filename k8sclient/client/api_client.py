@@ -18,6 +18,7 @@ Copyright 2015 SmartBear Software
 
 from __future__ import absolute_import
 from . import models
+from .models import extensions_beta
 from .rest import RESTClient
 from .rest import ApiException
 
@@ -268,7 +269,10 @@ class ApiClient(object):
                 klass = getattr(__builtin__, klass)
             # for model types
             else:
-                klass = getattr(models, klass)
+                try:
+                    klass = getattr(models, klass)
+                except AttributeError:
+                    klass = getattr(extensions_beta, klass)
 
         if klass in [int, float, str, bool]:
             return self.__deserialize_primitive(data, klass)
