@@ -28,6 +28,7 @@ import uuid
 
 from k8sclient.client import api_client
 from k8sclient.client.apis import apiv_api
+from k8sclient.client.apis import apisextensionsvbeta_api
 from k8sclient.tests import base
 
 
@@ -141,3 +142,40 @@ class TestK8sclient(base.TestCase):
 
         resp = api.delete_namespaced_replication_controller(
             name='frontend', body={}, namespace='default')
+
+
+class TestK8sclientBeta(base.TestCase):
+    @unittest.skipUnless(
+        _is_k8s_running(), "Kubernetes is not available")
+    def test_deployment_apis(self):
+        client = api_client.ApiClient('http://127.0.0.1:8080/')
+        api = apisextensionsvbeta_api.ApisextensionsvbetaApi(client)
+
+        deployment_manifest = {
+            'kind': 'Deployment',
+            'spec': {
+                'template':
+                    {'spec':
+                        {'containers': [
+                            {'image': 'nginx',
+                             'name': 'test-deployment',
+                             'ports': [{'containerPort': 80}]
+                             }
+                        ]},
+                        'metadata': {'labels': {'app': 'test-deployment'}}},
+                'replicas': 2},
+            'apiVersion': 'extensions/v1beta1',
+            'metadata': {'name': 'test-deployment'}}
+
+        resp = api.create_namespaced_deployment(
+            body=deployment_manifest, namespace='default')
+        self.assertEqual('test-deployment', resp.metadata.name)
+        self.assertEqual(2, resp.spec.replicas)
+
+        resp = api.read_namespaced_deployment(
+            name='test-deployment', namespace='default')
+        self.assertEqual('test-deployment', resp.metadata.name)
+        self.assertEqual(2, resp.spec.replicas)
+
+        resp = api.delete_namespaced_deployment(
+            name='test-deployment', body={}, namespace='default')
