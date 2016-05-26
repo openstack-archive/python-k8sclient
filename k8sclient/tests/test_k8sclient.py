@@ -144,6 +144,37 @@ class TestK8sclient(base.TestCase):
             name='frontend', body={}, namespace='default')
 
 
+    @unittest.skipUnless(
+        _is_k8s_running(), "Kubernetes is not available")
+    def test_configmap_apis(self):
+        client = api_client.ApiClient('http://127.0.0.1:8080/')
+        api = apiv_api.ApivApi(client)
+
+        test_configmap = {
+            "kind": "ConfigMap",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "test-configmap",
+            },
+            "data": {
+                "config.json": "{\"command\":\"/usr/bin/mysqld_safe\"}",
+                "frontend.cnf": "[mysqld]\nbind-address = 10.0.0.3\nport = 3306\n"
+            }
+        }
+
+        resp = api.create_namespaced_config_map(
+            body=test_configmap, namespace='default'
+        )
+        self.assertEqual('test-configmap', resp.metadata.name)
+
+        resp = api.read_namespaced_config_map(
+            name='test-configmap', namespace='default')
+        self.assertEqual('test-configmap', resp.metadata.name)
+
+        resp = api.delete_namespaced_config_map(
+            name='test-configmap', body={}, namespace='default')
+
+
 class TestK8sclientBeta(base.TestCase):
     @unittest.skipUnless(
         _is_k8s_running(), "Kubernetes is not available")
