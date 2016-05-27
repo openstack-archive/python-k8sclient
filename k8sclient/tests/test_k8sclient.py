@@ -29,6 +29,7 @@ import uuid
 from k8sclient.client import api_client
 from k8sclient.client.apis import apiv_api
 from k8sclient.client.apis import apisextensionsvbeta_api
+from k8sclient.client.apis import apisbatchv_api
 from k8sclient.tests import base
 
 
@@ -210,3 +211,37 @@ class TestK8sclientBeta(base.TestCase):
 
         resp = api.delete_namespaced_deployment(
             name='test-deployment', body={}, namespace='default')
+
+
+class TestK8sclientBatch(base.TestCase):
+    @unittest.skipUnless(
+        _is_k8s_running(), "Kubernetes is not available")
+    def test_job_apis(self):
+        client = api_client.ApiClient('http://127.0.0.1:8080/')
+        api = apisbatchv_api.ApisbatchvApi(client)
+
+        job_manifest = {
+            'kind': 'Job',
+            'spec': {
+                'template':
+                    {'spec':
+                        {'containers': [
+                            {'image': 'busybox',
+                             'name': 'test-job',
+                             'command': ["sh", "-c", "sleep 5"]
+                             }
+                        ]},
+                        'metadata': {'name': 'test-job'}}},
+            'apiVersion': 'batch/v1',
+            'metadata': {'name': 'test-job'}}
+
+        resp = api.create_namespaced_job(
+            body=job_manifest, namespace='default')
+        self.assertEqual('test-job', resp.metadata.name)
+
+        resp = api.read_namespaced_job(
+            name='test-deployment', namespace='default')
+        self.assertEqual('test-job', resp.metadata.name)
+
+        resp = api.delete_namespaced_job(
+            name='test-job', body={}, namespace='default')

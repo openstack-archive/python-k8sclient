@@ -19,6 +19,7 @@ Copyright 2015 SmartBear Software
 from __future__ import absolute_import
 from . import models
 from .models import extensions_beta
+from .models import batch
 from .rest import RESTClient
 from .rest import ApiException
 
@@ -267,12 +268,9 @@ class ApiClient(object):
             if klass in ['int', 'float', 'str', 'bool',
                          "date", 'datetime', "object"]:
                 klass = getattr(__builtin__, klass)
-            # for model types
             else:
-                try:
-                    klass = getattr(models, klass)
-                except AttributeError:
-                    klass = getattr(extensions_beta, klass)
+                klass = getattr(models, klass, None) or getattr(
+                    extensions_beta, klass, None) or getattr(batch, klass)
 
         if klass in [int, float, str, bool]:
             return self.__deserialize_primitive(data, klass)
