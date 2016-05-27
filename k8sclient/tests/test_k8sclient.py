@@ -48,7 +48,7 @@ class TestK8sclient(base.TestCase):
         api = apiv_api.ApivApi(client)
 
         endpoints = api.list_endpoints()
-        self.assertEquals(1, len(endpoints.items))
+        self.assertTrue(len(endpoints.items) > 0)
 
     @unittest.skipUnless(
         _is_k8s_running(), "Kubernetes is not available")
