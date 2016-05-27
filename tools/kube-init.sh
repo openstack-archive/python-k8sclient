@@ -79,6 +79,18 @@ echo "SUCCESS"
 echo "Cluster created!"
 echo ""
 
+echo "Dump Kubernetes Objects..."
+./kubectl -s=http://127.0.0.1:8080 get configmaps
+./kubectl -s=http://127.0.0.1:8080 get nodes
+./kubectl -s=http://127.0.0.1:8080 get pods
+./kubectl -s=http://127.0.0.1:8080 get services
+./kubectl -s=http://127.0.0.1:8080 get rc
+./kubectl -s=http://127.0.0.1:8080 get rs
+./kubectl -s=http://127.0.0.1:8080 get deployments
+./kubectl -s=http://127.0.0.1:8080 get jobs
+./kubectl -s=http://127.0.0.1:8080 get namespaces
+
+
 echo "Running tests..."
 set -x -e
 # Yield execution to venv command
