@@ -53,7 +53,7 @@ class Configuration(object):
         Constructor
         """
         # Default Base url
-        self.host = "https://10.10.10.10:443/"
+        self.host = "https://127.0.0.1:443/"
         # Default api client
         self.api_client = None
         # Temp file folder for download

@@ -41,7 +41,7 @@ class ApivApi(object):
             self.api_client = api_client
         else:
             if not config.api_client:
-                config.api_client = ApiClient('https://10.10.10.10:443/')
+                config.api_client = ApiClient('https://127.0.0.1:443/')
             self.api_client = config.api_client
 
     def get_api_resources(self, **kwargs):
