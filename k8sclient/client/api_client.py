@@ -68,7 +68,7 @@ class ApiClient(object):
     """
     def __init__(self, host=Configuration().host,
                  header_name=None, header_value=None, cookie=None,
-                 key_file=None, cert_file=None, ca_certs=None):
+                 key_file=None, cert_file=None, ca_certs=None, insecure=False):
 
         """
         Constructor of the class.
@@ -82,7 +82,8 @@ class ApiClient(object):
         self.user_agent = 'Python-Swagger'
         self.RESTClient = RESTClient(key_file=key_file,
                                      cert_file=cert_file,
-                                     ca_certs=ca_certs)
+                                     ca_certs=ca_certs,
+                                     insecure=insecure)
 
     @property
     def user_agent(self):

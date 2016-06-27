@@ -68,11 +68,12 @@ class RESTResponse(io.IOBase):
 class RESTClientObject(object):
 
     def __init__(self, pools_size=4,
-                 key_file=None, cert_file=None, ca_certs=None):
+                 key_file=None, cert_file=None, ca_certs=None, insecure=False):
         # http pool manager
         self.pool_manager = urllib3.PoolManager(
             num_pools=pools_size
         )
+        self.insecure = insecure
 
         # NOTE(dims): Changing the behavior to accept security param
         if ca_certs is None:
@@ -92,7 +93,7 @@ class RESTClientObject(object):
         """
         url = urllib3.util.parse_url(url)
         scheme = url.scheme
-        if scheme == 'https':
+        if scheme == 'https' and not self.insecure:
             return self.ssl_pool_manager
         else:
             return self.pool_manager
