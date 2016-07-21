@@ -31,7 +31,7 @@ Steps to generate API client code
 
 Steps to generate Kubernetes client code for v1:
 
-* Clone the Magnum repo::
+* Clone the python-k8sclient repo::
 
     git clone https://github.com/openstack/python-k8sclient.git
 
