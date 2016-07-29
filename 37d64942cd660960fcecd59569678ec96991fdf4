@@ -1,0 +1,10 @@
+Code-Review+1: Dmitry Tyzhnenko <dtyzhnenko@mirantis.com>
+Code-Review+2: Davanum Srinivas (dims) <davanum@gmail.com>
+Workflow+1: Davanum Srinivas (dims) <davanum@gmail.com>
+Code-Review+1: Sergey Lebedev <slebedev@mirantis.com>
+Verified+2: Jenkins
+Submitted-by: Jenkins
+Submitted-at: Fri, 29 Jul 2016 00:04:11 +0000
+Reviewed-on: https://review.openstack.org/348553
+Project: openstack/python-k8sclient
+Branch: refs/heads/master
