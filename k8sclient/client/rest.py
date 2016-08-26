@@ -127,6 +127,11 @@ class RESTClientObject(object):
         if method in ['POST', 'PUT', 'PATCH']:
             if query_params:
                 url += '?' + urlencode(query_params)
+            if headers['Content-Type'] == 'application/json-patch+json':
+                headers['Content-Type'] = 'application/strategic-merge-patch+json'
+                r = self.agent(url).request(method, url,
+                                            body=json.dumps(body),
+                                            headers=headers)
             if headers['Content-Type'] == 'application/json':
                 r = self.agent(url).request(method, url,
                                             body=json.dumps(body),

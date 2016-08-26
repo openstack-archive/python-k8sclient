@@ -92,7 +92,8 @@ class TestK8sclient(base.TestCase):
                             'metadata': {'labels': {'name': 'frontend'},
                                          'name': 'frontend',
                                          'resourceversion': 'v1'},
-                            'spec': {'ports': [{'port': 80,
+                            'spec': {'ports': [{'name': 'port',
+                                                'port': 80,
                                                 'protocol': 'TCP',
                                                 'targetPort': 80}],
                                      'selector': {'name': 'frontend'}}}
@@ -105,6 +106,16 @@ class TestK8sclient(base.TestCase):
         resp = api.read_namespaced_service(name='frontend',
                                            namespace='default')
         self.assertEqual('frontend', resp.metadata.name)
+        self.assertTrue(resp.status)
+
+        service_manifest['spec']['ports'] = [{'name': 'new',
+                                              'port': 8080,
+                                              'protocol': 'TCP',
+                                              'targetPort': 8080}]
+        resp = api.patch_namespaced_service(body=service_manifest,
+                                            name='frontend',
+                                            namespace='default')
+        self.assertEqual(2, len(resp.spec.ports))
         self.assertTrue(resp.status)
 
         resp = api.delete_namespaced_service(name='frontend',
@@ -172,6 +183,10 @@ class TestK8sclient(base.TestCase):
             name='test-configmap', namespace='default')
         self.assertEqual('test-configmap', resp.metadata.name)
 
+        test_configmap['data']['config.json'] = "{}"
+        resp = api.patch_namespaced_config_map(
+            name='test-configmap', namespace='default', body=test_configmap)
+
         resp = api.delete_namespaced_config_map(
             name='test-configmap', body={}, namespace='default')
 
@@ -208,6 +223,12 @@ class TestK8sclientBeta(base.TestCase):
             name='test-deployment', namespace='default')
         self.assertEqual('test-deployment', resp.metadata.name)
         self.assertEqual(2, resp.spec.replicas)
+
+        deployment_manifest['spec']['replicas'] = 1
+        resp = api.patch_namespaced_deployment(
+            name='test-deployment', namespace='default',
+            body=deployment_manifest)
+        self.assertEqual(1, resp.spec.replicas)
 
         resp = api.delete_namespaced_deployment(
             name='test-deployment', body={}, namespace='default')
