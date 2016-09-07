@@ -45,7 +45,7 @@ class V1ObjectMeta(object):
             'creation_timestamp': 'str',
             'deletion_timestamp': 'str',
             'deletion_grace_period_seconds': 'int',
-            'labels': 'object',
+            'labels': 'dict(str, str)',
             'annotations': 'object'
         }
 

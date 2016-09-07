@@ -191,6 +191,18 @@ class TestK8sclient(base.TestCase):
             name='test-configmap', body={}, namespace='default')
 
 
+    @unittest.skipUnless(
+        _is_k8s_running(), "Kubernetes is not available")
+    def test_node_apis(self):
+        client = api_client.ApiClient('http://127.0.0.1:8080/')
+        api = apiv_api.ApivApi(client)
+
+        for item in api.list_namespaced_node().items:
+            node = api.read_namespaced_node(name=item.metadata.name)
+            self.assertTrue(len(node.metadata.labels) > 0)
+            self.assertTrue(isinstance(node.metadata.labels, dict))
+
+
 class TestK8sclientBeta(base.TestCase):
     @unittest.skipUnless(
         _is_k8s_running(), "Kubernetes is not available")
