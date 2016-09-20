@@ -47,7 +47,8 @@ Steps to generate Kubernetes client code for v1:
     mvn package
 
 * Update the v1.json from latest Kubernetes release::
-  curl -o ./k8sclient/templates/v1.json https://raw.githubusercontent.com/kubernetes/kubernetes/v1.2.2/api/swagger-spec/v1.json
+
+    curl -o ./k8sclient/templates/v1.json https://raw.githubusercontent.com/kubernetes/kubernetes/v1.2.2/api/swagger-spec/v1.json
 
 * Run below command to generate the API client code for Kubernetes::
 
