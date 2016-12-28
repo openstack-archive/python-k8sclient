@@ -35,8 +35,8 @@ class V1ResourceRequirements(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'limits': 'object',
-            'requests': 'object'
+            'limits': 'str',
+            'requests': 'str'
         }
 
         self.attribute_map = {

@@ -35,8 +35,8 @@ class V1NodeStatus(object):
                                   and the value is json key in definition.
         """
         self.swagger_types = {
-            'capacity': 'object',
-            'allocatable': 'object',
+            'capacity': 'str',
+            'allocatable': 'str',
             'phase': 'str',
             'conditions': 'list[V1NodeCondition]',
             'addresses': 'list[V1NodeAddress]',
