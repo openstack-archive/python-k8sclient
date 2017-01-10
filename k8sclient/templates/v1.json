@@ -1,7 +1,7 @@
 {
   "swaggerVersion": "1.2",
   "apiVersion": "v1",
-  "basePath": "https://127.0.0.1:443",
+  "basePath": "https://10.10.10.10:443",
   "resourcePath": "/api/v1",
   "apis": [
    {
@@ -14827,11 +14827,11 @@
       "description": "Number of seconds allowed for this object to gracefully terminate before it will be removed from the system. Only set when deletionTimestamp is also set. May only be shortened. Read-only."
      },
      "labels": {
-      "type": "object",
+      "type": "any",
       "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://releases.k8s.io/release-1.2/docs/user-guide/labels.md"
      },
      "annotations": {
-      "type": "object",
+      "type": "any",
       "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://releases.k8s.io/release-1.2/docs/user-guide/annotations.md"
      }
     }
@@ -15005,7 +15005,7 @@
       "description": "Standard object's metadata. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#metadata"
      },
      "data": {
-      "type": "object",
+      "type": "any",
       "description": "Data contains the configuration data. Each key must be a valid DNS_SUBDOMAIN with an optional leading dot."
      }
     }
@@ -15431,23 +15431,23 @@
       "description": "Type of resource that this limit applies to."
      },
      "max": {
-      "type": "object",
+      "type": "any",
       "description": "Max usage constraints on this kind by resource name."
      },
      "min": {
-      "type": "object",
+      "type": "any",
       "description": "Min usage constraints on this kind by resource name."
      },
      "default": {
-      "type": "object",
+      "type": "any",
       "description": "Default resource requirement limit value by resource name if resource limit is omitted."
      },
      "defaultRequest": {
-      "type": "object",
+      "type": "any",
       "description": "DefaultRequest is the default resource requirement request value by resource name if resource request is omitted."
      },
      "maxLimitRequestRatio": {
-      "type": "object",
+      "type": "any",
       "description": "MaxLimitRequestRatio if specified, the named resource must have a request and limit that are both non-zero where limit divided by request is less than or equal to the enumerated value; this represents the max burst for the named resource."
      }
     }
@@ -15617,11 +15617,11 @@
     ],
     "properties": {
      "capacity": {
-      "type": "object",
+      "type": "any",
       "description": "Capacity represents the total resources of a node. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#capacity for more details."
      },
      "allocatable": {
-      "type": "object",
+      "type": "any",
       "description": "Allocatable represents the resources of a node that are available for scheduling. Defaults to Capacity."
      },
      "phase": {
@@ -15888,11 +15888,11 @@
     "description": "ResourceRequirements describes the compute resource requirements.",
     "properties": {
      "limits": {
-      "type": "object",
+      "type": "any",
       "description": "Limits describes the maximum amount of compute resources allowed. More info: http://releases.k8s.io/release-1.2/docs/design/resources.md#resource-specifications"
      },
      "requests": {
-      "type": "object",
+      "type": "any",
       "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: http://releases.k8s.io/release-1.2/docs/design/resources.md#resource-specifications"
      }
     }
@@ -15913,7 +15913,7 @@
       "description": "AccessModes contains the actual access modes the volume backing the PVC has. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#access-modes-1"
      },
      "capacity": {
-      "type": "object",
+      "type": "any",
       "description": "Represents the actual resources of the underlying volume."
      }
     }
@@ -15977,7 +15977,7 @@
     "description": "PersistentVolumeSpec is the specification of a persistent volume.",
     "properties": {
      "capacity": {
-      "type": "object",
+      "type": "any",
       "description": "A description of the persistent volume's resources and capacity. More info: http://releases.k8s.io/release-1.2/docs/user-guide/persistent-volumes.md#capacity"
      },
      "gcePersistentDisk": {
@@ -16377,7 +16377,7 @@
       "description": "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts."
      },
      "options": {
-      "type": "object",
+      "type": "any",
       "description": "Optional: Extra command options if any."
      }
     }
@@ -16516,7 +16516,7 @@
       "description": "Set DNS policy for containers within the pod. One of 'ClusterFirst' or 'Default'. Defaults to \"ClusterFirst\"."
      },
      "nodeSelector": {
-      "type": "object",
+      "type": "any",
       "description": "NodeSelector is a selector which must be true for the pod to fit on a node. Selector which must match a node's labels for the pod to be scheduled on that node. More info: http://releases.k8s.io/release-1.2/docs/user-guide/node-selection/README.md"
      },
      "serviceAccountName": {
@@ -17604,7 +17604,7 @@
       "description": "Replicas is the number of desired replicas. This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: http://releases.k8s.io/release-1.2/docs/user-guide/replication-controller.md#what-is-a-replication-controller"
      },
      "selector": {
-      "type": "object",
+      "type": "any",
       "description": "Selector is a label query over pods that should match the Replicas count. If Selector is empty, it is defaulted to the labels present on the Pod template. Label keys and values that must match in order to be controlled by this replication controller, if empty defaulted to labels on Pod template. More info: http://releases.k8s.io/release-1.2/docs/user-guide/labels.md#label-selectors"
      },
      "template": {
@@ -17751,7 +17751,7 @@
     "description": "ResourceQuotaSpec defines the desired hard limits to enforce for Quota.",
     "properties": {
      "hard": {
-      "type": "object",
+      "type": "any",
       "description": "Hard is the set of desired hard limits for each named resource. More info: http://releases.k8s.io/release-1.2/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota"
      },
      "scopes": {
@@ -17772,11 +17772,11 @@
     "description": "ResourceQuotaStatus defines the enforced hard limits and observed use.",
     "properties": {
      "hard": {
-      "type": "object",
+      "type": "any",
       "description": "Hard is the set of enforced hard limits for each named resource. More info: http://releases.k8s.io/release-1.2/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota"
      },
      "used": {
-      "type": "object",
+      "type": "any",
       "description": "Used is the current observed total usage of the resource in the namespace."
      }
     }
@@ -17826,7 +17826,7 @@
       "description": "Standard object's metadata. More info: http://releases.k8s.io/release-1.2/docs/devel/api-conventions.md#metadata"
      },
      "data": {
-      "type": "object",
+      "type": "any",
       "description": "Data contains the secret data. Each key must be a valid DNS_SUBDOMAIN or leading dot followed by valid DNS_SUBDOMAIN. The serialized form of the secret data is a base64 encoded string, representing the arbitrary (possibly non-string) data value here. Described in https://tools.ietf.org/html/rfc4648#section-4"
      },
      "type": {
@@ -17964,7 +17964,7 @@
       "description": "The list of ports that are exposed by this service. More info: http://releases.k8s.io/release-1.2/docs/user-guide/services.md#virtual-ips-and-service-proxies"
      },
      "selector": {
-      "type": "object",
+      "type": "any",
       "description": "This service will route traffic to pods having labels matching this selector. Label keys and values that must match in order to receive traffic for this service. If empty, all pods are selected, if not specified, endpoints must be manually specified. More info: http://releases.k8s.io/release-1.2/docs/user-guide/services.md#overview"
      },
      "clusterIP": {
