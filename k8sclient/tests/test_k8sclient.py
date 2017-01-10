@@ -200,7 +200,7 @@ class TestK8sclient(base.TestCase):
         for item in api.list_namespaced_node().items:
             node = api.read_namespaced_node(name=item.metadata.name)
             self.assertTrue(len(node.metadata.labels) > 0)
-            self.assertTrue(isinstance(node.metadata.labels, dict))
+            self.assertIsInstance(node.metadata.labels, dict)
 
 
 class TestK8sclientBeta(base.TestCase):
