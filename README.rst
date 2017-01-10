@@ -33,7 +33,7 @@ Steps to generate Kubernetes client code for v1:
 
 * Clone the python-k8sclient repo::
 
-    git clone https://github.com/openstack/python-k8sclient.git
+    git clone https://git.openstack.org/openstack/python-k8sclient
 
 * Clone the swagger-codegen repo. It is recommended to checkout a release
  (e.g. v2.1.3) instead of using the master branch::
